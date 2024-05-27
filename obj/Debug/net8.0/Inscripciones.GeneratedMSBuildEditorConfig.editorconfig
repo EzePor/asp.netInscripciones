@@ -26,6 +26,26 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Ezequiel\source\repos\BasedeDatos\Instituto\Inscripciones
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Ezequiel/source/repos/BasedeDatos/Instituto/Inscripciones/Views/Alumnos/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bW5vc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Ezequiel/source/repos/BasedeDatos/Instituto/Inscripciones/Views/Alumnos/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bW5vc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Ezequiel/source/repos/BasedeDatos/Instituto/Inscripciones/Views/Alumnos/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bW5vc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Ezequiel/source/repos/BasedeDatos/Instituto/Inscripciones/Views/Alumnos/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bW5vc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Ezequiel/source/repos/BasedeDatos/Instituto/Inscripciones/Views/Alumnos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWx1bW5vc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Ezequiel/source/repos/BasedeDatos/Instituto/Inscripciones/Views/Home/Aniversario35.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBbml2ZXJzYXJpbzM1LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
