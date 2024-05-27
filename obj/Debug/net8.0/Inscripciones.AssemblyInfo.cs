@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Inscripciones")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d4c5ca61e9ea2b954c2e5009e614d655c3e9a1d0")]
 [assembly: System.Reflection.AssemblyProductAttribute("Inscripciones")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Inscripciones")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
