@@ -18,7 +18,8 @@ namespace Inscripciones.Models
             //           Encrypt = false
             // ");
 
-            string cadenaConexion = "Server=127.0.0.1;Database=inscripcionescontext;User=root;Password=;";
+            string cadenaConexion = "Server=5.57.213.17;Database=smartsof_ezeporche;User=smartsof_porche;Password=porcheeze123;";
+                //"Server=127.0.0.1;Database=inscripcionescontext;User=root;Password=;";
 
             optionsBuilder.UseMySql(cadenaConexion,ServerVersion.AutoDetect(cadenaConexion));
         }

@@ -10,14 +10,20 @@ var configuration = new ConfigurationBuilder()
 
 // Add services to the container. configuracion SQLServer DBContext para que funcione en el controller
 builder.Services.AddControllersWithViews();
+
+// conexion a sqlServer
 //builder.Services.AddDbContext<InscripcionesContext>(options => options.UseSqlServer(configuration.GetConnectionString("sqlserver")));
 
-//builder.Services.AddDbContext<InscripcionesContext>(options => options.UseSqlServer(configuration.GetConnectionString("mysqlserver")));
+//builder.Services.AddDbContext<InscripcionesContext>(options => options.UseSqlServer(configuration.GetConnectionString("mysql")));
 
-//"Server=127.0.0.1;Database=inscripcionesContext;User=root;Password=milton;";
+//"Server=127.0.0.1;Database=inscripcionescontext;User=root;Password=;";
 
 // MySqlServer
-string cadenaConexion = configuration.GetConnectionString("mysql");
+//string cadenaConexion = configuration.GetConnectionString("mysql");
+
+
+// conexion MySqlremoto
+string cadenaConexion = configuration.GetConnectionString("mysqlremoto");
 
 builder.Services.AddDbContext<InscripcionesContext>(options => options.UseMySql(cadenaConexion, ServerVersion.AutoDetect(cadenaConexion)));
 
