@@ -13,18 +13,14 @@ builder.Services.AddControllersWithViews();
 
 // conexion a sqlServer
 //builder.Services.AddDbContext<InscripcionesContext>(options => options.UseSqlServer(configuration.GetConnectionString("sqlserver")));
-
-//builder.Services.AddDbContext<InscripcionesContext>(options => options.UseSqlServer(configuration.GetConnectionString("mysql")));
-
 //"Server=127.0.0.1;Database=inscripcionescontext;User=root;Password=;";
 
 // MySqlServer
 //string cadenaConexion = configuration.GetConnectionString("mysql");
-
+//builder.Services.AddDbContext<InscripcionesContext>(options => options.UseSqlServer(configuration.GetConnectionString("mysql")));
 
 // conexion MySqlremoto
 string cadenaConexion = configuration.GetConnectionString("mysqlremoto");
-
 builder.Services.AddDbContext<InscripcionesContext>(options => options.UseMySql(cadenaConexion, ServerVersion.AutoDetect(cadenaConexion)));
 
 

@@ -18,22 +18,22 @@ html {
 }
 
 body {
-    margin-bottom: 60px;
-    background-color: azure;
+  margin-bottom: 60px;
+  background-color:azure;
 }
 
 p{
-    color:cadetblue;
+    color:darkslategray;
 }
 h3{
-    color:indigo;
-    margin:45px;
+    color:darkslategray;
 }
 
 .titulo{
     text-align:center;
 }
 
-img{
-    margin-top:50px
+h1{
+  text-align:center;
+  font-weight:600 ;
 }

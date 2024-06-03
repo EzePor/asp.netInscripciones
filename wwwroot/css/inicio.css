@@ -22,18 +22,36 @@ body {
     background-color: azure;
 }
 
-p{
-    color:cadetblue;
+h1{
+    margin-bottom:25px;
+    text-align:center;
+}
+
+p {
+    color: cadetblue;
+    text-align: center;
 }
 h3{
-    color:indigo;
-    margin:45px;
+    text-align:center;
+    margin:20px;
 }
 
 .titulo{
     text-align:center;
+    font-weight:600;
+   
+}
+.contenedor{
+    text-align:center;
+    margin-top:90px;
+}
+.saludo{
+    font-weight:800;
+    color:darkcyan;
+    
+    
 }
 
-img{
-    margin-top:50px
+.text-center{
+    margin-top:60px
 }

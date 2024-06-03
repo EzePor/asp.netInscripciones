@@ -20,3 +20,18 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+ul{
+    font-weight:500;
+}
+
+
+.navbar-brand{
+    font-weight:700;
+    border:2px solid blue;
+    padding:3px
+}
+
+a{
+
+}
