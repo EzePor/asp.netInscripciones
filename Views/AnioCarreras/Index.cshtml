@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Inscripciones.Models.AnioCarrera>
+
+@{
+    ViewData["Title"] = "AnioCarrera";
+}
+
+<link rel="stylesheet" href="/css/aniocarrera.css" />
+
+<h1>AÑOS DE LAS CARRERAS</h1>
+<hr />
+
+<p>
+    <a class="crear" asp-action="Create">Crear año de la carrera</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Carrera)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Carrera.Nombre)
+            </td>
+            <td>
+                    <a class="editar" asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a class="detalle" asp-action="Details" asp-route-id="@item.Id">Detalle</a> |
+                    <a class="eliminar" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

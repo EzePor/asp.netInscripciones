@@ -7,9 +7,7 @@ a.navbar-brand {
   word-break: break-all;
 }
 
-a {
-  color: #0077cc;
-}
+
 
 .btn-primary {
   color: #fff;
@@ -22,6 +20,8 @@ a {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+
+
 
 .border-top {
   border-top: 1px solid #e5e5e5;
@@ -39,6 +39,7 @@ button.accept-policy {
   line-height: inherit;
 }
 
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -46,3 +47,4 @@ button.accept-policy {
   white-space: nowrap;
   line-height: 60px;
 }
+

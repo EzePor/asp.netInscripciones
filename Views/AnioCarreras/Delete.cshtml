@@ -1,14 +1,14 @@
-﻿@model Inscripciones.Models.Carrera
+﻿@model Inscripciones.Models.AnioCarrera
 
 @{
     ViewData["Title"] = "Delete";
 }
 
-<h1 class="eliminar">Eliminar</h1>
+<h1 class="eliminar">ELIMINAR</h1>
 
 <h3>¿Estás seguro/a de que quieres eliminar esto?</h3>
 <div>
-    <h4>Carrera</h4>
+    <h4>Año Carrera</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -16,6 +16,12 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Carrera)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Carrera.Nombre)
         </dd>
     </dl>
     

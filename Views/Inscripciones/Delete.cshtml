@@ -1,0 +1,39 @@
+﻿@model Inscripciones.Models.Inscripcion
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1 class="eliminar">ELIMINAR</h1>
+
+    <h3>¿Estás seguro/a de que quieres eliminar esto?</h3>
+<div>
+    <h4>Inscripción</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Alumno)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Alumno.ApellidoNombre)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Carrera)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Carrera.Nombre)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a class="volverLista" asp-action="Index">Volver a la lista</a>
+    </form>
+</div>

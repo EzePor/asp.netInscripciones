@@ -8,6 +8,19 @@ html {
   }
 }
 
+:root {
+    --erie-black: #1C2321;
+    --jungle-green: #49A078;
+    --jungle-greenHover: #1b6b45;
+    --anti-flash-white: #EEEEEE;
+    --tropical-indigo: #8D85C1;
+    --tropical-indigoNav: #7968e6;
+    --periwinkle: #D4CDF4;
+    --vista-blue: #72A1E5;
+    --poppy-red: #DF2935;
+    --safety-orange: #EC7505;
+}
+
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
@@ -18,7 +31,8 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: var(--periwinkle);
 }
 
 ul{
@@ -26,12 +40,45 @@ ul{
 }
 
 
-.navbar-brand{
-    font-weight:700;
-    border:2px solid blue;
-    padding:3px
+
+
+.navbar-brand {
+    font-weight: 700;
+    border: 2px solid var(--vista-blue);
+    padding: 3px;
+    background-color: powderblue;
+    border-radius:8px;
+
 }
 
-a{
 
+/*Crear uno nuevo- create-*/
+
+.conten-crear{
+    text-align: center;
+    color:cadetblue;
+    font-weight:700
+}
+
+.row {
+    padding: 10px;
+    background-color: var(--periwinkle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.form-group{
+    margin: 20px
+}
+
+.volverLista{
+    text-decoration:none;
+
+}
+
+h1.eliminar{
+    color: var(--poppy-red);
+    text-align:center;
 }

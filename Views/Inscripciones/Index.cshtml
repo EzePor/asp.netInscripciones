@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Inscripciones.Models.Inscripcion>
+
+@{
+    ViewData["Title"] = "Inscripciones";
+}
+
+<link rel="stylesheet" href="/css/inscripciones.css" />
+
+<h1>LISTA DE ISNCRIPCIONES</h1>
+
+<hr />
+
+<p class="crear-inscripcion">
+    <a class="crear" asp-action="Create">Crear Inscripción</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Alumno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Carrera)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Alumno.ApellidoNombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Carrera.Nombre)
+            </td>
+            <td>
+                    <a class="editar" asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a class="detalle" asp-action="Details" asp-route-id="@item.Id">Detalle</a> |
+                    <a class="eliminar" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

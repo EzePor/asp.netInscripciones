@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Inscripciones.Models.DetalleInscripcion>
+
+@{
+    ViewData["Title"] = "DetalleInscripciones";
+}
+
+<link rel="stylesheet" href="/css/detalleInscripciones.css" />
+
+<h1>DETALLES DE LAS INSCRIPCIONES</h1>
+<hr />
+
+<p>
+    <a class="crear" asp-action="Create">Crear una nueva inscripción</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Modalidadcursado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inscripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Materia)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modalidadcursado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Inscripcion.Alumno.ApellidoNombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Materia.Nombre)
+            </td>
+            <td>
+                    <a class="editar" asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a class="detalle" asp-action="Details" asp-route-id="@item.Id">Detalle</a> |
+                    <a class="eliminar" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
