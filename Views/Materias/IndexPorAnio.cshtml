@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Inscripciones.Models.Materia>
+
+@{
+    ViewData["Title"] = "Materias";
+    int idanio = ViewBag.IdAnio;
+    int idCarrera = ViewBag.IdCarrera;
+}
+
+<link rel="stylesheet" href="/css/materias.css" />
+
+<h1>MOSTRANDO MATERIAS DE AÑO SELECCIONADO</h1>
+
+<hr />
+
+<form asp-controller="Materias" asp-action="IndexPorAnio" method="get">
+    <div class="form-group">
+        <label asp-for="@idanio" class="control-label">Año y Carrera</label>
+        <select asp-for="@idanio" class="form-control" asp-items="ViewBag.AniosCarreras" onchange="this.form.submit()"></select>
+    </div>
+</form>
+<p>
+    <a class="crear" asp-action="Create">Crear nueva materia</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnioCarrera)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnioCarrera.Nombre)
+            </td>
+            <td>
+                    <a class="editar" asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a class="detalle" asp-action="Details" asp-route-id="@item.Id">Detalle</a> |
+                    <a class="eliminar" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<div>
+    <a class="volverLista" asp-controller="AnioCarreras" asp-action="IndexAnioPorCarrera" asp-route-idCarrera="@idCarrera">Volver a las Carreras</a>
+</div>
+

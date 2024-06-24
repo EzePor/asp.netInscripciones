@@ -40,15 +40,33 @@ ul{
 }
 
 
+.navlink {
+    margin: 15px;
+    color: black;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+.navlink:hover{
+    color: cornflowerblue
+}
+.navlink.active {
+    color: blue;
+    border-bottom: 2px solid blue;
+    
+}
+
 
 
 .navbar-brand {
     font-weight: 700;
-    border: 2px solid var(--vista-blue);
+    border: 1px solid var(--erie-black);
     padding: 3px;
-    background-color: powderblue;
-    border-radius:8px;
-
+    background-color: cornflowerblue;
+    border-radius: 8px;
+    
 }
 
 
@@ -81,4 +99,10 @@ ul{
 h1.eliminar{
     color: var(--poppy-red);
     text-align:center;
+}
+
+.enlaceNew {
+    text-decoration: none;
+    color: var(--tropical-indigoNav);
+    font-weight: 500;
 }

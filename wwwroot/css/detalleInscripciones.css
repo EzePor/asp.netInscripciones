@@ -20,22 +20,29 @@ html {
 body {
   margin-bottom: 60px;
   
+  
 }
 
-.crear{
+.crear {
     text-decoration: none;
-    font-weight:600;
-    background-color:chartreuse;
-    padding:5px 7px;
-    color:cadetblue;
-    border-radius:10px;
+    font-weight: 600;
+    background-color: darkolivegreen;
+    border: 1px solid black;
+    color: lightblue;
+    padding: 5px 7px;
+    border-radius: 10px;
 }
+
+    .crear:hover {
+        color: white;
+        background-color: yellowgreen;
+    }
 
 h1{
     text-align:center;
     font-weight:700;
     color:cornflowerblue;
-    margin-bottom:25px;
+    margin:25px;
 }
 
 .editar{

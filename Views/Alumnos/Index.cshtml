@@ -9,6 +9,11 @@
 
 <hr />
 
+<div class="form-group">
+    <input type="text" id="searchString" class="form-control" placeholder="Buscar por nombre..." oninput="searchAlumnos()" />
+    <button type="button" class="btn-limpiar " onclick="clearSearch()">Limpiar</button>
+</div>
+
 <p class="crear-alumno">
     <a class="crear" asp-action="Create">Crear nuevo alumno</a>
 </p>
@@ -30,7 +35,7 @@
             <th></th>
         </tr>
     </thead>
-    <tbody>
+    <tbody id="alumnosTableBody">
 @foreach (var item in Model) {
         <tr>
             <td>
@@ -54,3 +59,8 @@
 }
     </tbody>
 </table>
+
+
+@section Scripts {
+    <script src="~/js/alumnos.js"></script>
+}

@@ -22,12 +22,16 @@ body {
   
 }
 
+h1{
+    margin:10px;
+}
+
 p{
     color:cadetblue;
 }
 h3{
     color:indigo;
-    margin:45px;
+    margin:25px;
 }
 
 .titulo{

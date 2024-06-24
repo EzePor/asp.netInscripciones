@@ -29,11 +29,17 @@
                 @Html.DisplayFor(modelItem => item.Nombre)
             </td>
             <td>
+                <a class="enlaceNew" asp-controller="AnioCarreras" asp-action="IndexAnioPorCarrera" asp-route-idCarrera="@item.Id">Años</a>|
                     <a class="editar" asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
                     <a class="detalle" asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
                     <a class="eliminar" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
             </td>
         </tr>
 }
+
     </tbody>
 </table>
+
+<div>
+    <a class="volverLista" asp-controller="home" asp-action="Index">Volver a Inicio</a>
+</div>

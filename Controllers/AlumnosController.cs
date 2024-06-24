@@ -18,11 +18,43 @@ namespace Inscripciones.Controllers
             _context = context;
         }
 
-        // GET: Alumnos
+        //GET: Alumnos
         public async Task<IActionResult> Index()
         {
             return View(await _context.Alumnos.ToListAsync());
         }
+
+        // GET: Alumnos/Search
+        public async Task<IActionResult> Search(string searchString)
+        {
+            var alumnos = from a in _context.Alumnos
+                          select a;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                alumnos = alumnos.Where(s => s.ApellidoNombre.Contains(searchString));
+            }
+
+            var alumnosList = await alumnos.ToListAsync();
+
+            var htmlString = "";
+            foreach (var item in alumnosList)
+            {
+                htmlString += $"<tr>" +
+                              $"<td>{item.ApellidoNombre}</td>" +
+                              $"<td>{item.Telefono}</td>" +
+                              $"<td>{item.Direccion}</td>" +
+                              $"<td>{item.Email}</td>" +
+                              $"<td><a class='editar' href='/Alumnos/Edit/{item.Id}'>Editar</a> | " +
+                              $"<a class='detalle' href='/Alumnos/Details/{item.Id}'>Detalles</a> | " +
+                              $"<a class='eliminar' href='/Alumnos/Delete/{item.Id}'>Eliminar</a></td>" +
+                              $"</tr>";
+            }
+
+            return Content(htmlString, "text/html");
+        }
+
+
 
         // GET: Alumnos/Details/5
         public async Task<IActionResult> Details(int? id)

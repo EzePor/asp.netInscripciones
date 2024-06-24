@@ -1,0 +1,38 @@
+﻿@model Inscripciones.Models.AnioCarrera
+
+@{
+    ViewData["Title"] = "CreateConCarrera";
+    int idCarrera = ViewBag.IdCarrera;
+}
+
+<h1 class="conten-crear">CREAR AÑO DE LA CARRERA:</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateConCarrera">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label">Año Carrera</label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label  class="control-label"> Nombre de la carrera</label>
+                <select  class ="form-control" asp-items="ViewBag.Carreras"></select>
+            </div>
+            <input type="hidden" asp-for="CarreraId" value="@idCarrera" />
+            <div class="form-group">
+                <input type="submit" value="CREAR" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="volverLista" asp-action="Index">Volver a la lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

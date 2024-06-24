@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-var(--tropical-indigoNav) border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-md navbar-toggleable-sm navbar-light bg-var(--tropical-indigoNav) border-bottom box-shadow">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Inscripciones</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -20,31 +20,31 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item ">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+                            <a class="navlink " asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Nosotros">Nosotros</a>
+                            <a class="navlink " asp-area="" asp-controller="Home" asp-action="Nosotros">Nosotros</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="aniversario35">Aniversario</a>
+                            <a class="navlink " asp-area="" asp-controller="Home" asp-action="aniversario35">Aniversario</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Alumnos" asp-action="Index">Alumnos</a>
+                            <a class="navlink " asp-area="" asp-controller="Alumnos" asp-action="Index">Alumnos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Carreras" asp-action="Index">Carreras</a>
+                            <a class="navlink " asp-area="" asp-controller="Carreras" asp-action="Index">Carreras</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Inscripciones" asp-action="Index">Inscripciones</a>
+                            <a class="navlink " asp-area="" asp-controller="Inscripciones" asp-action="Index">Inscripciones</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="AnioCarreras" asp-action="Index">Año Carrera</a>
+                            <a class="navlink " asp-area="" asp-controller="AnioCarreras" asp-action="IndexAnioPorCarrera">Año Carrera</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Materias" asp-action="Index">Materias</a>
+                            <a class="navlink " asp-area="" asp-controller="Materias" asp-action="IndexPorAnio">Materias</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="DetalleInscripciones" asp-action="Index">Detalle de Inscripciones</a>
+                            <a class="navlink " asp-area="" asp-controller="DetalleInscripciones" asp-action="Index">Detalle de Inscripciones</a>
                         </li>
                     </ul>
                 </div>
@@ -59,9 +59,10 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2024 - Inscripciones - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2024 - Inscripciones - &copy; Copyright - <a class="enlaceNew" href="https://ezepor.vercel.app/" target="_blank">Desarrollo y diseño EzePor</a>
         </div>
     </footer>
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
