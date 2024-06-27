@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Inscripciones.Models.DetalleInscripcion>
+
+@{
+    ViewData["Title"] = "DetalleInscripciones";
+    int idinscripcion = ViewBag.IdInscripcion;
+}
+
+<link rel="stylesheet" href="/css/detalleInscripciones.css" />
+
+<h1>DETALLES DE LAS INSCRIPCIONES</h1>
+<hr />
+
+<p>
+    <a  class="crear" asp-action="CreateConInscripcion" asp-route-idinscripcion="@idinscripcion">Crear  detalle de  inscripción</a>
+</p>
+
+<form asp-controller="DetalleInscripciones" asp-action="IndexPorInscripcion">
+    <div class="form-group">
+        <label asp-for="@idinscripcion" class="control-label"></label>
+        <select asp-for="@idinscripcion" class="form-control" asp-items="ViewBag.Inscripciones" disabled onchange="this.form.submit()"></select>
+    </div>
+</form>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Modalidadcursado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inscripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Materia)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modalidadcursado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Materia.AnioCarrera.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Materia.Nombre)
+            </td>
+            <td>
+                    <a class="editar" asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a class="detalle" asp-action="Details" asp-route-id="@item.Id">Detalle</a> |
+                    <a class="eliminar" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

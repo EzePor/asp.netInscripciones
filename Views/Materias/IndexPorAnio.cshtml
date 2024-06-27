@@ -15,7 +15,7 @@
 <form asp-controller="Materias" asp-action="IndexPorAnio" method="get">
     <div class="form-group">
         <label asp-for="@idanio" class="control-label">Año y Carrera</label>
-        <select asp-for="@idanio" class="form-control" asp-items="ViewBag.AniosCarreras" onchange="this.form.submit()"></select>
+        <select asp-for="@idanio" disabled class="form-control" asp-items="ViewBag.AniosCarreras" onchange="this.form.submit()"></select>
     </div>
 </form>
 <p>

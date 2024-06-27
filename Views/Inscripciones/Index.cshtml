@@ -41,6 +41,7 @@
                 @Html.DisplayFor(modelItem => item.Carrera.Nombre)
             </td>
             <td>
+                <a class="enlaceNew" asp-action="IndexPorInscripcion" asp-controller="DetalleInscripciones" asp-route-idinscripcion="@item.Id">Inscripciones Materias</a> |
                     <a class="editar" asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
                     <a class="detalle" asp-action="Details" asp-route-id="@item.Id">Detalle</a> |
                     <a class="eliminar" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>

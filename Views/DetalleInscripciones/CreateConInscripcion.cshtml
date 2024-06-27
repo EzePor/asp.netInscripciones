@@ -1,0 +1,103 @@
+﻿@model Inscripciones.Models.DetalleInscripcion
+
+@{
+    ViewData["Title"] = "Create";
+    int idinscripcion = ViewBag.IdInscripcion;
+    int idaniocarrera = ViewBag.IdAnioCarrera;
+    IEnumerable<DetalleInscripcion> detallesInscripciones = ViewBag.DetallesInscripciones;
+}
+
+<h1 class="conten-crear">CREAR DETALLE DE INSCRIPCIÓN:</h1>
+
+
+<hr />
+
+<p>
+    <a asp-action="CreateConInscripcion" asp-route-idinscripcion="@idinscripcion">Create New</a>
+</p>
+
+<form asp-controller="DetalleInscripciones" asp-action="IndexPorInscripcion">
+    <div class="form-group">
+        <label asp-for="@idinscripcion" class="control-label"></label>
+        <select asp-for="@idinscripcion" class="form-control" asp-items="ViewBag.Inscripciones" disabled onchange="this.form.submit()"></select>
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Modalidadcursado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Materia.AnioCarrera)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Materia)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in detallesInscripciones)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Modalidadcursado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Materia.AnioCarrera.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Materia.Nombre)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h4>Inscribiendo en una materia</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateConInscripcion" asp-route-idaniocarrera="@idaniocarrera" method="get">
+            <input type="hidden" asp-for="@idinscripcion" value="@idinscripcion" />
+            <div class="form-group">
+                <label class="control-label"></label>
+                <select asp-for="@idaniocarrera" class="form-control" asp-items="ViewBag.AniosCarreras" onchange="this.form.submit()"></select>
+            </div>
+        </form>
+        <form asp-action="CreateConInscripcion">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input type="hidden" asp-for="InscripcionId" value="@idinscripcion" />
+            <div class="form-group">
+                <label asp-for="Modalidadcursado" class="control-label"></label>
+                <select asp-for="Modalidadcursado" asp-items="Html.GetEnumSelectList<ModalidadCursadoEnum>()" class="form-control"></select>
+                <span asp-validation-for="Modalidadcursado" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="MateriaId" class="control-label"></label>
+                <select asp-for="MateriaId" class="form-control" asp-items="ViewBag.Materias"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
