@@ -87,7 +87,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseCors("AllowSpecificOrigin"); // Habilitar la política de CORS
+app.UseCors("AllowAll"); // Habilitar la política de CORS
 
 app.UseAuthorization();
 
