@@ -5,53 +5,54 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Inscripciones.Models.Commons;
 using Inscripciones.Models;
 
-namespace Inscripciones.Controllers
+namespace Inscripciones.ApiControllers.Commons
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ApiCarrerasController : ControllerBase
+    public class ApiUsuariosController : ControllerBase
     {
         private readonly InscripcionesContext _context;
 
-        public ApiCarrerasController(InscripcionesContext context)
+        public ApiUsuariosController(InscripcionesContext context)
         {
             _context = context;
         }
 
-        // GET: api/ApiCarreras
+        // GET: api/ApiUsuarios
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Carrera>>> GetCarreras()
+        public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuario()
         {
-            return await _context.Carreras.ToListAsync();
+            return await _context.usuarios.ToListAsync();
         }
 
-        // GET: api/ApiCarreras/5
+        // GET: api/ApiUsuarios/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Carrera>> GetCarrera(int id)
+        public async Task<ActionResult<Usuario>> GetUsuario(int id)
         {
-            var carrera = await _context.Carreras.FindAsync(id);
+            var usuario = await _context.usuarios.FindAsync(id);
 
-            if (carrera == null)
+            if (usuario == null)
             {
                 return NotFound();
             }
 
-            return carrera;
+            return usuario;
         }
 
-        // PUT: api/ApiCarreras/5
+        // PUT: api/ApiUsuarios/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCarrera(int id, Carrera carrera)
+        public async Task<IActionResult> PutUsuario(int id, Usuario usuario)
         {
-            if (id != carrera.Id)
+            if (id != usuario.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(carrera).State = EntityState.Modified;
+            _context.Entry(usuario).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +60,7 @@ namespace Inscripciones.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CarreraExists(id))
+                if (!UsuarioExists(id))
                 {
                     return NotFound();
                 }
@@ -72,36 +73,36 @@ namespace Inscripciones.Controllers
             return NoContent();
         }
 
-        // POST: api/ApiCarreras
+        // POST: api/ApiUsuarios
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Carrera>> PostCarrera(Carrera carrera)
+        public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
         {
-            _context.Carreras.Add(carrera);
+            _context.usuarios.Add(usuario);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCarrera", new { id = carrera.Id }, carrera);
+            return CreatedAtAction("GetUsuario", new { id = usuario.Id }, usuario);
         }
 
-        // DELETE: api/ApiCarreras/5
+        // DELETE: api/ApiUsuarios/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCarrera(int id)
+        public async Task<IActionResult> DeleteUsuario(int id)
         {
-            var carrera = await _context.Carreras.FindAsync(id);
-            if (carrera == null)
+            var usuario = await _context.usuarios.FindAsync(id);
+            if (usuario == null)
             {
                 return NotFound();
             }
 
-            _context.Carreras.Remove(carrera);
+            _context.usuarios.Remove(usuario);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool CarreraExists(int id)
+        private bool UsuarioExists(int id)
         {
-            return _context.Carreras.Any(e => e.Id == id);
+            return _context.usuarios.Any(e => e.Id == id);
         }
     }
 }

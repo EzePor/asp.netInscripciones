@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Inscripciones.Models;
+using Inscripciones.Models.Inscripciones;
 
 namespace Inscripciones.Controllers
 {
@@ -21,7 +22,8 @@ namespace Inscripciones.Controllers
         // GET: Inscripciones
         public async Task<IActionResult> Index()
         {
-            var inscripciones = _context.Inscripciones.Include(i => i.Alumno).Include(i => i.Carrera);
+
+            var inscripciones = _context.inscripciones.Include(i => i.Alumno).Include(i => i.Carrera);
             return View(await inscripciones.ToListAsync());
         }
 
@@ -33,7 +35,7 @@ namespace Inscripciones.Controllers
                 return NotFound();
             }
 
-            var inscripcion = await _context.Inscripciones
+            var inscripcion = await _context.inscripciones
                 .Include(i => i.Alumno)
                 .Include(i => i.Carrera)
                 .FirstOrDefaultAsync(m => m.Id == id);
@@ -48,8 +50,8 @@ namespace Inscripciones.Controllers
         // GET: Inscripciones/Create
         public IActionResult Create()
         {
-            ViewData["Alumnos"] = new SelectList(_context.Alumnos, "Id", "ApellidoNombre");
-            ViewData["Carreras"] = new SelectList(_context.Carreras, "Id", "Nombre");
+            ViewData["Alumnos"] = new SelectList(_context.alumnos, "Id", "ApellidoNombre");
+            ViewData["Carreras"] = new SelectList(_context.carreras, "Id", "Nombre");
             return View();
         }
 
@@ -66,8 +68,8 @@ namespace Inscripciones.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Alumnos"] = new SelectList(_context.Alumnos, "Id", "ApellidoNombre", inscripcion.AlumnoId);
-            ViewData["Carreras"] = new SelectList(_context.Carreras, "Id", "Nombre", inscripcion.CarreraId);
+            ViewData["AlumnoId"] = new SelectList(_context.alumnos, "Id", "ApellidoNombre", inscripcion.AlumnoId);
+            ViewData["CarreraId"] = new SelectList(_context.carreras, "Id", "Nombre", inscripcion.CarreraId);
             return View(inscripcion);
         }
 
@@ -79,13 +81,13 @@ namespace Inscripciones.Controllers
                 return NotFound();
             }
 
-            var inscripcion = await _context.Inscripciones.FindAsync(id);
+            var inscripcion = await _context.inscripciones.FindAsync(id);
             if (inscripcion == null)
             {
                 return NotFound();
             }
-            ViewData["Alumnos"] = new SelectList(_context.Alumnos, "Id", "ApellidoNombre", inscripcion.AlumnoId);
-            ViewData["Carreras"] = new SelectList(_context.Carreras, "Id", "Nombre", inscripcion.CarreraId);
+            ViewData["AlumnoId"] = new SelectList(_context.alumnos, "Id", "ApellidoNombre", inscripcion.AlumnoId);
+            ViewData["CarreraId"] = new SelectList(_context.carreras, "Id", "Nombre", inscripcion.CarreraId);
             return View(inscripcion);
         }
 
@@ -121,8 +123,8 @@ namespace Inscripciones.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Alumnos"] = new SelectList(_context.Alumnos, "Id", "ApellidoNombre", inscripcion.AlumnoId);
-            ViewData["Carreras"] = new SelectList(_context.Carreras, "Id", "Nombre", inscripcion.CarreraId);
+            ViewData["AlumnoId"] = new SelectList(_context.alumnos, "Id", "ApellidoNombre", inscripcion.AlumnoId);
+            ViewData["CarreraId"] = new SelectList(_context.carreras, "Id", "Nombre", inscripcion.CarreraId);
             return View(inscripcion);
         }
 
@@ -134,7 +136,7 @@ namespace Inscripciones.Controllers
                 return NotFound();
             }
 
-            var inscripcion = await _context.Inscripciones
+            var inscripcion = await _context.inscripciones
                 .Include(i => i.Alumno)
                 .Include(i => i.Carrera)
                 .FirstOrDefaultAsync(m => m.Id == id);
@@ -151,10 +153,10 @@ namespace Inscripciones.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var inscripcion = await _context.Inscripciones.FindAsync(id);
+            var inscripcion = await _context.inscripciones.FindAsync(id);
             if (inscripcion != null)
             {
-                _context.Inscripciones.Remove(inscripcion);
+                _context.inscripciones.Remove(inscripcion);
             }
 
             await _context.SaveChangesAsync();
@@ -163,7 +165,7 @@ namespace Inscripciones.Controllers
 
         private bool InscripcionExists(int id)
         {
-            return _context.Inscripciones.Any(e => e.Id == id);
+            return _context.inscripciones.Any(e => e.Id == id);
         }
     }
 }

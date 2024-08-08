@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Inscripciones.Models;
+using Inscripciones.Models.Commons;
 
 namespace Inscripciones.Controllers
 {
@@ -21,7 +22,7 @@ namespace Inscripciones.Controllers
         // GET: Carreras
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Carreras.ToListAsync());
+            return View(await _context.carreras.ToListAsync());
         }
 
         // GET: Carreras/Details/5
@@ -32,7 +33,7 @@ namespace Inscripciones.Controllers
                 return NotFound();
             }
 
-            var carrera = await _context.Carreras
+            var carrera = await _context.carreras
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (carrera == null)
             {
@@ -72,7 +73,7 @@ namespace Inscripciones.Controllers
                 return NotFound();
             }
 
-            var carrera = await _context.Carreras.FindAsync(id);
+            var carrera = await _context.carreras.FindAsync(id);
             if (carrera == null)
             {
                 return NotFound();
@@ -123,7 +124,7 @@ namespace Inscripciones.Controllers
                 return NotFound();
             }
 
-            var carrera = await _context.Carreras
+            var carrera = await _context.carreras
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (carrera == null)
             {
@@ -138,10 +139,10 @@ namespace Inscripciones.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var carrera = await _context.Carreras.FindAsync(id);
+            var carrera = await _context.carreras.FindAsync(id);
             if (carrera != null)
             {
-                _context.Carreras.Remove(carrera);
+                _context.carreras.Remove(carrera);
             }
 
             await _context.SaveChangesAsync();
@@ -150,7 +151,7 @@ namespace Inscripciones.Controllers
 
         private bool CarreraExists(int id)
         {
-            return _context.Carreras.Any(e => e.Id == id);
+            return _context.carreras.Any(e => e.Id == id);
         }
     }
 }

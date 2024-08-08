@@ -1,4 +1,5 @@
-﻿@model Inscripciones.Models.AnioCarrera
+﻿@using Inscripciones.Models.Commons
+@model AnioCarrera
 
 @{
     ViewData["Title"] = "CreateConCarrera";
@@ -19,7 +20,7 @@
             </div>
             <div class="form-group">
                 <label  class="control-label"> Nombre de la carrera</label>
-                <select  class ="form-control" asp-items="ViewBag.Carreras"></select>
+                <select  class ="form-control" asp-items="ViewBag.Carreras" disabled></select>
             </div>
             <input type="hidden" asp-for="CarreraId" value="@idCarrera" />
             <div class="form-group">
@@ -30,7 +31,7 @@
 </div>
 
 <div>
-    <a class="volverLista" asp-action="Index">Volver a la lista</a>
+    <a class="volverLista" asp-action="IndexAnioPorCarrera">Volver a la lista</a>
 </div>
 
 @section Scripts {

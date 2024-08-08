@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Inscripciones.Models;
+using Inscripciones.Models.Commons;
 
 namespace Inscripciones.Controllers
 {
@@ -21,15 +22,18 @@ namespace Inscripciones.Controllers
         // GET: Materias
         public async Task<IActionResult> Index()
         {
-            var inscripcionesContext = _context.Materias.Include(m => m.AnioCarrera);
+            var inscripcionesContext = _context.materias.Include(m => m.AnioCarrera).ThenInclude(a => a.Carrera);
             return View(await inscripcionesContext.ToListAsync());
         }
+
         public async Task<IActionResult> IndexPorAnio(int? idanio = 1)
         {
-            ViewData["AniosCarreras"] = new SelectList(_context.AnioCarreras.Include(a => a.Carrera), "Id", "AñoYCarrera");
+
+            ViewData["AniosCarreras"] = new SelectList(_context.anioscarreras.Include(a => a.Carrera), "Id", "AñoYCarrera");
             ViewData["IdAnio"] = idanio;
-            var materias = await _context.Materias.Include(m => m.AnioCarrera).ThenInclude(a=>a.Carrera).Where(m=>m.AnioCarreraId.Equals(idanio)).ToListAsync();
-            ViewData["idCarrera"] = materias.FirstOrDefault()?.AnioCarrera.CarreraId ??0;
+
+            var materias = await _context.materias.Include(m => m.AnioCarrera).ThenInclude(a => a.Carrera).Where(m => m.AnioCarreraId.Equals(idanio)).ToListAsync();
+            ViewData["IdCarrera"] = materias.FirstOrDefault()?.AnioCarrera.CarreraId ?? 0;
             return View(materias);
         }
 
@@ -41,21 +45,27 @@ namespace Inscripciones.Controllers
                 return NotFound();
             }
 
-            var materias = await _context.Materias
+            var materia = await _context.materias
                 .Include(m => m.AnioCarrera)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (materias == null)
+            if (materia == null)
             {
                 return NotFound();
             }
 
-            return View(materias);
+            return View(materia);
         }
 
         // GET: Materias/Create
         public IActionResult Create()
         {
-            ViewData["AnioCarreraId"] = new SelectList(_context.AnioCarreras, "Id", "Nombre");
+            ViewData["AniosCarreras"] = new SelectList(_context.anioscarreras.Include(a => a.Carrera), "Id", "AñoYCarrera");
+            return View();
+        }
+        public IActionResult CreateConAnio(int? idanio)
+        {
+            ViewData["AniosCarreras"] = new SelectList(_context.anioscarreras.Include(a => a.Carrera), "Id", "AñoYCarrera", idanio);
+            ViewData["IdAnio"] = idanio;
             return View();
         }
 
@@ -64,18 +74,34 @@ namespace Inscripciones.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre,AnioCarreraId")] Materia materias)
+        public async Task<IActionResult> Create([Bind("Id,Nombre,AnioCarreraId")] Materia materia)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(materias);
+                _context.Add(materia);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AnioCarreraId"] = new SelectList(_context.AnioCarreras, "Id", "Nombre", materias.AnioCarreraId);
-            return View(materias);
+            ViewData["AniosCarreras"] = new SelectList(_context.anioscarreras.Include(a => a.Carrera), "Id", "AñoYCarrera", materia.AnioCarreraId);
+            return View(materia);
         }
 
+        // POST: Materias/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateConAnio([Bind("Id,Nombre,AnioCarreraId")] Materia materia)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(materia);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(IndexPorAnio), new { idanio = materia.AnioCarreraId });
+            }
+            ViewData["AniosCarreras"] = new SelectList(_context.anioscarreras.Include(a => a.Carrera), "Id", "AñoYCarrera", materia.AnioCarreraId);
+            return View(materia);
+        }
         // GET: Materias/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -84,13 +110,13 @@ namespace Inscripciones.Controllers
                 return NotFound();
             }
 
-            var materias = await _context.Materias.FindAsync(id);
-            if (materias == null)
+            var materia = await _context.materias.FindAsync(id);
+            if (materia == null)
             {
                 return NotFound();
             }
-            ViewData["AnioCarreraId"] = new SelectList(_context.AnioCarreras, "Id", "Nombre", materias.AnioCarreraId);
-            return View(materias);
+            ViewData["AniosCarreras"] = new SelectList(_context.anioscarreras.Include(a => a.Carrera), "Id", "AñoYCarrera", materia.AnioCarreraId);
+            return View(materia);
         }
 
         // POST: Materias/Edit/5
@@ -98,9 +124,9 @@ namespace Inscripciones.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,AnioCarreraId")] Materia materias)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,AnioCarreraId")] Materia materia)
         {
-            if (id != materias.Id)
+            if (id != materia.Id)
             {
                 return NotFound();
             }
@@ -109,12 +135,12 @@ namespace Inscripciones.Controllers
             {
                 try
                 {
-                    _context.Update(materias);
+                    _context.Update(materia);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!MateriasExists(materias.Id))
+                    if (!MateriaExists(materia.Id))
                     {
                         return NotFound();
                     }
@@ -125,8 +151,8 @@ namespace Inscripciones.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AnioCarreraId"] = new SelectList(_context.AnioCarreras, "Id", "Nombre", materias.AnioCarreraId);
-            return View(materias);
+            ViewData["AniosCarreras"] = new SelectList(_context.anioscarreras.Include(a => a.Carrera), "Id", "AñoYCarrera", materia.AnioCarreraId);
+            return View(materia);
         }
 
         // GET: Materias/Delete/5
@@ -137,15 +163,15 @@ namespace Inscripciones.Controllers
                 return NotFound();
             }
 
-            var materias = await _context.Materias
+            var materia = await _context.materias
                 .Include(m => m.AnioCarrera)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (materias == null)
+            if (materia == null)
             {
                 return NotFound();
             }
 
-            return View(materias);
+            return View(materia);
         }
 
         // POST: Materias/Delete/5
@@ -153,19 +179,19 @@ namespace Inscripciones.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var materias = await _context.Materias.FindAsync(id);
-            if (materias != null)
+            var materia = await _context.materias.FindAsync(id);
+            if (materia != null)
             {
-                _context.Materias.Remove(materias);
+                _context.materias.Remove(materia);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool MateriasExists(int id)
+        private bool MateriaExists(int id)
         {
-            return _context.Materias.Any(e => e.Id == id);
+            return _context.materias.Any(e => e.Id == id);
         }
     }
 }

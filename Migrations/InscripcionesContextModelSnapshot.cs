@@ -17,12 +17,12 @@ namespace Inscripciones.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.5")
+                .HasAnnotation("ProductVersion", "8.0.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
-            modelBuilder.Entity("Inscripciones.Models.Alumno", b =>
+            modelBuilder.Entity("Inscripciones.Models.Commons.Alumno", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -48,7 +48,7 @@ namespace Inscripciones.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Alumnos");
+                    b.ToTable("alumnos");
 
                     b.HasData(
                         new
@@ -61,7 +61,7 @@ namespace Inscripciones.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Inscripciones.Models.AnioCarrera", b =>
+            modelBuilder.Entity("Inscripciones.Models.Commons.AnioCarrera", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -80,7 +80,7 @@ namespace Inscripciones.Migrations
 
                     b.HasIndex("CarreraId");
 
-                    b.ToTable("AnioCarreras");
+                    b.ToTable("anioscarreras");
 
                     b.HasData(
                         new
@@ -253,7 +253,84 @@ namespace Inscripciones.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Inscripciones.Models.Carrera", b =>
+            modelBuilder.Entity("Inscripciones.Models.Commons.Carrera", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Sigla")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("carreras");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Nombre = "Tecnicatura Superior en Desarrollo de Software",
+                            Sigla = "TSDS"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Nombre = "Tecnicatura Superior en Soporte de Infraestructura",
+                            Sigla = "TSSITI"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Nombre = "Tecnicatura Superior en Gestion de las Organizaciones",
+                            Sigla = "TSGO"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Nombre = "Tecnicatura Superior en Enfermeria",
+                            Sigla = "TSE"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Nombre = "Profesorado de Educación Secundaria en Ciencias de la Administración",
+                            Sigla = "PEA"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Nombre = "Profesorado de Educación Inicial",
+                            Sigla = "PEI"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Nombre = "Profesorado de Educación Secundaria en Economía",
+                            Sigla = "PEE"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Nombre = "Profesorado de Educación Tecnológica",
+                            Sigla = "PET"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Nombre = "Licenciatura en Cooperativismo y Mutualismo",
+                            Sigla = "LCM"
+                        });
+                });
+
+            modelBuilder.Entity("Inscripciones.Models.Commons.Docente", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -267,57 +344,387 @@ namespace Inscripciones.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Carreras");
+                    b.ToTable("docentes");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            Nombre = "Tecnicatura Superior en Desarrollo de Software"
+                            Nombre = "Adamo, G."
                         },
                         new
                         {
                             Id = 2,
-                            Nombre = "Tecnicatura Superior en Soporte de Infraestructura"
+                            Nombre = "Aimar, M.A."
                         },
                         new
                         {
                             Id = 3,
-                            Nombre = "Tecnicatura Superior en Gestion de las Organizaciones"
+                            Nombre = "Albaristo, Stef."
                         },
                         new
                         {
                             Id = 4,
-                            Nombre = "Tecnicatura Superior en Enfermeria"
+                            Nombre = "Alesso, A."
                         },
                         new
                         {
                             Id = 5,
-                            Nombre = "Profesorado de Educación Secundaria en Ciencias de la Administración"
+                            Nombre = "Alesso, M."
                         },
                         new
                         {
                             Id = 6,
-                            Nombre = "Profesorado de Educación Inicial"
+                            Nombre = "Arnolfo, P."
                         },
                         new
                         {
                             Id = 7,
-                            Nombre = "Profesorado de Educación Secundaria en Economía"
+                            Nombre = "Bazán, D."
                         },
                         new
                         {
                             Id = 8,
-                            Nombre = "Profesorado de Educación Tecnológica"
+                            Nombre = "Blanche, C."
                         },
                         new
                         {
                             Id = 9,
-                            Nombre = "Licenciatura en Cooperativismo y Mutualismo"
+                            Nombre = "Bogni, J."
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Nombre = "Brondino, D."
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Nombre = "Brussa, G."
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Nombre = "Buceta, MB."
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Nombre = "Bueno, M.F."
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Nombre = "Cainero, G."
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Nombre = "Calvo, M."
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Nombre = "Cavallini, J."
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Nombre = "Chauderón, L."
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Nombre = "Chelini, V."
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Nombre = "Corradi, R."
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Nombre = "Dalesio, C."
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Nombre = "Degiorgio, O."
+                        },
+                        new
+                        {
+                            Id = 22,
+                            Nombre = "Della Rosa, M."
+                        },
+                        new
+                        {
+                            Id = 23,
+                            Nombre = "Dellaferrera, C."
+                        },
+                        new
+                        {
+                            Id = 24,
+                            Nombre = "Doglioli, M."
+                        },
+                        new
+                        {
+                            Id = 25,
+                            Nombre = "Duran, C."
+                        },
+                        new
+                        {
+                            Id = 26,
+                            Nombre = "Epes, B."
+                        },
+                        new
+                        {
+                            Id = 27,
+                            Nombre = "Espru, F."
+                        },
+                        new
+                        {
+                            Id = 28,
+                            Nombre = "Ferreyra, M."
+                        },
+                        new
+                        {
+                            Id = 29,
+                            Nombre = "Ferrero, M."
+                        },
+                        new
+                        {
+                            Id = 30,
+                            Nombre = "Ferr, N."
+                        },
+                        new
+                        {
+                            Id = 31,
+                            Nombre = "Gaido, J.P."
+                        },
+                        new
+                        {
+                            Id = 32,
+                            Nombre = "Galmes, M."
+                        },
+                        new
+                        {
+                            Id = 33,
+                            Nombre = "Genero, A."
+                        },
+                        new
+                        {
+                            Id = 34,
+                            Nombre = "Gongora, L."
+                        },
+                        new
+                        {
+                            Id = 35,
+                            Nombre = "Gomez, V."
+                        },
+                        new
+                        {
+                            Id = 36,
+                            Nombre = "Gretter, M.C."
+                        },
+                        new
+                        {
+                            Id = 37,
+                            Nombre = "Grosso, S."
+                        },
+                        new
+                        {
+                            Id = 38,
+                            Nombre = "Imhof, R."
+                        },
+                        new
+                        {
+                            Id = 39,
+                            Nombre = "Imperiale, M."
+                        },
+                        new
+                        {
+                            Id = 40,
+                            Nombre = "Lodi, L."
+                        },
+                        new
+                        {
+                            Id = 41,
+                            Nombre = "Lovino, F."
+                        },
+                        new
+                        {
+                            Id = 42,
+                            Nombre = "Mancilla, J."
+                        },
+                        new
+                        {
+                            Id = 43,
+                            Nombre = "Manattini, S."
+                        },
+                        new
+                        {
+                            Id = 44,
+                            Nombre = "Marenoni, A."
+                        },
+                        new
+                        {
+                            Id = 45,
+                            Nombre = "Martínez, G."
+                        },
+                        new
+                        {
+                            Id = 46,
+                            Nombre = "Mendoza, M."
+                        },
+                        new
+                        {
+                            Id = 47,
+                            Nombre = "Miñoz, A."
+                        },
+                        new
+                        {
+                            Id = 48,
+                            Nombre = "Molina, T."
+                        },
+                        new
+                        {
+                            Id = 49,
+                            Nombre = "Monzón, M.I."
+                        },
+                        new
+                        {
+                            Id = 50,
+                            Nombre = "Nasimbera, R."
+                        },
+                        new
+                        {
+                            Id = 51,
+                            Nombre = "Ortiz, L."
+                        },
+                        new
+                        {
+                            Id = 52,
+                            Nombre = "Paredes, M."
+                        },
+                        new
+                        {
+                            Id = 53,
+                            Nombre = "Pedrazzoli, F."
+                        },
+                        new
+                        {
+                            Id = 54,
+                            Nombre = "Pereyra, S."
+                        },
+                        new
+                        {
+                            Id = 55,
+                            Nombre = "Peressin, S."
+                        },
+                        new
+                        {
+                            Id = 56,
+                            Nombre = "Prida, C."
+                        },
+                        new
+                        {
+                            Id = 57,
+                            Nombre = "Puccio, D."
+                        },
+                        new
+                        {
+                            Id = 58,
+                            Nombre = "Quaglia, E."
+                        },
+                        new
+                        {
+                            Id = 59,
+                            Nombre = "Ramirez, R.A."
+                        },
+                        new
+                        {
+                            Id = 60,
+                            Nombre = "Renteria, D."
+                        },
+                        new
+                        {
+                            Id = 61,
+                            Nombre = "Rodriguez Quain, J."
+                        },
+                        new
+                        {
+                            Id = 62,
+                            Nombre = "Rosso, E."
+                        },
+                        new
+                        {
+                            Id = 63,
+                            Nombre = "Sanchez, R."
+                        },
+                        new
+                        {
+                            Id = 64,
+                            Nombre = "Sandoval, P."
+                        },
+                        new
+                        {
+                            Id = 65,
+                            Nombre = "Sancho, I."
+                        },
+                        new
+                        {
+                            Id = 66,
+                            Nombre = "Sara, J."
+                        },
+                        new
+                        {
+                            Id = 67,
+                            Nombre = "Strada, J."
+                        },
+                        new
+                        {
+                            Id = 68,
+                            Nombre = "Tovar, C."
+                        },
+                        new
+                        {
+                            Id = 69,
+                            Nombre = "Tregnaghi, C."
+                        },
+                        new
+                        {
+                            Id = 70,
+                            Nombre = "Tschopp, M.R."
+                        },
+                        new
+                        {
+                            Id = 71,
+                            Nombre = "Verzzali, A."
+                        },
+                        new
+                        {
+                            Id = 72,
+                            Nombre = "Vigniatti, E."
+                        },
+                        new
+                        {
+                            Id = 73,
+                            Nombre = "Villa, M.F."
+                        },
+                        new
+                        {
+                            Id = 74,
+                            Nombre = "Ruiz, A."
+                        },
+                        new
+                        {
+                            Id = 75,
+                            Nombre = "Sager, L."
                         });
                 });
 
-            modelBuilder.Entity("Inscripciones.Models.DetalleInscripcion", b =>
+            modelBuilder.Entity("Inscripciones.Models.Commons.InscriptoCarrera", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -325,40 +732,11 @@ namespace Inscripciones.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("InscripcionId")
+                    b.Property<int?>("AlumnoId")
                         .HasColumnType("int");
 
-                    b.Property<int>("MateriaId")
+                    b.Property<int?>("CarreraId")
                         .HasColumnType("int");
-
-                    b.Property<int>("Modalidadcursado")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("InscripcionId");
-
-                    b.HasIndex("MateriaId");
-
-                    b.ToTable("DetalleInscripciones");
-                });
-
-            modelBuilder.Entity("Inscripciones.Models.Inscripcion", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AlumnoId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CarreraId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("Fecha")
-                        .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
 
@@ -366,10 +744,18 @@ namespace Inscripciones.Migrations
 
                     b.HasIndex("CarreraId");
 
-                    b.ToTable("Inscripciones");
+                    b.ToTable("inscriptoscarreras");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AlumnoId = 1,
+                            CarreraId = 1
+                        });
                 });
 
-            modelBuilder.Entity("Inscripciones.Models.Materia", b =>
+            modelBuilder.Entity("Inscripciones.Models.Commons.Materia", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -388,7 +774,7 @@ namespace Inscripciones.Migrations
 
                     b.HasIndex("AnioCarreraId");
 
-                    b.ToTable("Materias");
+                    b.ToTable("materias");
 
                     b.HasData(
                         new
@@ -1968,12 +2354,5784 @@ namespace Inscripciones.Migrations
                             Id = 263,
                             AnioCarreraId = 16,
                             Nombre = "Unidad de Definición Institucional"
+                        },
+                        new
+                        {
+                            Id = 264,
+                            AnioCarreraId = 1,
+                            Nombre = "Recreo"
+                        },
+                        new
+                        {
+                            Id = 265,
+                            AnioCarreraId = 2,
+                            Nombre = "Recreo"
+                        },
+                        new
+                        {
+                            Id = 266,
+                            AnioCarreraId = 3,
+                            Nombre = "Recreo"
+                        },
+                        new
+                        {
+                            Id = 267,
+                            AnioCarreraId = 4,
+                            Nombre = "Recreo"
+                        },
+                        new
+                        {
+                            Id = 268,
+                            AnioCarreraId = 5,
+                            Nombre = "Recreo"
+                        },
+                        new
+                        {
+                            Id = 269,
+                            AnioCarreraId = 6,
+                            Nombre = "Recreo"
+                        },
+                        new
+                        {
+                            Id = 270,
+                            AnioCarreraId = 7,
+                            Nombre = "Recreo"
+                        },
+                        new
+                        {
+                            Id = 271,
+                            AnioCarreraId = 8,
+                            Nombre = "Recreo"
+                        },
+                        new
+                        {
+                            Id = 272,
+                            AnioCarreraId = 9,
+                            Nombre = "Recreo"
+                        },
+                        new
+                        {
+                            Id = 273,
+                            AnioCarreraId = 10,
+                            Nombre = "Recreo"
+                        },
+                        new
+                        {
+                            Id = 274,
+                            AnioCarreraId = 11,
+                            Nombre = "Recreo"
+                        },
+                        new
+                        {
+                            Id = 275,
+                            AnioCarreraId = 12,
+                            Nombre = "Recreo"
+                        },
+                        new
+                        {
+                            Id = 276,
+                            AnioCarreraId = 13,
+                            Nombre = "Recreo"
+                        },
+                        new
+                        {
+                            Id = 277,
+                            AnioCarreraId = 14,
+                            Nombre = "Recreo"
+                        },
+                        new
+                        {
+                            Id = 278,
+                            AnioCarreraId = 15,
+                            Nombre = "Recreo"
+                        },
+                        new
+                        {
+                            Id = 279,
+                            AnioCarreraId = 16,
+                            Nombre = "Recreo"
+                        },
+                        new
+                        {
+                            Id = 280,
+                            AnioCarreraId = 17,
+                            Nombre = "Recreo"
+                        },
+                        new
+                        {
+                            Id = 281,
+                            AnioCarreraId = 18,
+                            Nombre = "Recreo"
+                        },
+                        new
+                        {
+                            Id = 282,
+                            AnioCarreraId = 19,
+                            Nombre = "Recreo"
+                        },
+                        new
+                        {
+                            Id = 283,
+                            AnioCarreraId = 20,
+                            Nombre = "Recreo"
+                        },
+                        new
+                        {
+                            Id = 284,
+                            AnioCarreraId = 21,
+                            Nombre = "Recreo"
+                        },
+                        new
+                        {
+                            Id = 285,
+                            AnioCarreraId = 22,
+                            Nombre = "Recreo"
+                        },
+                        new
+                        {
+                            Id = 286,
+                            AnioCarreraId = 23,
+                            Nombre = "Recreo"
+                        },
+                        new
+                        {
+                            Id = 287,
+                            AnioCarreraId = 24,
+                            Nombre = "Recreo"
+                        },
+                        new
+                        {
+                            Id = 288,
+                            AnioCarreraId = 25,
+                            Nombre = "Recreo"
+                        },
+                        new
+                        {
+                            Id = 289,
+                            AnioCarreraId = 26,
+                            Nombre = "Recreo"
+                        },
+                        new
+                        {
+                            Id = 290,
+                            AnioCarreraId = 27,
+                            Nombre = "Recreo"
+                        },
+                        new
+                        {
+                            Id = 291,
+                            AnioCarreraId = 28,
+                            Nombre = "Recreo"
                         });
                 });
 
-            modelBuilder.Entity("Inscripciones.Models.AnioCarrera", b =>
+            modelBuilder.Entity("Inscripciones.Models.Commons.Usuario", b =>
                 {
-                    b.HasOne("Inscripciones.Models.Carrera", "Carrera")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("AlumnoId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DocenteId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("TipoUsuario")
+                        .HasColumnType("int");
+
+                    b.Property<string>("User")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AlumnoId");
+
+                    b.HasIndex("DocenteId");
+
+                    b.ToTable("usuarios");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            DocenteId = 1,
+                            Email = "admin@gmail.com",
+                            TipoUsuario = 2,
+                            User = "admin"
+                        });
+                });
+
+            modelBuilder.Entity("Inscripciones.Models.Horarios.DetalleHorario", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Dia")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HoraId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HorarioId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("HoraId");
+
+                    b.HasIndex("HorarioId");
+
+                    b.ToTable("detalleshorarios");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Dia = 0,
+                            HoraId = 1,
+                            HorarioId = 1
+                        });
+                });
+
+            modelBuilder.Entity("Inscripciones.Models.Horarios.Hora", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("EsRecreo")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("horas");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            EsRecreo = false,
+                            Nombre = "08:00 - 08:40"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            EsRecreo = false,
+                            Nombre = "08:40 - 09:20"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            EsRecreo = false,
+                            Nombre = "09:20 - 10:00"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            EsRecreo = false,
+                            Nombre = "10:00 - 10:40"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            EsRecreo = true,
+                            Nombre = "10:40 - 10:50"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            EsRecreo = false,
+                            Nombre = "10:50 - 11:30"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            EsRecreo = false,
+                            Nombre = "11:30 - 12:10"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            EsRecreo = false,
+                            Nombre = "12:10 - 12:50"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            EsRecreo = false,
+                            Nombre = "12:50 - 13:30"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            EsRecreo = false,
+                            Nombre = "13:10 - 13:50"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            EsRecreo = false,
+                            Nombre = "13:50 - 14:30"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            EsRecreo = false,
+                            Nombre = "14:30 - 15:10"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            EsRecreo = false,
+                            Nombre = "15:10 - 15:50"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            EsRecreo = true,
+                            Nombre = "15:50 - 16:00"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            EsRecreo = false,
+                            Nombre = "16:00 - 16:40"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            EsRecreo = false,
+                            Nombre = "16:40 - 17:20"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            EsRecreo = false,
+                            Nombre = "17:20 - 18:00"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            EsRecreo = false,
+                            Nombre = "18:00 - 18:40"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            EsRecreo = false,
+                            Nombre = "18:40 - 19:20"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            EsRecreo = false,
+                            Nombre = "19:20 - 20:00"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            EsRecreo = true,
+                            Nombre = "19:30 - 19:40"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            EsRecreo = false,
+                            Nombre = "19:40 - 20:20"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            EsRecreo = false,
+                            Nombre = "20:20 - 21:00"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            EsRecreo = false,
+                            Nombre = "21:00 - 21:40"
+                        });
+                });
+
+            modelBuilder.Entity("Inscripciones.Models.Horarios.Horario", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CantidadHoras")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CicloLectivoId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("MateriaId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CicloLectivoId");
+
+                    b.HasIndex("MateriaId");
+
+                    b.ToTable("horarios");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CantidadHoras = 4,
+                            CicloLectivoId = 1,
+                            MateriaId = 1
+                        });
+                });
+
+            modelBuilder.Entity("Inscripciones.Models.Horarios.IntegranteHorario", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("DocenteId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HorarioId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DocenteId");
+
+                    b.HasIndex("HorarioId");
+
+                    b.ToTable("integranteshorarios");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            DocenteId = 1,
+                            HorarioId = 1
+                        });
+                });
+
+            modelBuilder.Entity("Inscripciones.Models.Inscripciones.CicloLectivo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("cicloslectivos");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Nombre = "2024"
+                        });
+                });
+
+            modelBuilder.Entity("Inscripciones.Models.Inscripciones.DetalleInscripcion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("InscripcionId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MateriaId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ModalidadCursado")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("InscripcionId");
+
+                    b.HasIndex("MateriaId");
+
+                    b.ToTable("detallesinscripciones");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            InscripcionId = 1,
+                            MateriaId = 1,
+                            ModalidadCursado = 0
+                        });
+                });
+
+            modelBuilder.Entity("Inscripciones.Models.Inscripciones.Inscripcion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AlumnoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CarreraId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CicloLectivoId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Fecha")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AlumnoId");
+
+                    b.HasIndex("CarreraId");
+
+                    b.HasIndex("CicloLectivoId");
+
+                    b.ToTable("inscripciones");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AlumnoId = 1,
+                            CarreraId = 1,
+                            CicloLectivoId = 1,
+                            Fecha = new DateTime(2024, 8, 7, 19, 27, 47, 588, DateTimeKind.Local).AddTicks(4819)
+                        });
+                });
+
+            modelBuilder.Entity("Inscripciones.Models.MesasExamenes.DetalleMesaExamen", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("DocenteId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MesaExamenId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TipoIntegrante")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DocenteId");
+
+                    b.HasIndex("MesaExamenId");
+
+                    b.ToTable("detallesmesasexamenes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            DocenteId = 6,
+                            MesaExamenId = 1,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            DocenteId = 66,
+                            MesaExamenId = 1,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            DocenteId = 56,
+                            MesaExamenId = 1,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 4,
+                            DocenteId = 16,
+                            MesaExamenId = 1,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 5,
+                            DocenteId = 71,
+                            MesaExamenId = 2,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 6,
+                            DocenteId = 43,
+                            MesaExamenId = 2,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 7,
+                            DocenteId = 39,
+                            MesaExamenId = 2,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 8,
+                            DocenteId = 66,
+                            MesaExamenId = 2,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 9,
+                            DocenteId = 66,
+                            MesaExamenId = 3,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 10,
+                            DocenteId = 45,
+                            MesaExamenId = 3,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 11,
+                            DocenteId = 39,
+                            MesaExamenId = 3,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 12,
+                            DocenteId = 28,
+                            MesaExamenId = 3,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 13,
+                            DocenteId = 38,
+                            MesaExamenId = 4,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 14,
+                            DocenteId = 53,
+                            MesaExamenId = 4,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 15,
+                            DocenteId = 6,
+                            MesaExamenId = 4,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 16,
+                            DocenteId = 23,
+                            MesaExamenId = 4,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 17,
+                            DocenteId = 11,
+                            MesaExamenId = 5,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 18,
+                            DocenteId = 58,
+                            MesaExamenId = 5,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 19,
+                            DocenteId = 54,
+                            MesaExamenId = 5,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 20,
+                            DocenteId = 56,
+                            MesaExamenId = 5,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 21,
+                            DocenteId = 47,
+                            MesaExamenId = 6,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 22,
+                            DocenteId = 16,
+                            MesaExamenId = 6,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 23,
+                            DocenteId = 73,
+                            MesaExamenId = 6,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 24,
+                            DocenteId = 16,
+                            MesaExamenId = 6,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 25,
+                            DocenteId = 39,
+                            MesaExamenId = 7,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 26,
+                            DocenteId = 66,
+                            MesaExamenId = 7,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 27,
+                            DocenteId = 45,
+                            MesaExamenId = 7,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 28,
+                            DocenteId = 28,
+                            MesaExamenId = 7,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 29,
+                            DocenteId = 28,
+                            MesaExamenId = 8,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 30,
+                            DocenteId = 73,
+                            MesaExamenId = 8,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 31,
+                            DocenteId = 39,
+                            MesaExamenId = 8,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 32,
+                            DocenteId = 23,
+                            MesaExamenId = 8,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 33,
+                            DocenteId = 73,
+                            MesaExamenId = 9,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 34,
+                            DocenteId = 16,
+                            MesaExamenId = 9,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 35,
+                            DocenteId = 6,
+                            MesaExamenId = 9,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 36,
+                            DocenteId = 56,
+                            MesaExamenId = 9,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 37,
+                            DocenteId = 16,
+                            MesaExamenId = 10,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 38,
+                            DocenteId = 47,
+                            MesaExamenId = 10,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 39,
+                            DocenteId = 73,
+                            MesaExamenId = 10,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 40,
+                            DocenteId = 16,
+                            MesaExamenId = 10,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 41,
+                            DocenteId = 56,
+                            MesaExamenId = 11,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 42,
+                            DocenteId = 6,
+                            MesaExamenId = 11,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 43,
+                            DocenteId = 66,
+                            MesaExamenId = 11,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 44,
+                            DocenteId = 53,
+                            MesaExamenId = 11,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 45,
+                            DocenteId = 43,
+                            MesaExamenId = 12,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 46,
+                            DocenteId = 71,
+                            MesaExamenId = 12,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 47,
+                            DocenteId = 39,
+                            MesaExamenId = 12,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 48,
+                            DocenteId = 66,
+                            MesaExamenId = 12,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 49,
+                            DocenteId = 73,
+                            MesaExamenId = 13,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 50,
+                            DocenteId = 28,
+                            MesaExamenId = 13,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 51,
+                            DocenteId = 39,
+                            MesaExamenId = 13,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 52,
+                            DocenteId = 23,
+                            MesaExamenId = 13,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 53,
+                            DocenteId = 39,
+                            MesaExamenId = 14,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 54,
+                            DocenteId = 66,
+                            MesaExamenId = 14,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 55,
+                            DocenteId = 72,
+                            MesaExamenId = 14,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 56,
+                            DocenteId = 56,
+                            MesaExamenId = 14,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 57,
+                            DocenteId = 39,
+                            MesaExamenId = 15,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 58,
+                            DocenteId = 71,
+                            MesaExamenId = 15,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 59,
+                            DocenteId = 43,
+                            MesaExamenId = 15,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 60,
+                            DocenteId = 66,
+                            MesaExamenId = 15,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 61,
+                            DocenteId = 45,
+                            MesaExamenId = 16,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 62,
+                            DocenteId = 66,
+                            MesaExamenId = 16,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 63,
+                            DocenteId = 39,
+                            MesaExamenId = 16,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 64,
+                            DocenteId = 28,
+                            MesaExamenId = 16,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 65,
+                            DocenteId = 16,
+                            MesaExamenId = 17,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 66,
+                            DocenteId = 73,
+                            MesaExamenId = 17,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 67,
+                            DocenteId = 6,
+                            MesaExamenId = 17,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 68,
+                            DocenteId = 56,
+                            MesaExamenId = 17,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 69,
+                            DocenteId = 57,
+                            MesaExamenId = 18,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 70,
+                            DocenteId = 37,
+                            MesaExamenId = 18,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 71,
+                            DocenteId = 11,
+                            MesaExamenId = 18,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 72,
+                            DocenteId = 59,
+                            MesaExamenId = 18,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 73,
+                            DocenteId = 64,
+                            MesaExamenId = 19,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 74,
+                            DocenteId = 59,
+                            MesaExamenId = 19,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 75,
+                            DocenteId = 37,
+                            MesaExamenId = 19,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 76,
+                            DocenteId = 31,
+                            MesaExamenId = 19,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 77,
+                            DocenteId = 47,
+                            MesaExamenId = 20,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 78,
+                            DocenteId = 22,
+                            MesaExamenId = 20,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 79,
+                            DocenteId = 34,
+                            MesaExamenId = 20,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 80,
+                            DocenteId = 64,
+                            MesaExamenId = 20,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 81,
+                            DocenteId = 15,
+                            MesaExamenId = 21,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 82,
+                            DocenteId = 59,
+                            MesaExamenId = 21,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 83,
+                            DocenteId = 5,
+                            MesaExamenId = 21,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 84,
+                            DocenteId = 53,
+                            MesaExamenId = 21,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 85,
+                            DocenteId = 5,
+                            MesaExamenId = 22,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 86,
+                            DocenteId = 4,
+                            MesaExamenId = 22,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 87,
+                            DocenteId = 59,
+                            MesaExamenId = 22,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 88,
+                            DocenteId = 57,
+                            MesaExamenId = 22,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 89,
+                            DocenteId = 53,
+                            MesaExamenId = 23,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 90,
+                            DocenteId = 4,
+                            MesaExamenId = 23,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 91,
+                            DocenteId = 5,
+                            MesaExamenId = 23,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 92,
+                            DocenteId = 34,
+                            MesaExamenId = 23,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 93,
+                            DocenteId = 31,
+                            MesaExamenId = 24,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 94,
+                            DocenteId = 64,
+                            MesaExamenId = 24,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 95,
+                            DocenteId = 59,
+                            MesaExamenId = 24,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 96,
+                            DocenteId = 59,
+                            MesaExamenId = 24,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 97,
+                            DocenteId = 31,
+                            MesaExamenId = 25,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 98,
+                            DocenteId = 64,
+                            MesaExamenId = 25,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 99,
+                            DocenteId = 59,
+                            MesaExamenId = 25,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 100,
+                            DocenteId = 59,
+                            MesaExamenId = 25,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 101,
+                            DocenteId = 11,
+                            MesaExamenId = 26,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 102,
+                            DocenteId = 22,
+                            MesaExamenId = 26,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 103,
+                            DocenteId = 34,
+                            MesaExamenId = 26,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 104,
+                            DocenteId = 15,
+                            MesaExamenId = 26,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 105,
+                            DocenteId = 22,
+                            MesaExamenId = 27,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 106,
+                            DocenteId = 34,
+                            MesaExamenId = 27,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 107,
+                            DocenteId = 11,
+                            MesaExamenId = 27,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 108,
+                            DocenteId = 15,
+                            MesaExamenId = 27,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 109,
+                            DocenteId = 22,
+                            MesaExamenId = 28,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 110,
+                            DocenteId = 34,
+                            MesaExamenId = 28,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 111,
+                            DocenteId = 11,
+                            MesaExamenId = 28,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 112,
+                            DocenteId = 15,
+                            MesaExamenId = 28,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 113,
+                            DocenteId = 37,
+                            MesaExamenId = 29,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 114,
+                            DocenteId = 57,
+                            MesaExamenId = 29,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 115,
+                            DocenteId = 11,
+                            MesaExamenId = 29,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 116,
+                            DocenteId = 57,
+                            MesaExamenId = 29,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 117,
+                            DocenteId = 59,
+                            MesaExamenId = 30,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 118,
+                            DocenteId = 15,
+                            MesaExamenId = 30,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 119,
+                            DocenteId = 34,
+                            MesaExamenId = 30,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 120,
+                            DocenteId = 53,
+                            MesaExamenId = 30,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 121,
+                            DocenteId = 4,
+                            MesaExamenId = 31,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 122,
+                            DocenteId = 5,
+                            MesaExamenId = 31,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 123,
+                            DocenteId = 59,
+                            MesaExamenId = 31,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 124,
+                            DocenteId = 57,
+                            MesaExamenId = 31,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 125,
+                            DocenteId = 59,
+                            MesaExamenId = 32,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 126,
+                            DocenteId = 53,
+                            MesaExamenId = 32,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 127,
+                            DocenteId = 31,
+                            MesaExamenId = 32,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 128,
+                            DocenteId = 34,
+                            MesaExamenId = 32,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 129,
+                            DocenteId = 59,
+                            MesaExamenId = 33,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 130,
+                            DocenteId = 15,
+                            MesaExamenId = 33,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 131,
+                            DocenteId = 34,
+                            MesaExamenId = 33,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 132,
+                            DocenteId = 53,
+                            MesaExamenId = 33,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 133,
+                            DocenteId = 7,
+                            MesaExamenId = 34,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 134,
+                            DocenteId = 57,
+                            MesaExamenId = 34,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 135,
+                            DocenteId = 15,
+                            MesaExamenId = 34,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 136,
+                            DocenteId = 15,
+                            MesaExamenId = 34,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 137,
+                            DocenteId = 59,
+                            MesaExamenId = 35,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 138,
+                            DocenteId = 4,
+                            MesaExamenId = 35,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 139,
+                            DocenteId = 5,
+                            MesaExamenId = 35,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 140,
+                            DocenteId = 57,
+                            MesaExamenId = 35,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 141,
+                            DocenteId = 59,
+                            MesaExamenId = 36,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 142,
+                            DocenteId = 53,
+                            MesaExamenId = 36,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 143,
+                            DocenteId = 31,
+                            MesaExamenId = 36,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 144,
+                            DocenteId = 34,
+                            MesaExamenId = 36,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 145,
+                            DocenteId = 4,
+                            MesaExamenId = 37,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 146,
+                            DocenteId = 46,
+                            MesaExamenId = 37,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 147,
+                            DocenteId = 47,
+                            MesaExamenId = 37,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 148,
+                            DocenteId = 59,
+                            MesaExamenId = 37,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 149,
+                            DocenteId = 15,
+                            MesaExamenId = 38,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 150,
+                            DocenteId = 47,
+                            MesaExamenId = 38,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 151,
+                            DocenteId = 5,
+                            MesaExamenId = 38,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 152,
+                            DocenteId = 21,
+                            MesaExamenId = 38,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 153,
+                            DocenteId = 47,
+                            MesaExamenId = 39,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 154,
+                            DocenteId = 15,
+                            MesaExamenId = 39,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 155,
+                            DocenteId = 5,
+                            MesaExamenId = 39,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 156,
+                            DocenteId = 21,
+                            MesaExamenId = 39,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 157,
+                            DocenteId = 58,
+                            MesaExamenId = 40,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 158,
+                            DocenteId = 11,
+                            MesaExamenId = 40,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 159,
+                            DocenteId = 54,
+                            MesaExamenId = 40,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 160,
+                            DocenteId = 46,
+                            MesaExamenId = 40,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 161,
+                            DocenteId = 31,
+                            MesaExamenId = 41,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 162,
+                            DocenteId = 64,
+                            MesaExamenId = 41,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 163,
+                            DocenteId = 59,
+                            MesaExamenId = 41,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 164,
+                            DocenteId = 58,
+                            MesaExamenId = 41,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 165,
+                            DocenteId = 31,
+                            MesaExamenId = 42,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 166,
+                            DocenteId = 64,
+                            MesaExamenId = 42,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 167,
+                            DocenteId = 59,
+                            MesaExamenId = 42,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 168,
+                            DocenteId = 58,
+                            MesaExamenId = 42,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 169,
+                            DocenteId = 11,
+                            MesaExamenId = 43,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 170,
+                            DocenteId = 22,
+                            MesaExamenId = 43,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 171,
+                            DocenteId = 34,
+                            MesaExamenId = 43,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 172,
+                            DocenteId = 46,
+                            MesaExamenId = 43,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 173,
+                            DocenteId = 5,
+                            MesaExamenId = 44,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 174,
+                            DocenteId = 47,
+                            MesaExamenId = 44,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 175,
+                            DocenteId = 15,
+                            MesaExamenId = 44,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 176,
+                            DocenteId = 21,
+                            MesaExamenId = 44,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 177,
+                            DocenteId = 42,
+                            MesaExamenId = 45,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 178,
+                            DocenteId = 46,
+                            MesaExamenId = 45,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 179,
+                            DocenteId = 7,
+                            MesaExamenId = 45,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 180,
+                            DocenteId = 53,
+                            MesaExamenId = 45,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 181,
+                            DocenteId = 42,
+                            MesaExamenId = 46,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 182,
+                            DocenteId = 46,
+                            MesaExamenId = 46,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 183,
+                            DocenteId = 7,
+                            MesaExamenId = 46,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 184,
+                            DocenteId = 53,
+                            MesaExamenId = 46,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 185,
+                            DocenteId = 64,
+                            MesaExamenId = 47,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 186,
+                            DocenteId = 21,
+                            MesaExamenId = 47,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 187,
+                            DocenteId = 47,
+                            MesaExamenId = 47,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 188,
+                            DocenteId = 46,
+                            MesaExamenId = 47,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 189,
+                            DocenteId = 7,
+                            MesaExamenId = 48,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 190,
+                            DocenteId = 46,
+                            MesaExamenId = 48,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 191,
+                            DocenteId = 42,
+                            MesaExamenId = 48,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 192,
+                            DocenteId = 53,
+                            MesaExamenId = 48,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 193,
+                            DocenteId = 46,
+                            MesaExamenId = 49,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 194,
+                            DocenteId = 7,
+                            MesaExamenId = 49,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 195,
+                            DocenteId = 42,
+                            MesaExamenId = 49,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 196,
+                            DocenteId = 53,
+                            MesaExamenId = 49,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 197,
+                            DocenteId = 47,
+                            MesaExamenId = 50,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 198,
+                            DocenteId = 60,
+                            MesaExamenId = 50,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 199,
+                            DocenteId = 18,
+                            MesaExamenId = 50,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 200,
+                            DocenteId = 67,
+                            MesaExamenId = 50,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 201,
+                            DocenteId = 48,
+                            MesaExamenId = 51,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 202,
+                            DocenteId = 2,
+                            MesaExamenId = 51,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 203,
+                            DocenteId = 31,
+                            MesaExamenId = 51,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 204,
+                            DocenteId = 28,
+                            MesaExamenId = 51,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 205,
+                            DocenteId = 64,
+                            MesaExamenId = 52,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 206,
+                            DocenteId = 63,
+                            MesaExamenId = 52,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 207,
+                            DocenteId = 2,
+                            MesaExamenId = 52,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 208,
+                            DocenteId = 33,
+                            MesaExamenId = 52,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 209,
+                            DocenteId = 34,
+                            MesaExamenId = 53,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 210,
+                            DocenteId = 67,
+                            MesaExamenId = 53,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 211,
+                            DocenteId = 17,
+                            MesaExamenId = 53,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 212,
+                            DocenteId = 47,
+                            MesaExamenId = 53,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 213,
+                            DocenteId = 36,
+                            MesaExamenId = 54,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 214,
+                            DocenteId = 29,
+                            MesaExamenId = 54,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 215,
+                            DocenteId = 17,
+                            MesaExamenId = 54,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 216,
+                            DocenteId = 48,
+                            MesaExamenId = 54,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 217,
+                            DocenteId = 31,
+                            MesaExamenId = 55,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 218,
+                            DocenteId = 47,
+                            MesaExamenId = 55,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 219,
+                            DocenteId = 67,
+                            MesaExamenId = 55,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 220,
+                            DocenteId = 2,
+                            MesaExamenId = 55,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 221,
+                            DocenteId = 31,
+                            MesaExamenId = 56,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 222,
+                            DocenteId = 47,
+                            MesaExamenId = 56,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 223,
+                            DocenteId = 67,
+                            MesaExamenId = 56,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 224,
+                            DocenteId = 2,
+                            MesaExamenId = 56,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 225,
+                            DocenteId = 67,
+                            MesaExamenId = 57,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 226,
+                            DocenteId = 48,
+                            MesaExamenId = 57,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 227,
+                            DocenteId = 29,
+                            MesaExamenId = 57,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 228,
+                            DocenteId = 28,
+                            MesaExamenId = 57,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 229,
+                            DocenteId = 2,
+                            MesaExamenId = 58,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 230,
+                            DocenteId = 60,
+                            MesaExamenId = 58,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 231,
+                            DocenteId = 36,
+                            MesaExamenId = 58,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 232,
+                            DocenteId = 28,
+                            MesaExamenId = 58,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 233,
+                            DocenteId = 60,
+                            MesaExamenId = 59,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 234,
+                            DocenteId = 47,
+                            MesaExamenId = 59,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 235,
+                            DocenteId = 18,
+                            MesaExamenId = 59,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 236,
+                            DocenteId = 67,
+                            MesaExamenId = 59,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 237,
+                            DocenteId = 29,
+                            MesaExamenId = 60,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 238,
+                            DocenteId = 7,
+                            MesaExamenId = 60,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 239,
+                            DocenteId = 11,
+                            MesaExamenId = 60,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 240,
+                            DocenteId = 37,
+                            MesaExamenId = 60,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 241,
+                            DocenteId = 17,
+                            MesaExamenId = 61,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 242,
+                            DocenteId = 18,
+                            MesaExamenId = 61,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 243,
+                            DocenteId = 7,
+                            MesaExamenId = 61,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 244,
+                            DocenteId = 29,
+                            MesaExamenId = 61,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 245,
+                            DocenteId = 34,
+                            MesaExamenId = 62,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 246,
+                            DocenteId = 18,
+                            MesaExamenId = 62,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 247,
+                            DocenteId = 37,
+                            MesaExamenId = 62,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 248,
+                            DocenteId = 33,
+                            MesaExamenId = 62,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 249,
+                            DocenteId = 34,
+                            MesaExamenId = 63,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 250,
+                            DocenteId = 48,
+                            MesaExamenId = 63,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 251,
+                            DocenteId = 60,
+                            MesaExamenId = 63,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 252,
+                            DocenteId = 47,
+                            MesaExamenId = 63,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 253,
+                            DocenteId = 37,
+                            MesaExamenId = 64,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 254,
+                            DocenteId = 7,
+                            MesaExamenId = 64,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 255,
+                            DocenteId = 33,
+                            MesaExamenId = 64,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 256,
+                            DocenteId = 48,
+                            MesaExamenId = 64,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 257,
+                            DocenteId = 34,
+                            MesaExamenId = 65,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 258,
+                            DocenteId = 18,
+                            MesaExamenId = 65,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 259,
+                            DocenteId = 48,
+                            MesaExamenId = 65,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 260,
+                            DocenteId = 2,
+                            MesaExamenId = 65,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 261,
+                            DocenteId = 67,
+                            MesaExamenId = 66,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 262,
+                            DocenteId = 48,
+                            MesaExamenId = 66,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 263,
+                            DocenteId = 29,
+                            MesaExamenId = 66,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 264,
+                            DocenteId = 29,
+                            MesaExamenId = 66,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 265,
+                            DocenteId = 63,
+                            MesaExamenId = 67,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 266,
+                            DocenteId = 34,
+                            MesaExamenId = 67,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 267,
+                            DocenteId = 18,
+                            MesaExamenId = 67,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 268,
+                            DocenteId = 29,
+                            MesaExamenId = 67,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 269,
+                            DocenteId = 18,
+                            MesaExamenId = 68,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 270,
+                            DocenteId = 17,
+                            MesaExamenId = 68,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 271,
+                            DocenteId = 7,
+                            MesaExamenId = 68,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 272,
+                            DocenteId = 29,
+                            MesaExamenId = 68,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 273,
+                            DocenteId = 18,
+                            MesaExamenId = 69,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 274,
+                            DocenteId = 34,
+                            MesaExamenId = 69,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 275,
+                            DocenteId = 37,
+                            MesaExamenId = 69,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 276,
+                            DocenteId = 29,
+                            MesaExamenId = 69,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 277,
+                            DocenteId = 7,
+                            MesaExamenId = 70,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 278,
+                            DocenteId = 37,
+                            MesaExamenId = 70,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 279,
+                            DocenteId = 33,
+                            MesaExamenId = 70,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 280,
+                            DocenteId = 48,
+                            MesaExamenId = 70,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 281,
+                            DocenteId = 18,
+                            MesaExamenId = 71,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 282,
+                            DocenteId = 34,
+                            MesaExamenId = 71,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 283,
+                            DocenteId = 48,
+                            MesaExamenId = 71,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 284,
+                            DocenteId = 2,
+                            MesaExamenId = 71,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 285,
+                            DocenteId = 61,
+                            MesaExamenId = 72,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 286,
+                            DocenteId = 9,
+                            MesaExamenId = 72,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 287,
+                            DocenteId = 32,
+                            MesaExamenId = 72,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 288,
+                            DocenteId = 3,
+                            MesaExamenId = 72,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 289,
+                            DocenteId = 8,
+                            MesaExamenId = 73,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 290,
+                            DocenteId = 9,
+                            MesaExamenId = 73,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 291,
+                            DocenteId = 12,
+                            MesaExamenId = 73,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 292,
+                            DocenteId = 61,
+                            MesaExamenId = 73,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 293,
+                            DocenteId = 8,
+                            MesaExamenId = 74,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 294,
+                            DocenteId = 9,
+                            MesaExamenId = 74,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 295,
+                            DocenteId = 12,
+                            MesaExamenId = 74,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 296,
+                            DocenteId = 61,
+                            MesaExamenId = 74,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 297,
+                            DocenteId = 3,
+                            MesaExamenId = 75,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 298,
+                            DocenteId = 61,
+                            MesaExamenId = 75,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 299,
+                            DocenteId = 32,
+                            MesaExamenId = 75,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 300,
+                            DocenteId = 9,
+                            MesaExamenId = 75,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 301,
+                            DocenteId = 54,
+                            MesaExamenId = 76,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 302,
+                            DocenteId = 51,
+                            MesaExamenId = 76,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 303,
+                            DocenteId = 61,
+                            MesaExamenId = 76,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 304,
+                            DocenteId = 3,
+                            MesaExamenId = 76,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 305,
+                            DocenteId = 3,
+                            MesaExamenId = 77,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 306,
+                            DocenteId = 51,
+                            MesaExamenId = 77,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 307,
+                            DocenteId = 32,
+                            MesaExamenId = 77,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 308,
+                            DocenteId = 12,
+                            MesaExamenId = 77,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 309,
+                            DocenteId = 9,
+                            MesaExamenId = 78,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 310,
+                            DocenteId = 61,
+                            MesaExamenId = 78,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 311,
+                            DocenteId = 32,
+                            MesaExamenId = 78,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 312,
+                            DocenteId = 3,
+                            MesaExamenId = 78,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 313,
+                            DocenteId = 61,
+                            MesaExamenId = 79,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 314,
+                            DocenteId = 7,
+                            MesaExamenId = 79,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 315,
+                            DocenteId = 54,
+                            MesaExamenId = 79,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 316,
+                            DocenteId = 61,
+                            MesaExamenId = 79,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 317,
+                            DocenteId = 68,
+                            MesaExamenId = 80,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 318,
+                            DocenteId = 24,
+                            MesaExamenId = 80,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 319,
+                            DocenteId = 3,
+                            MesaExamenId = 80,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 320,
+                            DocenteId = 25,
+                            MesaExamenId = 80,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 321,
+                            DocenteId = 24,
+                            MesaExamenId = 81,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 322,
+                            DocenteId = 68,
+                            MesaExamenId = 81,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 323,
+                            DocenteId = 3,
+                            MesaExamenId = 81,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 324,
+                            DocenteId = 25,
+                            MesaExamenId = 81,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 325,
+                            DocenteId = 54,
+                            MesaExamenId = 82,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 326,
+                            DocenteId = 3,
+                            MesaExamenId = 82,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 327,
+                            DocenteId = 51,
+                            MesaExamenId = 82,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 328,
+                            DocenteId = 61,
+                            MesaExamenId = 82,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 329,
+                            DocenteId = 12,
+                            MesaExamenId = 83,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 330,
+                            DocenteId = 49,
+                            MesaExamenId = 83,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 331,
+                            DocenteId = 7,
+                            MesaExamenId = 83,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 332,
+                            DocenteId = 3,
+                            MesaExamenId = 83,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 333,
+                            DocenteId = 49,
+                            MesaExamenId = 84,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 334,
+                            DocenteId = 12,
+                            MesaExamenId = 84,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 335,
+                            DocenteId = 7,
+                            MesaExamenId = 84,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 336,
+                            DocenteId = 3,
+                            MesaExamenId = 84,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 337,
+                            DocenteId = 7,
+                            MesaExamenId = 85,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 338,
+                            DocenteId = 61,
+                            MesaExamenId = 85,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 339,
+                            DocenteId = 54,
+                            MesaExamenId = 85,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 340,
+                            DocenteId = 61,
+                            MesaExamenId = 85,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 341,
+                            DocenteId = 30,
+                            MesaExamenId = 86,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 342,
+                            DocenteId = 35,
+                            MesaExamenId = 86,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 343,
+                            DocenteId = 31,
+                            MesaExamenId = 86,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 344,
+                            DocenteId = 61,
+                            MesaExamenId = 86,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 345,
+                            DocenteId = 37,
+                            MesaExamenId = 87,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 346,
+                            DocenteId = 68,
+                            MesaExamenId = 87,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 347,
+                            DocenteId = 25,
+                            MesaExamenId = 87,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 348,
+                            DocenteId = 25,
+                            MesaExamenId = 87,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 349,
+                            DocenteId = 9,
+                            MesaExamenId = 88,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 350,
+                            DocenteId = 32,
+                            MesaExamenId = 88,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 351,
+                            DocenteId = 51,
+                            MesaExamenId = 88,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 352,
+                            DocenteId = 3,
+                            MesaExamenId = 88,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 353,
+                            DocenteId = 3,
+                            MesaExamenId = 89,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 354,
+                            DocenteId = 54,
+                            MesaExamenId = 89,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 355,
+                            DocenteId = 51,
+                            MesaExamenId = 89,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 356,
+                            DocenteId = 61,
+                            MesaExamenId = 89,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 357,
+                            DocenteId = 61,
+                            MesaExamenId = 90,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 358,
+                            DocenteId = 3,
+                            MesaExamenId = 90,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 359,
+                            DocenteId = 32,
+                            MesaExamenId = 90,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 360,
+                            DocenteId = 9,
+                            MesaExamenId = 90,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 361,
+                            DocenteId = 25,
+                            MesaExamenId = 91,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 362,
+                            DocenteId = 68,
+                            MesaExamenId = 91,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 363,
+                            DocenteId = 51,
+                            MesaExamenId = 91,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 364,
+                            DocenteId = 9,
+                            MesaExamenId = 91,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 365,
+                            DocenteId = 39,
+                            MesaExamenId = 92,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 366,
+                            DocenteId = 72,
+                            MesaExamenId = 92,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 367,
+                            DocenteId = 20,
+                            MesaExamenId = 92,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 368,
+                            DocenteId = 2,
+                            MesaExamenId = 92,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 369,
+                            DocenteId = 28,
+                            MesaExamenId = 93,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 370,
+                            DocenteId = 72,
+                            MesaExamenId = 93,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 371,
+                            DocenteId = 17,
+                            MesaExamenId = 93,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 372,
+                            DocenteId = 34,
+                            MesaExamenId = 93,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 373,
+                            DocenteId = 17,
+                            MesaExamenId = 94,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 374,
+                            DocenteId = 22,
+                            MesaExamenId = 94,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 375,
+                            DocenteId = 44,
+                            MesaExamenId = 94,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 376,
+                            DocenteId = 47,
+                            MesaExamenId = 94,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 377,
+                            DocenteId = 17,
+                            MesaExamenId = 95,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 378,
+                            DocenteId = 22,
+                            MesaExamenId = 95,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 379,
+                            DocenteId = 44,
+                            MesaExamenId = 95,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 380,
+                            DocenteId = 47,
+                            MesaExamenId = 95,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 381,
+                            DocenteId = 42,
+                            MesaExamenId = 96,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 382,
+                            DocenteId = 71,
+                            MesaExamenId = 96,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 383,
+                            DocenteId = 60,
+                            MesaExamenId = 96,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 384,
+                            DocenteId = 48,
+                            MesaExamenId = 96,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 385,
+                            DocenteId = 34,
+                            MesaExamenId = 97,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 386,
+                            DocenteId = 48,
+                            MesaExamenId = 97,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 387,
+                            DocenteId = 44,
+                            MesaExamenId = 97,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 388,
+                            DocenteId = 22,
+                            MesaExamenId = 97,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 389,
+                            DocenteId = 44,
+                            MesaExamenId = 98,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 390,
+                            DocenteId = 48,
+                            MesaExamenId = 98,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 391,
+                            DocenteId = 34,
+                            MesaExamenId = 98,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 392,
+                            DocenteId = 22,
+                            MesaExamenId = 98,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 393,
+                            DocenteId = 60,
+                            MesaExamenId = 99,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 394,
+                            DocenteId = 28,
+                            MesaExamenId = 99,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 395,
+                            DocenteId = 55,
+                            MesaExamenId = 99,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 396,
+                            DocenteId = 28,
+                            MesaExamenId = 99,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 397,
+                            DocenteId = 72,
+                            MesaExamenId = 100,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 398,
+                            DocenteId = 39,
+                            MesaExamenId = 100,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 399,
+                            DocenteId = 20,
+                            MesaExamenId = 100,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 400,
+                            DocenteId = 34,
+                            MesaExamenId = 100,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 401,
+                            DocenteId = 11,
+                            MesaExamenId = 101,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 402,
+                            DocenteId = 30,
+                            MesaExamenId = 101,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 403,
+                            DocenteId = 31,
+                            MesaExamenId = 101,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 404,
+                            DocenteId = 36,
+                            MesaExamenId = 101,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 405,
+                            DocenteId = 30,
+                            MesaExamenId = 102,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 406,
+                            DocenteId = 11,
+                            MesaExamenId = 102,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 407,
+                            DocenteId = 31,
+                            MesaExamenId = 102,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 408,
+                            DocenteId = 36,
+                            MesaExamenId = 102,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 409,
+                            DocenteId = 49,
+                            MesaExamenId = 103,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 410,
+                            DocenteId = 28,
+                            MesaExamenId = 103,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 411,
+                            DocenteId = 71,
+                            MesaExamenId = 103,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 412,
+                            DocenteId = 2,
+                            MesaExamenId = 103,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 413,
+                            DocenteId = 60,
+                            MesaExamenId = 104,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 414,
+                            DocenteId = 42,
+                            MesaExamenId = 104,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 415,
+                            DocenteId = 71,
+                            MesaExamenId = 104,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 416,
+                            DocenteId = 48,
+                            MesaExamenId = 104,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 417,
+                            DocenteId = 28,
+                            MesaExamenId = 105,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 418,
+                            DocenteId = 64,
+                            MesaExamenId = 105,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 419,
+                            DocenteId = 30,
+                            MesaExamenId = 105,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 420,
+                            DocenteId = 17,
+                            MesaExamenId = 105,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 421,
+                            DocenteId = 34,
+                            MesaExamenId = 106,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 422,
+                            DocenteId = 48,
+                            MesaExamenId = 106,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 423,
+                            DocenteId = 44,
+                            MesaExamenId = 106,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 424,
+                            DocenteId = 22,
+                            MesaExamenId = 106,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 425,
+                            DocenteId = 72,
+                            MesaExamenId = 107,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 426,
+                            DocenteId = 28,
+                            MesaExamenId = 107,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 427,
+                            DocenteId = 17,
+                            MesaExamenId = 107,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 428,
+                            DocenteId = 34,
+                            MesaExamenId = 107,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 429,
+                            DocenteId = 22,
+                            MesaExamenId = 108,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 430,
+                            DocenteId = 17,
+                            MesaExamenId = 108,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 431,
+                            DocenteId = 44,
+                            MesaExamenId = 108,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 432,
+                            DocenteId = 47,
+                            MesaExamenId = 108,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 433,
+                            DocenteId = 30,
+                            MesaExamenId = 109,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 434,
+                            DocenteId = 11,
+                            MesaExamenId = 109,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 435,
+                            DocenteId = 31,
+                            MesaExamenId = 109,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 436,
+                            DocenteId = 36,
+                            MesaExamenId = 109,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 437,
+                            DocenteId = 28,
+                            MesaExamenId = 110,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 438,
+                            DocenteId = 49,
+                            MesaExamenId = 110,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 439,
+                            DocenteId = 71,
+                            MesaExamenId = 110,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 440,
+                            DocenteId = 2,
+                            MesaExamenId = 110,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 441,
+                            DocenteId = 71,
+                            MesaExamenId = 111,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 442,
+                            DocenteId = 42,
+                            MesaExamenId = 111,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 443,
+                            DocenteId = 60,
+                            MesaExamenId = 111,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 444,
+                            DocenteId = 48,
+                            MesaExamenId = 111,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 445,
+                            DocenteId = 28,
+                            MesaExamenId = 112,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 446,
+                            DocenteId = 60,
+                            MesaExamenId = 112,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 447,
+                            DocenteId = 55,
+                            MesaExamenId = 112,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 448,
+                            DocenteId = 27,
+                            MesaExamenId = 112,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 449,
+                            DocenteId = 64,
+                            MesaExamenId = 113,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 450,
+                            DocenteId = 28,
+                            MesaExamenId = 113,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 451,
+                            DocenteId = 30,
+                            MesaExamenId = 113,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 452,
+                            DocenteId = 17,
+                            MesaExamenId = 113,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 453,
+                            DocenteId = 48,
+                            MesaExamenId = 114,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 454,
+                            DocenteId = 44,
+                            MesaExamenId = 114,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 455,
+                            DocenteId = 34,
+                            MesaExamenId = 114,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 456,
+                            DocenteId = 22,
+                            MesaExamenId = 114,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 457,
+                            DocenteId = 42,
+                            MesaExamenId = 115,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 458,
+                            DocenteId = 54,
+                            MesaExamenId = 115,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 459,
+                            DocenteId = 31,
+                            MesaExamenId = 115,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 460,
+                            DocenteId = 44,
+                            MesaExamenId = 115,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 461,
+                            DocenteId = 54,
+                            MesaExamenId = 116,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 462,
+                            DocenteId = 42,
+                            MesaExamenId = 116,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 463,
+                            DocenteId = 31,
+                            MesaExamenId = 116,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 464,
+                            DocenteId = 44,
+                            MesaExamenId = 116,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 465,
+                            DocenteId = 49,
+                            MesaExamenId = 117,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 466,
+                            DocenteId = 69,
+                            MesaExamenId = 117,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 467,
+                            DocenteId = 72,
+                            MesaExamenId = 117,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 468,
+                            DocenteId = 10,
+                            MesaExamenId = 117,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 469,
+                            DocenteId = 43,
+                            MesaExamenId = 118,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 470,
+                            DocenteId = 49,
+                            MesaExamenId = 118,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 471,
+                            DocenteId = 54,
+                            MesaExamenId = 118,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 472,
+                            DocenteId = 36,
+                            MesaExamenId = 118,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 473,
+                            DocenteId = 10,
+                            MesaExamenId = 119,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 474,
+                            DocenteId = 13,
+                            MesaExamenId = 119,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 475,
+                            DocenteId = 65,
+                            MesaExamenId = 119,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 476,
+                            DocenteId = 69,
+                            MesaExamenId = 119,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 477,
+                            DocenteId = 73,
+                            MesaExamenId = 120,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 478,
+                            DocenteId = 40,
+                            MesaExamenId = 120,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 479,
+                            DocenteId = 10,
+                            MesaExamenId = 120,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 480,
+                            DocenteId = 72,
+                            MesaExamenId = 120,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 481,
+                            DocenteId = 54,
+                            MesaExamenId = 121,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 482,
+                            DocenteId = 42,
+                            MesaExamenId = 121,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 483,
+                            DocenteId = 31,
+                            MesaExamenId = 121,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 484,
+                            DocenteId = 44,
+                            MesaExamenId = 121,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 485,
+                            DocenteId = 69,
+                            MesaExamenId = 122,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 486,
+                            DocenteId = 49,
+                            MesaExamenId = 122,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 487,
+                            DocenteId = 72,
+                            MesaExamenId = 122,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 488,
+                            DocenteId = 10,
+                            MesaExamenId = 122,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 489,
+                            DocenteId = 49,
+                            MesaExamenId = 123,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 490,
+                            DocenteId = 43,
+                            MesaExamenId = 123,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 491,
+                            DocenteId = 54,
+                            MesaExamenId = 123,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 492,
+                            DocenteId = 36,
+                            MesaExamenId = 123,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 493,
+                            DocenteId = 13,
+                            MesaExamenId = 124,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 494,
+                            DocenteId = 10,
+                            MesaExamenId = 124,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 495,
+                            DocenteId = 65,
+                            MesaExamenId = 124,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 496,
+                            DocenteId = 69,
+                            MesaExamenId = 124,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 497,
+                            DocenteId = 65,
+                            MesaExamenId = 125,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 498,
+                            DocenteId = 10,
+                            MesaExamenId = 125,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 499,
+                            DocenteId = 13,
+                            MesaExamenId = 125,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 500,
+                            DocenteId = 69,
+                            MesaExamenId = 125,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 501,
+                            DocenteId = 44,
+                            MesaExamenId = 126,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 502,
+                            DocenteId = 11,
+                            MesaExamenId = 126,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 503,
+                            DocenteId = 36,
+                            MesaExamenId = 126,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 504,
+                            DocenteId = 49,
+                            MesaExamenId = 126,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 505,
+                            DocenteId = 40,
+                            MesaExamenId = 127,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 506,
+                            DocenteId = 73,
+                            MesaExamenId = 127,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 507,
+                            DocenteId = 10,
+                            MesaExamenId = 127,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 508,
+                            DocenteId = 72,
+                            MesaExamenId = 127,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 509,
+                            DocenteId = 69,
+                            MesaExamenId = 128,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 510,
+                            DocenteId = 52,
+                            MesaExamenId = 128,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 511,
+                            DocenteId = 42,
+                            MesaExamenId = 128,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 512,
+                            DocenteId = 54,
+                            MesaExamenId = 128,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 513,
+                            DocenteId = 21,
+                            MesaExamenId = 129,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 514,
+                            DocenteId = 68,
+                            MesaExamenId = 129,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 515,
+                            DocenteId = 19,
+                            MesaExamenId = 129,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 516,
+                            DocenteId = 54,
+                            MesaExamenId = 129,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 517,
+                            DocenteId = 27,
+                            MesaExamenId = 130,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 518,
+                            DocenteId = 39,
+                            MesaExamenId = 130,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 519,
+                            DocenteId = 14,
+                            MesaExamenId = 130,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 520,
+                            DocenteId = 54,
+                            MesaExamenId = 130,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 521,
+                            DocenteId = 44,
+                            MesaExamenId = 131,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 522,
+                            DocenteId = 11,
+                            MesaExamenId = 131,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 523,
+                            DocenteId = 19,
+                            MesaExamenId = 131,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 524,
+                            DocenteId = 54,
+                            MesaExamenId = 131,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 525,
+                            DocenteId = 72,
+                            MesaExamenId = 132,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 526,
+                            DocenteId = 71,
+                            MesaExamenId = 132,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 527,
+                            DocenteId = 50,
+                            MesaExamenId = 132,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 528,
+                            DocenteId = 3,
+                            MesaExamenId = 132,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 529,
+                            DocenteId = 39,
+                            MesaExamenId = 133,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 530,
+                            DocenteId = 60,
+                            MesaExamenId = 133,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 531,
+                            DocenteId = 27,
+                            MesaExamenId = 133,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 532,
+                            DocenteId = 12,
+                            MesaExamenId = 133,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 533,
+                            DocenteId = 39,
+                            MesaExamenId = 134,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 534,
+                            DocenteId = 60,
+                            MesaExamenId = 134,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 535,
+                            DocenteId = 27,
+                            MesaExamenId = 134,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 536,
+                            DocenteId = 62,
+                            MesaExamenId = 134,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 537,
+                            DocenteId = 39,
+                            MesaExamenId = 135,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 538,
+                            DocenteId = 60,
+                            MesaExamenId = 135,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 539,
+                            DocenteId = 27,
+                            MesaExamenId = 135,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 540,
+                            DocenteId = 62,
+                            MesaExamenId = 135,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 541,
+                            DocenteId = 64,
+                            MesaExamenId = 136,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 542,
+                            DocenteId = 2,
+                            MesaExamenId = 136,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 543,
+                            DocenteId = 60,
+                            MesaExamenId = 136,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 544,
+                            DocenteId = 54,
+                            MesaExamenId = 136,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 545,
+                            DocenteId = 71,
+                            MesaExamenId = 137,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 546,
+                            DocenteId = 50,
+                            MesaExamenId = 137,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 547,
+                            DocenteId = 72,
+                            MesaExamenId = 137,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 548,
+                            DocenteId = 30,
+                            MesaExamenId = 137,
+                            TipoIntegrante = 3
+                        },
+                        new
+                        {
+                            Id = 549,
+                            DocenteId = 39,
+                            MesaExamenId = 138,
+                            TipoIntegrante = 0
+                        },
+                        new
+                        {
+                            Id = 550,
+                            DocenteId = 27,
+                            MesaExamenId = 138,
+                            TipoIntegrante = 1
+                        },
+                        new
+                        {
+                            Id = 551,
+                            DocenteId = 14,
+                            MesaExamenId = 138,
+                            TipoIntegrante = 2
+                        },
+                        new
+                        {
+                            Id = 552,
+                            DocenteId = 12,
+                            MesaExamenId = 138,
+                            TipoIntegrante = 3
+                        });
+                });
+
+            modelBuilder.Entity("Inscripciones.Models.MesasExamenes.MesaExamen", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Horario")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("Llamado1")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("Llamado2")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("MateriaId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TurnoExamenId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MateriaId");
+
+                    b.HasIndex("TurnoExamenId");
+
+                    b.ToTable("mesasexamenes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 41,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 38,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 41,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 45,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 44,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Horario = "18 HS",
+                            Llamado1 = new DateTime(2024, 7, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 52,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 46,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 47,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 48,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Horario = "18 HS",
+                            Llamado1 = new DateTime(2024, 7, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 62,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 60,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 57,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 59,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 55,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 66,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 68,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 73,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 80,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 85,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 81,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 83,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 22,
+                            Horario = "18 HS",
+                            Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 84,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 23,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 82,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 24,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 77,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 25,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 78,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 26,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 7, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 90,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 27,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 7, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 86,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 28,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 7, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 87,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 29,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 88,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 30,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 93,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 31,
+                            Horario = "18 HS",
+                            Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 92,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 32,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 91,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 33,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 100,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 34,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 95,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 35,
+                            Horario = "18 HS",
+                            Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 99,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 36,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 98,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 37,
+                            Horario = "18 HS",
+                            Llamado1 = new DateTime(2024, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 101,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 38,
+                            Horario = "18 HS",
+                            Llamado1 = new DateTime(2024, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 161,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 39,
+                            Horario = "18 HS",
+                            Llamado1 = new DateTime(2024, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 158,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 40,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 156,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 41,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 154,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 42,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 155,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 43,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 7, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 166,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 44,
+                            Horario = "18 HS",
+                            Llamado1 = new DateTime(2024, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 170,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 45,
+                            Horario = "18 HS",
+                            Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 163,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 46,
+                            Horario = "18 HS",
+                            Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 164,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 47,
+                            Horario = "18 HS",
+                            Llamado1 = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 167,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 48,
+                            Horario = "19 HS",
+                            Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 172,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 49,
+                            Horario = "19 HS",
+                            Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 178,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 50,
+                            Horario = "18 HS",
+                            Llamado1 = new DateTime(2024, 7, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 133,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 51,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 131,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 52,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 7, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 132,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 53,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 129,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 54,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 130,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 55,
+                            Horario = "18 HS",
+                            Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 127,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 56,
+                            Horario = "18 HS",
+                            Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 128,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 57,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 134,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 58,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 135,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 59,
+                            Horario = "18 HS",
+                            Llamado1 = new DateTime(2024, 7, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 140,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 60,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 7, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 144,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 61,
+                            Horario = "18 HS",
+                            Llamado1 = new DateTime(2024, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 141,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 62,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 7, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 142,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 63,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 138,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 64,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 139,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 65,
+                            Horario = "18 HS",
+                            Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 143,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 66,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 137,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 67,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 136,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 68,
+                            Horario = "18 HS",
+                            Llamado1 = new DateTime(2024, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 151,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 69,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 7, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 150,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 70,
+                            Horario = "17 HS",
+                            Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 146,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 71,
+                            Horario = "18 HS",
+                            Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 152,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 72,
+                            Horario = "8 HS",
+                            Llamado1 = new DateTime(2024, 7, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 106,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 73,
+                            Horario = "8 HS",
+                            Llamado1 = new DateTime(2024, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 102,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 74,
+                            Horario = "8 HS",
+                            Llamado1 = new DateTime(2024, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 103,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 75,
+                            Horario = "8 HS",
+                            Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 107,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 76,
+                            Horario = "8 HS",
+                            Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 105,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 77,
+                            Horario = "8 HS",
+                            Llamado1 = new DateTime(2024, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 107,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 78,
+                            Horario = "8 HS",
+                            Llamado1 = new DateTime(2024, 7, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 116,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 79,
+                            Horario = "8 HS",
+                            Llamado1 = new DateTime(2024, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 113,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 80,
+                            Horario = "8 HS",
+                            Llamado1 = new DateTime(2024, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 112,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 81,
+                            Horario = "8 HS",
+                            Llamado1 = new DateTime(2024, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 115,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 82,
+                            Horario = "8 HS",
+                            Llamado1 = new DateTime(2024, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 114,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 83,
+                            Horario = "8 HS",
+                            Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 110,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 84,
+                            Horario = "8 HS",
+                            Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 111,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 85,
+                            Horario = "8 HS",
+                            Llamado1 = new DateTime(2024, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 119,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 86,
+                            Horario = "8 HS",
+                            Llamado1 = new DateTime(2024, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 120,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 87,
+                            Horario = "10 HS",
+                            Llamado1 = new DateTime(2024, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 121,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 88,
+                            Horario = "8 HS",
+                            Llamado1 = new DateTime(2024, 7, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 123,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 89,
+                            Horario = "8 HS",
+                            Llamado1 = new DateTime(2024, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 125,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 90,
+                            Horario = "8 HS",
+                            Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 124,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 91,
+                            Horario = "8 HS",
+                            Llamado1 = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 122,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 92,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 229,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 93,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 224,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 94,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 226,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 95,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 227,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 96,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 225,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 97,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 228,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 98,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 231,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 99,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 230,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 100,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 235,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 101,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 240,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 102,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 238,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 103,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 233,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 104,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 239,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 105,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 234,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 106,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 237,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 107,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 251,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 108,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 246,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 109,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 249,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 110,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 243,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 111,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 245,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 112,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 244,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 113,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 263,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 114,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 259,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 115,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 182,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 116,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 189,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 117,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 180,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 118,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 185,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 119,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 179,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 120,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 181,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 121,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 201,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 122,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 200,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 123,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 198,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 124,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 197,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 125,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 195,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 126,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 199,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 127,
+                            Horario = "13 HS",
+                            Llamado1 = new DateTime(2024, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 192,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 128,
+                            Horario = "8 HS",
+                            Llamado1 = new DateTime(2024, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 209,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 129,
+                            Horario = "8 HS",
+                            Llamado1 = new DateTime(2024, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 204,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 130,
+                            Horario = "8 HS",
+                            Llamado1 = new DateTime(2024, 7, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 205,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 131,
+                            Horario = "8 HS",
+                            Llamado1 = new DateTime(2024, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 207,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 132,
+                            Horario = "8 HS",
+                            Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 206,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 133,
+                            Horario = "10 HS",
+                            Llamado1 = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 210,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 134,
+                            Horario = "10 HS",
+                            Llamado1 = new DateTime(2024, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 214,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 135,
+                            Horario = "10 HS",
+                            Llamado1 = new DateTime(2024, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 215,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 136,
+                            Horario = "8 HS",
+                            Llamado1 = new DateTime(2024, 7, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 219,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 137,
+                            Horario = "8 HS",
+                            Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 221,
+                            TurnoExamenId = 1
+                        },
+                        new
+                        {
+                            Id = 138,
+                            Horario = "11 HS",
+                            Llamado1 = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Llamado2 = new DateTime(2024, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MateriaId = 218,
+                            TurnoExamenId = 1
+                        });
+                });
+
+            modelBuilder.Entity("Inscripciones.Models.MesasExamenes.TurnoExamen", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("turnosexamenes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Nombre = "Julio/Agosto 2024"
+                        });
+                });
+
+            modelBuilder.Entity("Inscripciones.Models.Commons.AnioCarrera", b =>
+                {
+                    b.HasOne("Inscripciones.Models.Commons.Carrera", "Carrera")
                         .WithMany()
                         .HasForeignKey("CarreraId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1982,15 +8140,101 @@ namespace Inscripciones.Migrations
                     b.Navigation("Carrera");
                 });
 
-            modelBuilder.Entity("Inscripciones.Models.DetalleInscripcion", b =>
+            modelBuilder.Entity("Inscripciones.Models.Commons.InscriptoCarrera", b =>
                 {
-                    b.HasOne("Inscripciones.Models.Inscripcion", "Inscripcion")
+                    b.HasOne("Inscripciones.Models.Commons.Alumno", "Alumno")
+                        .WithMany()
+                        .HasForeignKey("AlumnoId");
+
+                    b.HasOne("Inscripciones.Models.Commons.Carrera", "Carrera")
+                        .WithMany()
+                        .HasForeignKey("CarreraId");
+
+                    b.Navigation("Alumno");
+
+                    b.Navigation("Carrera");
+                });
+
+            modelBuilder.Entity("Inscripciones.Models.Commons.Materia", b =>
+                {
+                    b.HasOne("Inscripciones.Models.Commons.AnioCarrera", "AnioCarrera")
+                        .WithMany()
+                        .HasForeignKey("AnioCarreraId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AnioCarrera");
+                });
+
+            modelBuilder.Entity("Inscripciones.Models.Commons.Usuario", b =>
+                {
+                    b.HasOne("Inscripciones.Models.Commons.Alumno", "Alumno")
+                        .WithMany()
+                        .HasForeignKey("AlumnoId");
+
+                    b.HasOne("Inscripciones.Models.Commons.Docente", "Docente")
+                        .WithMany()
+                        .HasForeignKey("DocenteId");
+
+                    b.Navigation("Alumno");
+
+                    b.Navigation("Docente");
+                });
+
+            modelBuilder.Entity("Inscripciones.Models.Horarios.DetalleHorario", b =>
+                {
+                    b.HasOne("Inscripciones.Models.Horarios.Hora", "Hora")
+                        .WithMany()
+                        .HasForeignKey("HoraId");
+
+                    b.HasOne("Inscripciones.Models.Horarios.Horario", "Horario")
+                        .WithMany()
+                        .HasForeignKey("HorarioId");
+
+                    b.Navigation("Hora");
+
+                    b.Navigation("Horario");
+                });
+
+            modelBuilder.Entity("Inscripciones.Models.Horarios.Horario", b =>
+                {
+                    b.HasOne("Inscripciones.Models.Inscripciones.CicloLectivo", "CicloLectivo")
+                        .WithMany()
+                        .HasForeignKey("CicloLectivoId");
+
+                    b.HasOne("Inscripciones.Models.Commons.Materia", "Materia")
+                        .WithMany()
+                        .HasForeignKey("MateriaId");
+
+                    b.Navigation("CicloLectivo");
+
+                    b.Navigation("Materia");
+                });
+
+            modelBuilder.Entity("Inscripciones.Models.Horarios.IntegranteHorario", b =>
+                {
+                    b.HasOne("Inscripciones.Models.Commons.Docente", "Docente")
+                        .WithMany()
+                        .HasForeignKey("DocenteId");
+
+                    b.HasOne("Inscripciones.Models.Horarios.Horario", "Horario")
+                        .WithMany()
+                        .HasForeignKey("HorarioId");
+
+                    b.Navigation("Docente");
+
+                    b.Navigation("Horario");
+                });
+
+            modelBuilder.Entity("Inscripciones.Models.Inscripciones.DetalleInscripcion", b =>
+                {
+                    b.HasOne("Inscripciones.Models.Inscripciones.Inscripcion", "Inscripcion")
                         .WithMany()
                         .HasForeignKey("InscripcionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Inscripciones.Models.Materia", "Materia")
+                    b.HasOne("Inscripciones.Models.Commons.Materia", "Materia")
                         .WithMany()
                         .HasForeignKey("MateriaId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -2001,34 +8245,74 @@ namespace Inscripciones.Migrations
                     b.Navigation("Materia");
                 });
 
-            modelBuilder.Entity("Inscripciones.Models.Inscripcion", b =>
+            modelBuilder.Entity("Inscripciones.Models.Inscripciones.Inscripcion", b =>
                 {
-                    b.HasOne("Inscripciones.Models.Alumno", "Alumno")
+                    b.HasOne("Inscripciones.Models.Commons.Alumno", "Alumno")
                         .WithMany()
                         .HasForeignKey("AlumnoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Inscripciones.Models.Carrera", "Carrera")
+                    b.HasOne("Inscripciones.Models.Commons.Carrera", "Carrera")
                         .WithMany()
                         .HasForeignKey("CarreraId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Inscripciones.Models.Inscripciones.CicloLectivo", "CicloLectivo")
+                        .WithMany()
+                        .HasForeignKey("CicloLectivoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Alumno");
 
                     b.Navigation("Carrera");
+
+                    b.Navigation("CicloLectivo");
                 });
 
-            modelBuilder.Entity("Inscripciones.Models.Materia", b =>
+            modelBuilder.Entity("Inscripciones.Models.MesasExamenes.DetalleMesaExamen", b =>
                 {
-                    b.HasOne("Inscripciones.Models.AnioCarrera", "AnioCarrera")
+                    b.HasOne("Inscripciones.Models.Commons.Docente", "Docente")
                         .WithMany()
-                        .HasForeignKey("AnioCarreraId")
+                        .HasForeignKey("DocenteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("AnioCarrera");
+                    b.HasOne("Inscripciones.Models.MesasExamenes.MesaExamen", "MesaExamen")
+                        .WithMany("DetallesMesaExamen")
+                        .HasForeignKey("MesaExamenId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Docente");
+
+                    b.Navigation("MesaExamen");
+                });
+
+            modelBuilder.Entity("Inscripciones.Models.MesasExamenes.MesaExamen", b =>
+                {
+                    b.HasOne("Inscripciones.Models.Commons.Materia", "Materia")
+                        .WithMany()
+                        .HasForeignKey("MateriaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Inscripciones.Models.MesasExamenes.TurnoExamen", "TurnoExamen")
+                        .WithMany()
+                        .HasForeignKey("TurnoExamenId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Materia");
+
+                    b.Navigation("TurnoExamen");
+                });
+
+            modelBuilder.Entity("Inscripciones.Models.MesasExamenes.MesaExamen", b =>
+                {
+                    b.Navigation("DetallesMesaExamen");
                 });
 #pragma warning restore 612, 618
         }

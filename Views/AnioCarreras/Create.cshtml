@@ -1,4 +1,5 @@
-﻿@model Inscripciones.Models.AnioCarrera
+﻿@using Inscripciones.Models.Commons
+@model AnioCarrera
 
 @{
     ViewData["Title"] = "Create";
@@ -28,7 +29,7 @@
 </div>
 
 <div>
-    <a class="volverLista" asp-action="Index">Volver a la lista</a>
+    <a class="volverLista" asp-action="IndexAnioPorCarrera">Volver a la lista</a>
 </div>
 
 @section Scripts {

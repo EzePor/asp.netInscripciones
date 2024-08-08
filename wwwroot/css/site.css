@@ -96,9 +96,26 @@ ul{
 
 }
 
+h1.editar {
+    color: forestgreen;
+    text-align:center;
+}
+
 h1.eliminar{
     color: var(--poppy-red);
     text-align:center;
+}
+
+h1.detalle{
+    color:blue;
+    text-align:center;
+}
+
+
+.editar {
+    text-decoration: none;
+    color: forestgreen;
+    font-weight: 500;
 }
 
 .enlaceNew {

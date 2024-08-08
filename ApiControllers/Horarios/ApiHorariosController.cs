@@ -5,53 +5,54 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Inscripciones.Models.Horarios;
 using Inscripciones.Models;
 
-namespace Inscripciones.Controllers
+namespace Inscripciones.ApiControllers.Horarios
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ApiMateriasController : ControllerBase
+    public class ApiHorariosController : ControllerBase
     {
         private readonly InscripcionesContext _context;
 
-        public ApiMateriasController(InscripcionesContext context)
+        public ApiHorariosController(InscripcionesContext context)
         {
             _context = context;
         }
 
-        // GET: api/ApiMaterias
+        // GET: api/ApiHorarios
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Materia>>> GetMaterias()
+        public async Task<ActionResult<IEnumerable<Horario>>> GetHorario()
         {
-            return await _context.Materias.ToListAsync();
+            return await _context.horarios.ToListAsync();
         }
 
-        // GET: api/ApiMaterias/5
+        // GET: api/ApiHorarios/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Materia>> GetMaterias(int id)
+        public async Task<ActionResult<Horario>> GetHorario(int id)
         {
-            var materias = await _context.Materias.FindAsync(id);
+            var horario = await _context.horarios.FindAsync(id);
 
-            if (materias == null)
+            if (horario == null)
             {
                 return NotFound();
             }
 
-            return materias;
+            return horario;
         }
 
-        // PUT: api/ApiMaterias/5
+        // PUT: api/ApiHorarios/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutMaterias(int id, Materia materias)
+        public async Task<IActionResult> PutHorario(int id, Horario horario)
         {
-            if (id != materias.Id)
+            if (id != horario.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(materias).State = EntityState.Modified;
+            _context.Entry(horario).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +60,7 @@ namespace Inscripciones.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!MateriasExists(id))
+                if (!HorarioExists(id))
                 {
                     return NotFound();
                 }
@@ -72,36 +73,36 @@ namespace Inscripciones.Controllers
             return NoContent();
         }
 
-        // POST: api/ApiMaterias
+        // POST: api/ApiHorarios
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Materia>> PostMaterias(Materia materias)
+        public async Task<ActionResult<Horario>> PostHorario(Horario horario)
         {
-            _context.Materias.Add(materias);
+            _context.horarios.Add(horario);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetMaterias", new { id = materias.Id }, materias);
+            return CreatedAtAction("GetHorario", new { id = horario.Id }, horario);
         }
 
-        // DELETE: api/ApiMaterias/5
+        // DELETE: api/ApiHorarios/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteMaterias(int id)
+        public async Task<IActionResult> DeleteHorario(int id)
         {
-            var materias = await _context.Materias.FindAsync(id);
-            if (materias == null)
+            var horario = await _context.horarios.FindAsync(id);
+            if (horario == null)
             {
                 return NotFound();
             }
 
-            _context.Materias.Remove(materias);
+            _context.horarios.Remove(horario);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool MateriasExists(int id)
+        private bool HorarioExists(int id)
         {
-            return _context.Materias.Any(e => e.Id == id);
+            return _context.horarios.Any(e => e.Id == id);
         }
     }
 }

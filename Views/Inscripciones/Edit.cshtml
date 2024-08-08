@@ -1,12 +1,13 @@
-﻿@model Inscripciones.Models.Inscripcion
+﻿@using Inscripciones.Models.Inscripciones
+@model Inscripcion
 
 @{
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1 class="editar">Editar</h1>
 
-<h4>Inscripcion</h4>
+<h4>Inscripcion:</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -14,29 +15,29 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="Fecha" class="control-label"></label>
+                <label asp-for="Fecha" class="control-label">Fecha</label>
                 <input asp-for="Fecha" class="form-control" />
                 <span asp-validation-for="Fecha" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="AlumnoId" class="control-label"></label>
+                <label asp-for="AlumnoId" class="control-label">Alumno</label>
                 <select asp-for="AlumnoId" class="form-control" asp-items="ViewBag.alumnoId"></select>
                 <span asp-validation-for="AlumnoId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CarreraId" class="control-label"></label>
+                <label asp-for="CarreraId" class="control-label">Carrera</label>
                 <select asp-for="CarreraId" class="form-control" asp-items="ViewBag.CarreraId"></select>
                 <span asp-validation-for="CarreraId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Guardar" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a class="volverLista" asp-action="Index">Volver a la lista</a>
 </div>
 
 @section Scripts {

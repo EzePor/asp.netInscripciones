@@ -1,4 +1,5 @@
-﻿@model Inscripciones.Models.DetalleInscripcion
+﻿@using Inscripciones.Models.Inscripciones
+@model DetalleInscripcion
 
 @{
     ViewData["Title"] = "Delete";
@@ -12,10 +13,10 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Modalidadcursado)
+            @Html.DisplayNameFor(model => model.ModalidadCursado)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Modalidadcursado)
+            @Html.DisplayFor(model => model.ModalidadCursado)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Inscripcion)
@@ -34,6 +35,6 @@
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="Eliminar" class="btn btn-danger" /> |
-        <a class="volverLista" asp-action="Index">Volver a la lista</a>
+        <a class="volverLista" asp-action="IndexPorInscripcion">Volver a la lista</a>
     </form>
 </div>

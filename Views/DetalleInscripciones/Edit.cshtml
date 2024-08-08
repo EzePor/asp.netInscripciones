@@ -1,12 +1,13 @@
-﻿@model Inscripciones.Models.DetalleInscripcion
+﻿@using Inscripciones.Models.Inscripciones
+@model DetalleInscripcion
 
 @{
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1 class="editar">Editar</h1>
 
-<h4>DetalleInscripcion</h4>
+<h4>Detalle Inscripcion</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -14,29 +15,29 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="Modalidadcursado" class="control-label"></label>
-                <input asp-for="Modalidadcursado" class="form-control" />
-                <span asp-validation-for="Modalidadcursado" class="text-danger"></span>
+                <label asp-for="ModalidadCursado" class="control-label">Modalidad de cursado</label>
+                <input asp-for="ModalidadCursado" class="form-control" />
+                <span asp-validation-for="ModalidadCursado" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="InscripcionId" class="control-label"></label>
-                <select asp-for="InscripcionId" class="form-control" asp-items="ViewBag.InscripcionId"></select>
-                <span asp-validation-for="InscripcionId" class="text-danger"></span>
+                <label asp-for="Materia.AnioCarrera" class="control-label"> Año Carrera</label>
+                <select asp-for="Materia.AnioCarrera" class="form-control" asp-items="ViewBag.InscripcionId"></select>
+                <span asp-validation-for="Materia.AnioCarrera" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="MateriaId" class="control-label"></label>
-                <select asp-for="MateriaId" class="form-control" asp-items="ViewBag.MateriaId"></select>
-                <span asp-validation-for="MateriaId" class="text-danger"></span>
+                <label asp-for="MateriaId" class="control-label">Materia</label>
+                <select asp-for="Materia.Nombre" class="form-control" asp-items="ViewBag.MateriaId"></select>
+                <span asp-validation-for="Materia.Nombre" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Guardar" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a class="volverLista" asp-action="IndexPorInscripcion">Volver a la lista</a>
 </div>
 
 @section Scripts {

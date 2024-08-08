@@ -1,12 +1,13 @@
-﻿@model Inscripciones.Models.Alumno
+﻿@using Inscripciones.Models.Commons
+@model Alumno
 
 @{
     ViewData["Title"] = "Edit";
 }
 
-<h1>Editar</h1>
+<h1 class="editar">Editar</h1>
 
-<h4>Alumno</h4>
+<h4>Alumno:</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -41,7 +42,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Volver a la lista</a>
+    <a class="volverLista" asp-action="Index">Volver a la lista</a>
 </div>
 
 @section Scripts {

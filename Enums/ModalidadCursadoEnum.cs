@@ -1,4 +1,4 @@
-﻿namespace Inscripciones.Models
+﻿namespace Inscripciones.Enums
 {
     public enum ModalidadCursadoEnum
     {

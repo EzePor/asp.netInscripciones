@@ -5,53 +5,55 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Inscripciones.Models.Commons;
 using Inscripciones.Models;
+
 
 namespace Inscripciones.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ApiAlumnosController : ControllerBase
+    public class ApiAnioCarrerasController : ControllerBase
     {
         private readonly InscripcionesContext _context;
 
-        public ApiAlumnosController(InscripcionesContext context)
+        public ApiAnioCarrerasController(InscripcionesContext context)
         {
             _context = context;
         }
 
-        // GET: api/ApiAlumnoes
+        // GET: api/ApiAnioCarreras1
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Alumno>>> GetAlumnos()
+        public async Task<ActionResult<IEnumerable<AnioCarrera>>> GetAnioCarreras()
         {
-            return await _context.Alumnos.ToListAsync();
+            return await _context.anioscarreras.ToListAsync();
         }
 
-        // GET: api/ApiAlumnoes/5
+        // GET: api/ApiAnioCarreras1/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Alumno>> GetAlumno(int id)
+        public async Task<ActionResult<AnioCarrera>> GetAnioCarrera(int id)
         {
-            var alumno = await _context.Alumnos.FindAsync(id);
+            var anioCarrera = await _context.anioscarreras.FindAsync(id);
 
-            if (alumno == null)
+            if (anioCarrera == null)
             {
                 return NotFound();
             }
 
-            return alumno;
+            return anioCarrera;
         }
 
-        // PUT: api/ApiAlumnoes/5
+        // PUT: api/ApiAnioCarreras1/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAlumno(int id, Alumno alumno)
+        public async Task<IActionResult> PutAnioCarrera(int id, AnioCarrera anioCarrera)
         {
-            if (id != alumno.Id)
+            if (id != anioCarrera.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(alumno).State = EntityState.Modified;
+            _context.Entry(anioCarrera).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +61,7 @@ namespace Inscripciones.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!AlumnoExists(id))
+                if (!AnioCarreraExists(id))
                 {
                     return NotFound();
                 }
@@ -72,36 +74,36 @@ namespace Inscripciones.Controllers
             return NoContent();
         }
 
-        // POST: api/ApiAlumnoes
+        // POST: api/ApiAnioCarreras1
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Alumno>> PostAlumno(Alumno alumno)
+        public async Task<ActionResult<AnioCarrera>> PostAnioCarrera(AnioCarrera anioCarrera)
         {
-            _context.Alumnos.Add(alumno);
+            _context.anioscarreras.Add(anioCarrera);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetAlumno", new { id = alumno.Id }, alumno);
+            return CreatedAtAction("GetAnioCarrera", new { id = anioCarrera.Id }, anioCarrera);
         }
 
-        // DELETE: api/ApiAlumnoes/5
+        // DELETE: api/ApiAnioCarreras1/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteAlumno(int id)
+        public async Task<IActionResult> DeleteAnioCarrera(int id)
         {
-            var alumno = await _context.Alumnos.FindAsync(id);
-            if (alumno == null)
+            var anioCarrera = await _context.anioscarreras.FindAsync(id);
+            if (anioCarrera == null)
             {
                 return NotFound();
             }
 
-            _context.Alumnos.Remove(alumno);
+            _context.anioscarreras.Remove(anioCarrera);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool AlumnoExists(int id)
+        private bool AnioCarreraExists(int id)
         {
-            return _context.Alumnos.Any(e => e.Id == id);
+            return _context.anioscarreras.Any(e => e.Id == id);
         }
     }
 }

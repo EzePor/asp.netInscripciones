@@ -1,7 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Inscripciones.Models.Commons;
 
-namespace Inscripciones.Models
+namespace Inscripciones.Models.Inscripciones
 {
     public class Inscripcion
     {
@@ -13,6 +14,8 @@ namespace Inscripciones.Models
         public Alumno? Alumno { get; set; }
         public int CarreraId { get; set; }
         public Carrera? Carrera { get; set; }
+        public int CicloLectivoId { get; set; }
+        public CicloLectivo? CicloLectivo { get; set; }
         [NotMapped]
         public string? Inscripto
         {

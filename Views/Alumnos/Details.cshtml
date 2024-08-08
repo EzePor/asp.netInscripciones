@@ -1,13 +1,14 @@
-﻿@model Inscripciones.Models.Alumno
+﻿@using Inscripciones.Models.Commons
+@model Alumno
 
 @{
     ViewData["Title"] = "Details";
 }
 
-<h1>Detalle</h1>
+<h1 class="detalle">Detalle</h1>
 
 <div>
-    <h4>Alumno</h4>
+    <h4>Alumno:</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -37,6 +38,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Editar</a> |
-    <a asp-action="Index">Volver a la lista</a>
+    <a class="editar" asp-action="Edit" asp-route-id="@Model?.Id">Editar</a> |
+    <a class="volverLista" asp-action="Index">Volver a la lista</a>
 </div>

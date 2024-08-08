@@ -1,36 +1,37 @@
-﻿@model Inscripciones.Models.DetalleInscripcion
+﻿@using Inscripciones.Models.Inscripciones
+@model DetalleInscripcion
 
 @{
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1 class="detalle">Detalle</h1>
 
 <div>
-    <h4>DetalleInscripcion</h4>
+    <h4>Detalle Inscripcion:</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Modalidadcursado)
+            @Html.DisplayNameFor(model => model.ModalidadCursado)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Modalidadcursado)
+            @Html.DisplayFor(model => model.ModalidadCursado)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Inscripcion)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Inscripcion.Id)
+            @Html.DisplayFor(model => model.Inscripcion.Inscripto)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Materia)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Materia.Id)
+            @Html.DisplayFor(model => model.Materia.Nombre)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a class="editar" asp-action="Edit" asp-route-id="@Model?.Id">Editar</a> |
+    <a class="volverLista" asp-action="IndexPorInscripcion">Volver a la lista</a>
 </div>

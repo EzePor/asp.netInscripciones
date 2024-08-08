@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Inscripciones.Models.Inscripciones;
 using Inscripciones.Models;
 
-namespace Inscripciones.Controllers
+
+namespace Inscripciones.ApiControllers.Inscripciones
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -24,14 +26,14 @@ namespace Inscripciones.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<DetalleInscripcion>>> GetDetalleInscripciones()
         {
-            return await _context.DetalleInscripciones.ToListAsync();
+            return await _context.detallesinscripciones.ToListAsync();
         }
 
         // GET: api/ApiDetalleInscripcions/5
         [HttpGet("{id}")]
         public async Task<ActionResult<DetalleInscripcion>> GetDetalleInscripcion(int id)
         {
-            var detalleInscripcion = await _context.DetalleInscripciones.FindAsync(id);
+            var detalleInscripcion = await _context.detallesinscripciones.FindAsync(id);
 
             if (detalleInscripcion == null)
             {
@@ -77,7 +79,7 @@ namespace Inscripciones.Controllers
         [HttpPost]
         public async Task<ActionResult<DetalleInscripcion>> PostDetalleInscripcion(DetalleInscripcion detalleInscripcion)
         {
-            _context.DetalleInscripciones.Add(detalleInscripcion);
+            _context.detallesinscripciones.Add(detalleInscripcion);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetDetalleInscripcion", new { id = detalleInscripcion.Id }, detalleInscripcion);
@@ -87,13 +89,13 @@ namespace Inscripciones.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteDetalleInscripcion(int id)
         {
-            var detalleInscripcion = await _context.DetalleInscripciones.FindAsync(id);
+            var detalleInscripcion = await _context.detallesinscripciones.FindAsync(id);
             if (detalleInscripcion == null)
             {
                 return NotFound();
             }
 
-            _context.DetalleInscripciones.Remove(detalleInscripcion);
+            _context.detallesinscripciones.Remove(detalleInscripcion);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -101,7 +103,7 @@ namespace Inscripciones.Controllers
 
         private bool DetalleInscripcionExists(int id)
         {
-            return _context.DetalleInscripciones.Any(e => e.Id == id);
+            return _context.detallesinscripciones.Any(e => e.Id == id);
         }
     }
 }

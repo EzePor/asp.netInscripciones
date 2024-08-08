@@ -1,7 +1,9 @@
-﻿@model Inscripciones.Models.Materia
+﻿@using Inscripciones.Models.Commons
+@model Materia
 
 @{
     ViewData["Title"] = "CreateConAnio";
+    int idanio = ViewBag.IdAnio;
 }
 
 <h1 class="conten-crear">CREAR MATERIA:</h1>
@@ -10,17 +12,22 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="CreateConAnio">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
             <div class="form-group">
                 <label asp-for="Nombre" class="control-label"></label>
                 <input asp-for="Nombre" class="form-control" />
                 <span asp-validation-for="Nombre" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="AnioCarreraId" class="control-label">Año carrera</label>
-                <select asp-for="AnioCarreraId" class ="form-control" asp-items="ViewBag.aniocarreraId"></select>
+                <label  class="control-label">Año carrera</label>
+                <select  class="form-control" asp-items="ViewBag.AniosCarreras" disabled></select>
             </div>
+
+            <input type="hidden" asp-for="AnioCarreraId" value="@idanio" />
+
             <div class="form-group">
                 <input type="submit" value="CREAR" class="btn btn-primary" />
             </div>
@@ -29,7 +36,7 @@
 </div>
 
 <div>
-    <a class="volverLista" asp-action="Index">Volver a la lista</a>
+    <a class="volverLista" asp-action="IndexPorAnio" asp-route-idanio="@idanio">Volver a la lista</a>
 </div>
 
 @section Scripts {

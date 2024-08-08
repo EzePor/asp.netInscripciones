@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Inscripciones.Models.AnioCarrera>
+﻿@using Inscripciones.Models.Commons
+@model IEnumerable<AnioCarrera>
 
 @{
     ViewData["Title"] = "AnioCarrera";
@@ -34,25 +35,25 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Carrera.Nombre)
-            </td>
-            <td>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Carrera.Nombre)
+                </td>
+                <td>
                     <a class="enlaceNew" asp-controller="Materias" asp-action="IndexPorAnio" asp-route-idanio="@item.Id">Materias</a> |
                     <a class="editar" asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
                     <a class="detalle" asp-action="Details" asp-route-id="@item.Id">Detalle</a> |
                     <a class="eliminar" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
-            </td>
-        </tr>
-}
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
 <div>
     <a class="volverLista" asp-controller="Carreras" asp-action="Index">Volver a Inicio</a>
 </div>
-

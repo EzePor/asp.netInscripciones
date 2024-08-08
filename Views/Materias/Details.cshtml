@@ -1,13 +1,14 @@
-﻿@model Inscripciones.Models.Materia
+﻿@using Inscripciones.Models.Commons
+@model Materia
 
 @{
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1 class="detalle">Detalle</h1>
 
 <div>
-    <h4>Materias</h4>
+    <h4>Materias:</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -20,11 +21,11 @@
             @Html.DisplayNameFor(model => model.AnioCarrera)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AnioCarrera.Id)
+            @Html.DisplayFor(model => model.AnioCarrera.Nombre)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a class="editar" asp-action="Edit" asp-route-id="@Model?.Id">Editar</a> |
+    <a class="volverLista" asp-action="IndexPorAnio">Volver a la lista</a>
 </div>
