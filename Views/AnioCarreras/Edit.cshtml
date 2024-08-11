@@ -2,12 +2,12 @@
 @model AnioCarrera
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar";
 }
 
-<h1 class="editar">Edit</h1>
+<h1 class="editar">Editar</h1>
 
-<h4>AnioCarrera</h4>
+<h4>Año Carrera</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -15,24 +15,24 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="Nombre" class="control-label"></label>
+                <label asp-for="Nombre" class="control-label">Año Carrera</label>
                 <input asp-for="Nombre" class="form-control" />
                 <span asp-validation-for="Nombre" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CarreraId" class="control-label"></label>
-                <select asp-for="CarreraId" class="form-control" asp-items="ViewBag.CarreraId"></select>
+                <label asp-for="CarreraId" class="control-label">Carrera</label>
+                <select asp-for="CarreraId" class="form-control" asp-items="ViewBag.Carreras"></select>
                 <span asp-validation-for="CarreraId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Guardar" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a  class="volverLista" asp-action="IndexAnioPorCarrera">Volver a la lista</a>
 </div>
 
 @section Scripts {

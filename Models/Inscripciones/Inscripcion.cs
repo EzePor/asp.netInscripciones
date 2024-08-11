@@ -19,7 +19,7 @@ namespace Inscripciones.Models.Inscripciones
         [NotMapped]
         public string? Inscripto
         {
-            get { return $"{Alumno?.ApellidoNombre} | {Carrera?.Nombre}" ?? string.Empty; }
+            get { return $"{Alumno?.ApellidoNombre} | {Carrera?.Nombre} | {CicloLectivo?.Nombre} " ?? string.Empty; }
         }
     }
 }

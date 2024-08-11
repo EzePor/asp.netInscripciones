@@ -26,6 +26,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Carrera)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CicloLectivo)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -41,6 +44,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Carrera.Nombre)
             </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CicloLectivo.Nombre)
+                </td>
             <td>
                 <a class="enlaceNew" asp-action="IndexPorInscripcion" asp-controller="DetalleInscripciones" asp-route-idinscripcion="@item.Id">Inscripciones Materias</a> |
                     <a class="editar" asp-action="Edit" asp-route-id="@item.Id">Editar</a> |

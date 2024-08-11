@@ -32,7 +32,7 @@ namespace Inscripciones.Controllers
         public async Task<IActionResult> IndexPorInscripcion(int? idinscripcion = 1)
         {
             var inscripciones = _context.detallesinscripciones.Include(d => d.Materia).ThenInclude(m => m.AnioCarrera).ThenInclude(a => a.Carrera).Where(d => d.InscripcionId.Equals(idinscripcion)).OrderBy(d => d.Materia.AnioCarreraId);
-            ViewData["Inscripciones"] = new SelectList(_context.inscripciones.Include(i => i.Alumno), "Id", "Inscripto", idinscripcion);
+            ViewData["Inscripciones"] = new SelectList(_context.inscripciones.Include(i => i.Alumno).Include(i=> i.Carrera).Include(i=>i.CicloLectivo), "Id", "Inscripto", idinscripcion);
             ViewData["IdInscripcion"] = idinscripcion;
             return View(await inscripciones.ToListAsync());
         }
@@ -75,7 +75,7 @@ namespace Inscripciones.Controllers
         private void ArmoDatosParaCreateConInscripcion(int? idinscripcion, int? idaniocarrera)
         {
             //armo la lista de inscripciones y selecciono la inscripción actual, al pasarle la variable idinscripción
-            ViewData["Inscripciones"] = new SelectList(_context.inscripciones.Include(i => i.Alumno).Include(i => i.Carrera), "Id", "Inscripto", idinscripcion);
+            ViewData["Inscripciones"] = new SelectList(_context.inscripciones.Include(i => i.Alumno).Include(i => i.Carrera).Include(i=> i.CicloLectivo), "Id", "Inscripto", idinscripcion);
 
             //obtengo el registro de la inscripción actual
             Inscripcion inscripcion = _context.inscripciones.FirstOrDefault(i => i.Id == idinscripcion);

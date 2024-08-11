@@ -26,7 +26,7 @@ namespace Inscripciones.Controllers
             return View(await inscripcionesContext.ToListAsync());
         }
 
-        public async Task<IActionResult> IndexPorCarrera(int? idcarrera = 1)
+        public async Task<IActionResult> IndexAnioPorCarrera(int? idcarrera = 1)
         {
             ViewData["Carreras"] = new SelectList(_context.carreras, "Id", "Nombre", idcarrera);
             var inscripcionesContext = _context.anioscarreras.Include(a => a.Carrera).Where(a => a.CarreraId.Equals(idcarrera));
@@ -80,7 +80,7 @@ namespace Inscripciones.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Carreras"] = new SelectList(_context.carreras, "Id", "Id", anioCarrera.CarreraId);
+            ViewData["Carreras"] = new SelectList(_context.carreras, "Id", "Nombre", anioCarrera.CarreraId);
             return View(anioCarrera);
         }
 
@@ -92,9 +92,9 @@ namespace Inscripciones.Controllers
             {
                 _context.Add(anioCarrera);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(IndexPorCarrera), new { idcarrera = anioCarrera.CarreraId });
+                return RedirectToAction(nameof(IndexAnioPorCarrera), new { idcarrera = anioCarrera.CarreraId });
             }
-            ViewData["Carreras"] = new SelectList(_context.carreras, "Id", "Id", anioCarrera.CarreraId);
+            ViewData["Carreras"] = new SelectList(_context.carreras, "Id", "Nombre", anioCarrera.CarreraId);
             return View(anioCarrera);
         }
 
@@ -111,7 +111,7 @@ namespace Inscripciones.Controllers
             {
                 return NotFound();
             }
-            ViewData["Carreras"] = new SelectList(_context.carreras, "Id", "Id", anioCarrera.CarreraId);
+            ViewData["Carreras"] = new SelectList(_context.carreras, "Id", "Nombre", anioCarrera.CarreraId);
             return View(anioCarrera);
         }
 
@@ -147,7 +147,7 @@ namespace Inscripciones.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Carreras"] = new SelectList(_context.carreras, "Id", "Id", anioCarrera.CarreraId);
+            ViewData["Carreras"] = new SelectList(_context.carreras, "Id", "Nombre", anioCarrera.CarreraId);
             return View(anioCarrera);
         }
 

@@ -22,14 +22,18 @@ namespace Inscripciones.Controllers
             _context = context;
         }
 
-        // GET: api/ApiAnioCarreras1
+        // GET: api/ApiAnioCarreras
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<AnioCarrera>>> GetAnioCarreras()
+        public async Task<ActionResult<IEnumerable<AnioCarrera>>> Getanioscarreras([FromQuery] int? idCarrera)
         {
+            if (idCarrera != null)
+            {
+                return await _context.anioscarreras.Include(a => a.Carrera).Where(a => a.CarreraId.Equals(idCarrera)).ToListAsync();
+            }
             return await _context.anioscarreras.ToListAsync();
         }
 
-        // GET: api/ApiAnioCarreras1/5
+        // GET: api/ApiAnioCarreras/5
         [HttpGet("{id}")]
         public async Task<ActionResult<AnioCarrera>> GetAnioCarrera(int id)
         {
@@ -43,7 +47,7 @@ namespace Inscripciones.Controllers
             return anioCarrera;
         }
 
-        // PUT: api/ApiAnioCarreras1/5
+        // PUT: api/ApiAnioCarreras/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAnioCarrera(int id, AnioCarrera anioCarrera)
@@ -74,7 +78,7 @@ namespace Inscripciones.Controllers
             return NoContent();
         }
 
-        // POST: api/ApiAnioCarreras1
+        // POST: api/ApiAnioCarreras
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<AnioCarrera>> PostAnioCarrera(AnioCarrera anioCarrera)
@@ -85,7 +89,7 @@ namespace Inscripciones.Controllers
             return CreatedAtAction("GetAnioCarrera", new { id = anioCarrera.Id }, anioCarrera);
         }
 
-        // DELETE: api/ApiAnioCarreras1/5
+        // DELETE: api/ApiAnioCarreras/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAnioCarrera(int id)
         {

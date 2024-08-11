@@ -26,9 +26,11 @@
                 <label asp-for="CarreraId" class="control-label">Nombre de la carrera</label>
                 <select asp-for="CarreraId" class ="form-control" asp-items="ViewBag.Carreras"></select>
             </div>
-            <div class="error">
-                <p>mensaje</p>
+            <div class="form-group">
+                <label asp-for="CicloLectivoId" class="control-label">Ciclo Lectivo</label>
+                <select asp-for="CicloLectivoId" class="form-control" asp-items="ViewBag.CicloLectivos"></select>
             </div>
+            
             <div class="form-group">
                 <input type="submit" value="CREAR" class="btn btn-primary" />
             </div>

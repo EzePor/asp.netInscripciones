@@ -30,6 +30,11 @@
                 <span asp-validation-for="CarreraId" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="CicloLectivoId" class="control-label">Ciclo Lectivo</label>
+                <select asp-for="CicloLectivoId" class="form-control" asp-items="ViewBag.CicloLectivoId"></select>
+                <span asp-validation-for="CicloLectivoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Guardar" class="btn btn-primary" />
             </div>
         </form>

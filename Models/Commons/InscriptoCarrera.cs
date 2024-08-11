@@ -10,7 +10,7 @@
 
         public override string ToString()
         {
-            return $"{Alumno?.ApellidoNombre} {Carrera?.Nombre}" ?? string.Empty;
+            return $"{Alumno?.ApellidoNombre} | {Carrera?.Nombre}" ?? string.Empty;
         }
     }
 }

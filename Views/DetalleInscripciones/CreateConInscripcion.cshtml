@@ -17,7 +17,7 @@
 <form asp-controller="DetalleInscripciones" asp-action="IndexPorInscripcion">
     <div class="form-group">
         <label asp-for="@idinscripcion" class="control-label">Inscripción</label>
-        <select asp-for="@idinscripcion" class="form-control" asp-items="ViewBag.Inscripciones" disabled onchange="this.form.submit()"></select>
+        <select asp-for="@idinscripcion" class="form-control" asp-items="ViewBag.Inscripciones"  onchange="this.form.submit()"></select>
     </div>
 </form>
 <table class="table">

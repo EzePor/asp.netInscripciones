@@ -21,10 +21,14 @@ namespace Inscripciones.ApiControllers.MesasExamenes
             _context = context;
         }
 
-        // GET: api/ApiMesaExamen
+        // GET: api/ApiMesasExamenes
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<MesaExamen>>> GetMesaExamen()
+        public async Task<ActionResult<IEnumerable<MesaExamen>>> Getmesasexamenes([FromQuery] int? idCarrera, int? idTurno)
         {
+            if (idCarrera != null && idTurno != null)
+            {
+                return await _context.mesasexamenes.Include(m => m.DetallesMesaExamen).ThenInclude(d => d.Docente).Include(m => m.Materia).ThenInclude(m => m.AnioCarrera).ThenInclude(a => a.Carrera).Where(m => m.Materia.AnioCarrera.CarreraId == idCarrera && m.TurnoExamenId == idTurno).ToListAsync();
+            }
             return await _context.mesasexamenes.ToListAsync();
         }
 
