@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Inscripciones.Models.Inscripciones;
 using Inscripciones.Models;
+using Inscripciones.Models.Commons;
 
 namespace Inscripciones.ApiControllers.Inscripciones
 {
@@ -93,8 +94,8 @@ namespace Inscripciones.ApiControllers.Inscripciones
             {
                 return NotFound();
             }
-
-            _context.cicloslectivos.Remove(cicloLectivo);
+            cicloLectivo.Eliminado = true;
+            _context.cicloslectivos.Update(cicloLectivo);
             await _context.SaveChangesAsync();
 
             return NoContent();

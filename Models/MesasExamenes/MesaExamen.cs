@@ -14,6 +14,7 @@ namespace Inscripciones.Models.MesasExamenes
         public TurnoExamen? TurnoExamen { get; set; }
 
         public ICollection<DetalleMesaExamen> DetallesMesaExamen { get; set; }
+        public bool Eliminado { get; set; } = false;
 
         public override string ToString()
         {

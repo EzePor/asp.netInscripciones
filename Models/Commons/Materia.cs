@@ -11,6 +11,7 @@ namespace Inscripciones.Models.Commons
         [Display(Name = "Año Carrera")]
 
         public AnioCarrera? AnioCarrera { get; set; }
+        public bool Eliminado { get; set; } = false;
 
         public override string ToString()
         {

@@ -93,8 +93,8 @@ namespace Inscripciones.ApiControllers.Commons
             {
                 return NotFound();
             }
-
-            _context.usuarios.Remove(usuario);
+            usuario.Eliminado = true;
+            _context.usuarios.Update(usuario);
             await _context.SaveChangesAsync();
 
             return NoContent();

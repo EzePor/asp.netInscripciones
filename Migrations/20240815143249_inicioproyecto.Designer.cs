@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Inscripciones.Migrations
 {
     [DbContext(typeof(InscripcionesContext))]
-    [Migration("20240807222748_iniciandoproyecto")]
-    partial class iniciandoproyecto
+    [Migration("20240815143249_inicioproyecto")]
+    partial class inicioproyecto
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,6 +41,9 @@ namespace Inscripciones.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<bool>("Eliminado")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -59,8 +62,18 @@ namespace Inscripciones.Migrations
                             Id = 1,
                             ApellidoNombre = "Rubén Alejandro Ramirez",
                             Direccion = "Bv Roque Saenz Peña 2942",
+                            Eliminado = false,
                             Email = "aleramirezsj@gmail.com",
                             Telefono = "15447106"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ApellidoNombre = "Porchietto Ezequiel Gustavo",
+                            Direccion = "Juan Mantovani 1877",
+                            Eliminado = false,
+                            Email = "ezeporche@gmail.com",
+                            Telefono = "431264"
                         });
                 });
 
@@ -74,6 +87,9 @@ namespace Inscripciones.Migrations
 
                     b.Property<int>("CarreraId")
                         .HasColumnType("int");
+
+                    b.Property<bool>("Eliminado")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Nombre")
                         .IsRequired()
@@ -90,168 +106,196 @@ namespace Inscripciones.Migrations
                         {
                             Id = 1,
                             CarreraId = 1,
+                            Eliminado = false,
                             Nombre = "1er año"
                         },
                         new
                         {
                             Id = 2,
                             CarreraId = 1,
+                            Eliminado = false,
                             Nombre = "2do año"
                         },
                         new
                         {
                             Id = 3,
                             CarreraId = 1,
+                            Eliminado = false,
                             Nombre = "3er año"
                         },
                         new
                         {
                             Id = 4,
                             CarreraId = 2,
+                            Eliminado = false,
                             Nombre = "1er año"
                         },
                         new
                         {
                             Id = 5,
                             CarreraId = 2,
+                            Eliminado = false,
                             Nombre = "2do año"
                         },
                         new
                         {
                             Id = 6,
                             CarreraId = 2,
+                            Eliminado = false,
                             Nombre = "3er año"
                         },
                         new
                         {
                             Id = 7,
                             CarreraId = 3,
+                            Eliminado = false,
                             Nombre = "1er año"
                         },
                         new
                         {
                             Id = 8,
                             CarreraId = 3,
+                            Eliminado = false,
                             Nombre = "2do año"
                         },
                         new
                         {
                             Id = 9,
                             CarreraId = 3,
+                            Eliminado = false,
                             Nombre = "3er año"
                         },
                         new
                         {
                             Id = 10,
                             CarreraId = 4,
+                            Eliminado = false,
                             Nombre = "1er año"
                         },
                         new
                         {
                             Id = 11,
                             CarreraId = 4,
+                            Eliminado = false,
                             Nombre = "2do año"
                         },
                         new
                         {
                             Id = 12,
                             CarreraId = 4,
+                            Eliminado = false,
                             Nombre = "3er año"
                         },
                         new
                         {
                             Id = 13,
                             CarreraId = 5,
+                            Eliminado = false,
                             Nombre = "1er año"
                         },
                         new
                         {
                             Id = 14,
                             CarreraId = 5,
+                            Eliminado = false,
                             Nombre = "2do año"
                         },
                         new
                         {
                             Id = 15,
                             CarreraId = 5,
+                            Eliminado = false,
                             Nombre = "3er año"
                         },
                         new
                         {
                             Id = 16,
                             CarreraId = 5,
+                            Eliminado = false,
                             Nombre = "4to año"
                         },
                         new
                         {
                             Id = 17,
                             CarreraId = 6,
+                            Eliminado = false,
                             Nombre = "1er año"
                         },
                         new
                         {
                             Id = 18,
                             CarreraId = 6,
+                            Eliminado = false,
                             Nombre = "2do año"
                         },
                         new
                         {
                             Id = 19,
                             CarreraId = 6,
+                            Eliminado = false,
                             Nombre = "3er año"
                         },
                         new
                         {
                             Id = 20,
                             CarreraId = 6,
+                            Eliminado = false,
                             Nombre = "4to año"
                         },
                         new
                         {
                             Id = 21,
                             CarreraId = 7,
+                            Eliminado = false,
                             Nombre = "1er año"
                         },
                         new
                         {
                             Id = 22,
                             CarreraId = 7,
+                            Eliminado = false,
                             Nombre = "2do año"
                         },
                         new
                         {
                             Id = 23,
                             CarreraId = 7,
+                            Eliminado = false,
                             Nombre = "3er año"
                         },
                         new
                         {
                             Id = 24,
                             CarreraId = 7,
+                            Eliminado = false,
                             Nombre = "4to año"
                         },
                         new
                         {
                             Id = 25,
                             CarreraId = 8,
+                            Eliminado = false,
                             Nombre = "1er año"
                         },
                         new
                         {
                             Id = 26,
                             CarreraId = 8,
+                            Eliminado = false,
                             Nombre = "2do año"
                         },
                         new
                         {
                             Id = 27,
                             CarreraId = 8,
+                            Eliminado = false,
                             Nombre = "3er año"
                         },
                         new
                         {
                             Id = 28,
                             CarreraId = 8,
+                            Eliminado = false,
                             Nombre = "4to año"
                         });
                 });
@@ -263,6 +307,9 @@ namespace Inscripciones.Migrations
                         .HasColumnType("int");
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Eliminado")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Nombre")
                         .IsRequired()
@@ -280,54 +327,63 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 1,
+                            Eliminado = false,
                             Nombre = "Tecnicatura Superior en Desarrollo de Software",
                             Sigla = "TSDS"
                         },
                         new
                         {
                             Id = 2,
+                            Eliminado = false,
                             Nombre = "Tecnicatura Superior en Soporte de Infraestructura",
                             Sigla = "TSSITI"
                         },
                         new
                         {
                             Id = 3,
+                            Eliminado = false,
                             Nombre = "Tecnicatura Superior en Gestion de las Organizaciones",
                             Sigla = "TSGO"
                         },
                         new
                         {
                             Id = 4,
+                            Eliminado = false,
                             Nombre = "Tecnicatura Superior en Enfermeria",
                             Sigla = "TSE"
                         },
                         new
                         {
                             Id = 5,
+                            Eliminado = false,
                             Nombre = "Profesorado de Educación Secundaria en Ciencias de la Administración",
                             Sigla = "PEA"
                         },
                         new
                         {
                             Id = 6,
+                            Eliminado = false,
                             Nombre = "Profesorado de Educación Inicial",
                             Sigla = "PEI"
                         },
                         new
                         {
                             Id = 7,
+                            Eliminado = false,
                             Nombre = "Profesorado de Educación Secundaria en Economía",
                             Sigla = "PEE"
                         },
                         new
                         {
                             Id = 8,
+                            Eliminado = false,
                             Nombre = "Profesorado de Educación Tecnológica",
                             Sigla = "PET"
                         },
                         new
                         {
                             Id = 9,
+                            Eliminado = false,
                             Nombre = "Licenciatura en Cooperativismo y Mutualismo",
                             Sigla = "LCM"
                         });
@@ -341,6 +397,9 @@ namespace Inscripciones.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<bool>("Eliminado")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -353,376 +412,451 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 1,
+                            Eliminado = false,
                             Nombre = "Adamo, G."
                         },
                         new
                         {
                             Id = 2,
+                            Eliminado = false,
                             Nombre = "Aimar, M.A."
                         },
                         new
                         {
                             Id = 3,
+                            Eliminado = false,
                             Nombre = "Albaristo, Stef."
                         },
                         new
                         {
                             Id = 4,
+                            Eliminado = false,
                             Nombre = "Alesso, A."
                         },
                         new
                         {
                             Id = 5,
+                            Eliminado = false,
                             Nombre = "Alesso, M."
                         },
                         new
                         {
                             Id = 6,
+                            Eliminado = false,
                             Nombre = "Arnolfo, P."
                         },
                         new
                         {
                             Id = 7,
+                            Eliminado = false,
                             Nombre = "Bazán, D."
                         },
                         new
                         {
                             Id = 8,
+                            Eliminado = false,
                             Nombre = "Blanche, C."
                         },
                         new
                         {
                             Id = 9,
+                            Eliminado = false,
                             Nombre = "Bogni, J."
                         },
                         new
                         {
                             Id = 10,
+                            Eliminado = false,
                             Nombre = "Brondino, D."
                         },
                         new
                         {
                             Id = 11,
+                            Eliminado = false,
                             Nombre = "Brussa, G."
                         },
                         new
                         {
                             Id = 12,
+                            Eliminado = false,
                             Nombre = "Buceta, MB."
                         },
                         new
                         {
                             Id = 13,
+                            Eliminado = false,
                             Nombre = "Bueno, M.F."
                         },
                         new
                         {
                             Id = 14,
+                            Eliminado = false,
                             Nombre = "Cainero, G."
                         },
                         new
                         {
                             Id = 15,
+                            Eliminado = false,
                             Nombre = "Calvo, M."
                         },
                         new
                         {
                             Id = 16,
+                            Eliminado = false,
                             Nombre = "Cavallini, J."
                         },
                         new
                         {
                             Id = 17,
+                            Eliminado = false,
                             Nombre = "Chauderón, L."
                         },
                         new
                         {
                             Id = 18,
+                            Eliminado = false,
                             Nombre = "Chelini, V."
                         },
                         new
                         {
                             Id = 19,
+                            Eliminado = false,
                             Nombre = "Corradi, R."
                         },
                         new
                         {
                             Id = 20,
+                            Eliminado = false,
                             Nombre = "Dalesio, C."
                         },
                         new
                         {
                             Id = 21,
+                            Eliminado = false,
                             Nombre = "Degiorgio, O."
                         },
                         new
                         {
                             Id = 22,
+                            Eliminado = false,
                             Nombre = "Della Rosa, M."
                         },
                         new
                         {
                             Id = 23,
+                            Eliminado = false,
                             Nombre = "Dellaferrera, C."
                         },
                         new
                         {
                             Id = 24,
+                            Eliminado = false,
                             Nombre = "Doglioli, M."
                         },
                         new
                         {
                             Id = 25,
+                            Eliminado = false,
                             Nombre = "Duran, C."
                         },
                         new
                         {
                             Id = 26,
+                            Eliminado = false,
                             Nombre = "Epes, B."
                         },
                         new
                         {
                             Id = 27,
+                            Eliminado = false,
                             Nombre = "Espru, F."
                         },
                         new
                         {
                             Id = 28,
+                            Eliminado = false,
                             Nombre = "Ferreyra, M."
                         },
                         new
                         {
                             Id = 29,
+                            Eliminado = false,
                             Nombre = "Ferrero, M."
                         },
                         new
                         {
                             Id = 30,
+                            Eliminado = false,
                             Nombre = "Ferr, N."
                         },
                         new
                         {
                             Id = 31,
+                            Eliminado = false,
                             Nombre = "Gaido, J.P."
                         },
                         new
                         {
                             Id = 32,
+                            Eliminado = false,
                             Nombre = "Galmes, M."
                         },
                         new
                         {
                             Id = 33,
+                            Eliminado = false,
                             Nombre = "Genero, A."
                         },
                         new
                         {
                             Id = 34,
+                            Eliminado = false,
                             Nombre = "Gongora, L."
                         },
                         new
                         {
                             Id = 35,
+                            Eliminado = false,
                             Nombre = "Gomez, V."
                         },
                         new
                         {
                             Id = 36,
+                            Eliminado = false,
                             Nombre = "Gretter, M.C."
                         },
                         new
                         {
                             Id = 37,
+                            Eliminado = false,
                             Nombre = "Grosso, S."
                         },
                         new
                         {
                             Id = 38,
+                            Eliminado = false,
                             Nombre = "Imhof, R."
                         },
                         new
                         {
                             Id = 39,
+                            Eliminado = false,
                             Nombre = "Imperiale, M."
                         },
                         new
                         {
                             Id = 40,
+                            Eliminado = false,
                             Nombre = "Lodi, L."
                         },
                         new
                         {
                             Id = 41,
+                            Eliminado = false,
                             Nombre = "Lovino, F."
                         },
                         new
                         {
                             Id = 42,
+                            Eliminado = false,
                             Nombre = "Mancilla, J."
                         },
                         new
                         {
                             Id = 43,
+                            Eliminado = false,
                             Nombre = "Manattini, S."
                         },
                         new
                         {
                             Id = 44,
+                            Eliminado = false,
                             Nombre = "Marenoni, A."
                         },
                         new
                         {
                             Id = 45,
+                            Eliminado = false,
                             Nombre = "Martínez, G."
                         },
                         new
                         {
                             Id = 46,
+                            Eliminado = false,
                             Nombre = "Mendoza, M."
                         },
                         new
                         {
                             Id = 47,
+                            Eliminado = false,
                             Nombre = "Miñoz, A."
                         },
                         new
                         {
                             Id = 48,
+                            Eliminado = false,
                             Nombre = "Molina, T."
                         },
                         new
                         {
                             Id = 49,
+                            Eliminado = false,
                             Nombre = "Monzón, M.I."
                         },
                         new
                         {
                             Id = 50,
+                            Eliminado = false,
                             Nombre = "Nasimbera, R."
                         },
                         new
                         {
                             Id = 51,
+                            Eliminado = false,
                             Nombre = "Ortiz, L."
                         },
                         new
                         {
                             Id = 52,
+                            Eliminado = false,
                             Nombre = "Paredes, M."
                         },
                         new
                         {
                             Id = 53,
+                            Eliminado = false,
                             Nombre = "Pedrazzoli, F."
                         },
                         new
                         {
                             Id = 54,
+                            Eliminado = false,
                             Nombre = "Pereyra, S."
                         },
                         new
                         {
                             Id = 55,
+                            Eliminado = false,
                             Nombre = "Peressin, S."
                         },
                         new
                         {
                             Id = 56,
+                            Eliminado = false,
                             Nombre = "Prida, C."
                         },
                         new
                         {
                             Id = 57,
+                            Eliminado = false,
                             Nombre = "Puccio, D."
                         },
                         new
                         {
                             Id = 58,
+                            Eliminado = false,
                             Nombre = "Quaglia, E."
                         },
                         new
                         {
                             Id = 59,
+                            Eliminado = false,
                             Nombre = "Ramirez, R.A."
                         },
                         new
                         {
                             Id = 60,
+                            Eliminado = false,
                             Nombre = "Renteria, D."
                         },
                         new
                         {
                             Id = 61,
+                            Eliminado = false,
                             Nombre = "Rodriguez Quain, J."
                         },
                         new
                         {
                             Id = 62,
+                            Eliminado = false,
                             Nombre = "Rosso, E."
                         },
                         new
                         {
                             Id = 63,
+                            Eliminado = false,
                             Nombre = "Sanchez, R."
                         },
                         new
                         {
                             Id = 64,
+                            Eliminado = false,
                             Nombre = "Sandoval, P."
                         },
                         new
                         {
                             Id = 65,
+                            Eliminado = false,
                             Nombre = "Sancho, I."
                         },
                         new
                         {
                             Id = 66,
+                            Eliminado = false,
                             Nombre = "Sara, J."
                         },
                         new
                         {
                             Id = 67,
+                            Eliminado = false,
                             Nombre = "Strada, J."
                         },
                         new
                         {
                             Id = 68,
+                            Eliminado = false,
                             Nombre = "Tovar, C."
                         },
                         new
                         {
                             Id = 69,
+                            Eliminado = false,
                             Nombre = "Tregnaghi, C."
                         },
                         new
                         {
                             Id = 70,
+                            Eliminado = false,
                             Nombre = "Tschopp, M.R."
                         },
                         new
                         {
                             Id = 71,
+                            Eliminado = false,
                             Nombre = "Verzzali, A."
                         },
                         new
                         {
                             Id = 72,
+                            Eliminado = false,
                             Nombre = "Vigniatti, E."
                         },
                         new
                         {
                             Id = 73,
+                            Eliminado = false,
                             Nombre = "Villa, M.F."
                         },
                         new
                         {
                             Id = 74,
+                            Eliminado = false,
                             Nombre = "Ruiz, A."
                         },
                         new
                         {
                             Id = 75,
+                            Eliminado = false,
                             Nombre = "Sager, L."
                         });
                 });
@@ -741,6 +875,9 @@ namespace Inscripciones.Migrations
                     b.Property<int?>("CarreraId")
                         .HasColumnType("int");
 
+                    b.Property<bool>("Eliminado")
+                        .HasColumnType("tinyint(1)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("AlumnoId");
@@ -754,7 +891,8 @@ namespace Inscripciones.Migrations
                         {
                             Id = 1,
                             AlumnoId = 1,
-                            CarreraId = 1
+                            CarreraId = 1,
+                            Eliminado = false
                         });
                 });
 
@@ -768,6 +906,9 @@ namespace Inscripciones.Migrations
 
                     b.Property<int>("AnioCarreraId")
                         .HasColumnType("int");
+
+                    b.Property<bool>("Eliminado")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Nombre")
                         .IsRequired()
@@ -784,1746 +925,2037 @@ namespace Inscripciones.Migrations
                         {
                             Id = 1,
                             AnioCarreraId = 21,
+                            Eliminado = false,
                             Nombre = "Pedagogía"
                         },
                         new
                         {
                             Id = 2,
                             AnioCarreraId = 21,
+                            Eliminado = false,
                             Nombre = "UCCV Sociología"
                         },
                         new
                         {
                             Id = 3,
                             AnioCarreraId = 21,
+                            Eliminado = false,
                             Nombre = "Administración General"
                         },
                         new
                         {
                             Id = 4,
                             AnioCarreraId = 21,
+                            Eliminado = false,
                             Nombre = "Economía I"
                         },
                         new
                         {
                             Id = 5,
                             AnioCarreraId = 21,
+                            Eliminado = false,
                             Nombre = "Geografía Económica"
                         },
                         new
                         {
                             Id = 6,
                             AnioCarreraId = 21,
+                            Eliminado = false,
                             Nombre = "Historia Económica"
                         },
                         new
                         {
                             Id = 7,
                             AnioCarreraId = 21,
+                            Eliminado = false,
                             Nombre = "Construcción de Ciudadanía"
                         },
                         new
                         {
                             Id = 8,
                             AnioCarreraId = 21,
+                            Eliminado = false,
                             Nombre = "Sistema de Información Contable I"
                         },
                         new
                         {
                             Id = 9,
                             AnioCarreraId = 21,
+                            Eliminado = false,
                             Nombre = "Matemática"
                         },
                         new
                         {
                             Id = 10,
                             AnioCarreraId = 21,
+                            Eliminado = false,
                             Nombre = "Práctica Docente I"
                         },
                         new
                         {
                             Id = 11,
                             AnioCarreraId = 22,
+                            Eliminado = false,
                             Nombre = "Instituciones Educativas"
                         },
                         new
                         {
                             Id = 12,
                             AnioCarreraId = 22,
+                            Eliminado = false,
                             Nombre = "Didáctica y Curriculum"
                         },
                         new
                         {
                             Id = 13,
                             AnioCarreraId = 22,
+                            Eliminado = false,
                             Nombre = "Psicología y Educación"
                         },
                         new
                         {
                             Id = 14,
                             AnioCarreraId = 22,
+                            Eliminado = false,
                             Nombre = "Economía II"
                         },
                         new
                         {
                             Id = 15,
                             AnioCarreraId = 22,
+                            Eliminado = false,
                             Nombre = "Sistema de Información Contable II"
                         },
                         new
                         {
                             Id = 16,
                             AnioCarreraId = 22,
+                            Eliminado = false,
                             Nombre = "Derecho I"
                         },
                         new
                         {
                             Id = 17,
                             AnioCarreraId = 22,
+                            Eliminado = false,
                             Nombre = "Estadística Aplicada"
                         },
                         new
                         {
                             Id = 18,
                             AnioCarreraId = 22,
+                            Eliminado = false,
                             Nombre = "Didáctica de la Economía I"
                         },
                         new
                         {
                             Id = 19,
                             AnioCarreraId = 22,
+                            Eliminado = false,
                             Nombre = "Práctica Docente II"
                         },
                         new
                         {
                             Id = 20,
                             AnioCarreraId = 23,
+                            Eliminado = false,
                             Nombre = "Historia y Política de la Educación Argentina"
                         },
                         new
                         {
                             Id = 21,
                             AnioCarreraId = 23,
+                            Eliminado = false,
                             Nombre = "Filosofía"
                         },
                         new
                         {
                             Id = 22,
                             AnioCarreraId = 23,
+                            Eliminado = false,
                             Nombre = "Metodología de la Investigación"
                         },
                         new
                         {
                             Id = 23,
                             AnioCarreraId = 23,
+                            Eliminado = false,
                             Nombre = "Economía III"
                         },
                         new
                         {
                             Id = 24,
                             AnioCarreraId = 23,
+                            Eliminado = false,
                             Nombre = "Finanzas Públicas"
                         },
                         new
                         {
                             Id = 25,
                             AnioCarreraId = 23,
+                            Eliminado = false,
                             Nombre = "Derecho II"
                         },
                         new
                         {
                             Id = 26,
                             AnioCarreraId = 23,
+                            Eliminado = false,
                             Nombre = "Sujetos de la Educación Secundaria"
                         },
                         new
                         {
                             Id = 27,
                             AnioCarreraId = 23,
+                            Eliminado = false,
                             Nombre = "Práctica Docente III"
                         },
                         new
                         {
                             Id = 28,
                             AnioCarreraId = 23,
+                            Eliminado = false,
                             Nombre = "Producción de los Recursos Didácticos I"
                         },
                         new
                         {
                             Id = 29,
                             AnioCarreraId = 24,
+                            Eliminado = false,
                             Nombre = "Ética y Trabajo Docente"
                         },
                         new
                         {
                             Id = 30,
                             AnioCarreraId = 24,
+                            Eliminado = false,
                             Nombre = "Educación Sexual Integral"
                         },
                         new
                         {
                             Id = 31,
                             AnioCarreraId = 24,
+                            Eliminado = false,
                             Nombre = "UCCV Comunicación Social"
                         },
                         new
                         {
                             Id = 32,
                             AnioCarreraId = 24,
+                            Eliminado = false,
                             Nombre = "Economía Social y Sostenible"
                         },
                         new
                         {
                             Id = 33,
                             AnioCarreraId = 24,
+                            Eliminado = false,
                             Nombre = "Economía Argentina Latinoamericana e Internacional"
                         },
                         new
                         {
                             Id = 34,
                             AnioCarreraId = 24,
+                            Eliminado = false,
                             Nombre = "Prácticas de Investigación"
                         },
                         new
                         {
                             Id = 35,
                             AnioCarreraId = 24,
+                            Eliminado = false,
                             Nombre = "Práctica Docente IV (Residencia)"
                         },
                         new
                         {
                             Id = 36,
                             AnioCarreraId = 24,
+                            Eliminado = false,
                             Nombre = "Producción de los Recursos Didácticos II"
                         },
                         new
                         {
                             Id = 37,
                             AnioCarreraId = 24,
+                            Eliminado = false,
                             Nombre = "Unidad de Definición Institucional"
                         },
                         new
                         {
                             Id = 38,
                             AnioCarreraId = 25,
+                            Eliminado = false,
                             Nombre = "Pedagogía"
                         },
                         new
                         {
                             Id = 39,
                             AnioCarreraId = 25,
+                            Eliminado = false,
                             Nombre = "Movimiento y Cuerpo"
                         },
                         new
                         {
                             Id = 40,
                             AnioCarreraId = 25,
+                            Eliminado = false,
                             Nombre = "Práctica Docente I: Escenarios Educativos"
                         },
                         new
                         {
                             Id = 41,
                             AnioCarreraId = 25,
+                            Eliminado = false,
                             Nombre = "Introducción a la Tecnología"
                         },
                         new
                         {
                             Id = 42,
                             AnioCarreraId = 25,
+                            Eliminado = false,
                             Nombre = "Historia de la Tecnología"
                         },
                         new
                         {
                             Id = 43,
                             AnioCarreraId = 25,
+                            Eliminado = false,
                             Nombre = "Diseño y Producción de la Tecnología I"
                         },
                         new
                         {
                             Id = 44,
                             AnioCarreraId = 25,
+                            Eliminado = false,
                             Nombre = "Matemática"
                         },
                         new
                         {
                             Id = 45,
                             AnioCarreraId = 25,
+                            Eliminado = false,
                             Nombre = "Física"
                         },
                         new
                         {
                             Id = 46,
                             AnioCarreraId = 26,
+                            Eliminado = false,
                             Nombre = "Psicología de la Educación"
                         },
                         new
                         {
                             Id = 47,
                             AnioCarreraId = 26,
+                            Eliminado = false,
                             Nombre = "Didáctica y Curriculum"
                         },
                         new
                         {
                             Id = 48,
                             AnioCarreraId = 26,
+                            Eliminado = false,
                             Nombre = "Instituciones Educativas"
                         },
                         new
                         {
                             Id = 49,
                             AnioCarreraId = 26,
+                            Eliminado = false,
                             Nombre = "Práctica Docente II: La Institución Escolar"
                         },
                         new
                         {
                             Id = 50,
                             AnioCarreraId = 26,
+                            Eliminado = false,
                             Nombre = "Sujetos de la Educación I"
                         },
                         new
                         {
                             Id = 51,
                             AnioCarreraId = 26,
+                            Eliminado = false,
                             Nombre = "Tics para la Enseñanza"
                         },
                         new
                         {
                             Id = 52,
                             AnioCarreraId = 26,
+                            Eliminado = false,
                             Nombre = "Procesos Productivos"
                         },
                         new
                         {
                             Id = 53,
                             AnioCarreraId = 26,
+                            Eliminado = false,
                             Nombre = "Diseño y Producción Tecnológica II"
                         },
                         new
                         {
                             Id = 54,
                             AnioCarreraId = 26,
+                            Eliminado = false,
                             Nombre = "Didáctica Específica I"
                         },
                         new
                         {
                             Id = 55,
                             AnioCarreraId = 27,
+                            Eliminado = false,
                             Nombre = "Filosofía y Educación"
                         },
                         new
                         {
                             Id = 56,
                             AnioCarreraId = 27,
+                            Eliminado = false,
                             Nombre = "Historia Social de la Educación"
                         },
                         new
                         {
                             Id = 57,
                             AnioCarreraId = 27,
+                            Eliminado = false,
                             Nombre = "Metodología de la Investigación"
                         },
                         new
                         {
                             Id = 58,
                             AnioCarreraId = 27,
+                            Eliminado = false,
                             Nombre = "Práctica Docente III: La Clase"
                         },
                         new
                         {
                             Id = 59,
                             AnioCarreraId = 27,
+                            Eliminado = false,
                             Nombre = "Sujetos de la Educación II"
                         },
                         new
                         {
                             Id = 60,
                             AnioCarreraId = 27,
+                            Eliminado = false,
                             Nombre = "Materiales"
                         },
                         new
                         {
                             Id = 61,
                             AnioCarreraId = 27,
+                            Eliminado = false,
                             Nombre = "Química"
                         },
                         new
                         {
                             Id = 62,
                             AnioCarreraId = 27,
+                            Eliminado = false,
                             Nombre = "Procesos de Control"
                         },
                         new
                         {
                             Id = 63,
                             AnioCarreraId = 27,
+                            Eliminado = false,
                             Nombre = "Tecnologías Regionales"
                         },
                         new
                         {
                             Id = 64,
                             AnioCarreraId = 27,
+                            Eliminado = false,
                             Nombre = "Diseño y Producción Tecnológica III"
                         },
                         new
                         {
                             Id = 65,
                             AnioCarreraId = 27,
+                            Eliminado = false,
                             Nombre = "Didáctica Específica II"
                         },
                         new
                         {
                             Id = 66,
                             AnioCarreraId = 28,
+                            Eliminado = false,
                             Nombre = "Ética y Trabajo Docente"
                         },
                         new
                         {
                             Id = 67,
                             AnioCarreraId = 28,
+                            Eliminado = false,
                             Nombre = "Educación Sexual Integral"
                         },
                         new
                         {
                             Id = 68,
                             AnioCarreraId = 28,
+                            Eliminado = false,
                             Nombre = "Unidades de Definición Institucional I"
                         },
                         new
                         {
                             Id = 69,
                             AnioCarreraId = 28,
+                            Eliminado = false,
                             Nombre = "Unidades de Definición Institucional II"
                         },
                         new
                         {
                             Id = 70,
                             AnioCarreraId = 28,
+                            Eliminado = false,
                             Nombre = "Prácticas de Investigación"
                         },
                         new
                         {
                             Id = 71,
                             AnioCarreraId = 28,
+                            Eliminado = false,
                             Nombre = "Práctica Docente IV: El Rol Docente y su Práctica"
                         },
                         new
                         {
                             Id = 72,
                             AnioCarreraId = 28,
+                            Eliminado = false,
                             Nombre = "Biotecnología"
                         },
                         new
                         {
                             Id = 73,
                             AnioCarreraId = 28,
+                            Eliminado = false,
                             Nombre = "Procesos de Comunicación"
                         },
                         new
                         {
                             Id = 74,
                             AnioCarreraId = 28,
+                            Eliminado = false,
                             Nombre = "Problemáticas Sociotécnicas"
                         },
                         new
                         {
                             Id = 75,
                             AnioCarreraId = 28,
+                            Eliminado = false,
                             Nombre = "Diseño y Producción Tecnológica IV"
                         },
                         new
                         {
                             Id = 76,
                             AnioCarreraId = 28,
+                            Eliminado = false,
                             Nombre = "Taller de Producción Didáctica"
                         },
                         new
                         {
                             Id = 77,
                             AnioCarreraId = 1,
+                            Eliminado = false,
                             Nombre = "Comunicación (1° cuat.)"
                         },
                         new
                         {
                             Id = 78,
                             AnioCarreraId = 1,
+                            Eliminado = false,
                             Nombre = "Unidad de definición Institucional (2° cuat.)"
                         },
                         new
                         {
                             Id = 79,
                             AnioCarreraId = 1,
+                            Eliminado = false,
                             Nombre = "Matemática"
                         },
                         new
                         {
                             Id = 80,
                             AnioCarreraId = 1,
+                            Eliminado = false,
                             Nombre = "Inglés Técnico I"
                         },
                         new
                         {
                             Id = 81,
                             AnioCarreraId = 1,
+                            Eliminado = false,
                             Nombre = "Administración"
                         },
                         new
                         {
                             Id = 82,
                             AnioCarreraId = 1,
+                            Eliminado = false,
                             Nombre = "Tecnología de la Información"
                         },
                         new
                         {
                             Id = 83,
                             AnioCarreraId = 1,
+                            Eliminado = false,
                             Nombre = "Lógica y Estructura de Datos"
                         },
                         new
                         {
                             Id = 84,
                             AnioCarreraId = 1,
+                            Eliminado = false,
                             Nombre = "Ingeniería de Software I"
                         },
                         new
                         {
                             Id = 85,
                             AnioCarreraId = 1,
+                            Eliminado = false,
                             Nombre = "Sistemas Operativos"
                         },
                         new
                         {
                             Id = 86,
                             AnioCarreraId = 2,
+                            Eliminado = false,
                             Nombre = "Problemáticas Socio Contemporáneas (1° cuat.)"
                         },
                         new
                         {
                             Id = 87,
                             AnioCarreraId = 2,
+                            Eliminado = false,
                             Nombre = "Unidad de definición Institucional (2° cuat.)"
                         },
                         new
                         {
                             Id = 88,
                             AnioCarreraId = 2,
+                            Eliminado = false,
                             Nombre = "Inglés Técnico II"
                         },
                         new
                         {
                             Id = 89,
                             AnioCarreraId = 2,
+                            Eliminado = false,
                             Nombre = "Innovación y Desarrollo Emprendedor"
                         },
                         new
                         {
                             Id = 90,
                             AnioCarreraId = 2,
+                            Eliminado = false,
                             Nombre = "Estadística"
                         },
                         new
                         {
                             Id = 91,
                             AnioCarreraId = 2,
+                            Eliminado = false,
                             Nombre = "Programación I"
                         },
                         new
                         {
                             Id = 92,
                             AnioCarreraId = 2,
+                            Eliminado = false,
                             Nombre = "Ingeniería de Software II"
                         },
                         new
                         {
                             Id = 93,
                             AnioCarreraId = 2,
+                            Eliminado = false,
                             Nombre = "Base de Datos I"
                         },
                         new
                         {
                             Id = 94,
                             AnioCarreraId = 2,
+                            Eliminado = false,
                             Nombre = "Práctica Profesionalizante I"
                         },
                         new
                         {
                             Id = 95,
                             AnioCarreraId = 3,
+                            Eliminado = false,
                             Nombre = "Ética y Responsabilidad Social"
                         },
                         new
                         {
                             Id = 96,
                             AnioCarreraId = 3,
+                            Eliminado = false,
                             Nombre = "Derecho y Legislación Laboral"
                         },
                         new
                         {
                             Id = 97,
                             AnioCarreraId = 3,
+                            Eliminado = false,
                             Nombre = "Redes y Comunicación"
                         },
                         new
                         {
                             Id = 98,
                             AnioCarreraId = 3,
+                            Eliminado = false,
                             Nombre = "Programación II"
                         },
                         new
                         {
                             Id = 99,
                             AnioCarreraId = 3,
+                            Eliminado = false,
                             Nombre = "Gestión de Proyectos de Software"
                         },
                         new
                         {
                             Id = 100,
                             AnioCarreraId = 3,
+                            Eliminado = false,
                             Nombre = "Base de Datos II"
                         },
                         new
                         {
                             Id = 101,
                             AnioCarreraId = 3,
+                            Eliminado = false,
                             Nombre = "Práctica Profesionalizante II"
                         },
                         new
                         {
                             Id = 102,
                             AnioCarreraId = 10,
+                            Eliminado = false,
                             Nombre = "Comunicación"
                         },
                         new
                         {
                             Id = 103,
                             AnioCarreraId = 10,
+                            Eliminado = false,
                             Nombre = "Unidad de Definición Institucional I"
                         },
                         new
                         {
                             Id = 104,
                             AnioCarreraId = 10,
+                            Eliminado = false,
                             Nombre = "Salud Pública"
                         },
                         new
                         {
                             Id = 105,
                             AnioCarreraId = 10,
+                            Eliminado = false,
                             Nombre = "Biología Humana I"
                         },
                         new
                         {
                             Id = 106,
                             AnioCarreraId = 10,
+                            Eliminado = false,
                             Nombre = "Sujeto, Cultura y Sociedad"
                         },
                         new
                         {
                             Id = 107,
                             AnioCarreraId = 10,
+                            Eliminado = false,
                             Nombre = "Fundamentos del Cuidado en Enfermería"
                         },
                         new
                         {
                             Id = 108,
                             AnioCarreraId = 10,
+                            Eliminado = false,
                             Nombre = "Cuidados de Enfermería en la Comunidad y en la Familia"
                         },
                         new
                         {
                             Id = 109,
                             AnioCarreraId = 10,
+                            Eliminado = false,
                             Nombre = "Práctica Profesionalizante I"
                         },
                         new
                         {
                             Id = 110,
                             AnioCarreraId = 11,
+                            Eliminado = false,
                             Nombre = "Problemáticas Socio Contemporáneas"
                         },
                         new
                         {
                             Id = 111,
                             AnioCarreraId = 11,
+                            Eliminado = false,
                             Nombre = "Unidad de Definición Institucional II"
                         },
                         new
                         {
                             Id = 112,
                             AnioCarreraId = 11,
+                            Eliminado = false,
                             Nombre = "Informática en Salud"
                         },
                         new
                         {
                             Id = 113,
                             AnioCarreraId = 11,
+                            Eliminado = false,
                             Nombre = "Sujeto, Cultura y Sociedad II"
                         },
                         new
                         {
                             Id = 114,
                             AnioCarreraId = 11,
+                            Eliminado = false,
                             Nombre = "Biología Humana II"
                         },
                         new
                         {
                             Id = 115,
                             AnioCarreraId = 11,
+                            Eliminado = false,
                             Nombre = "Bioseguridad y Medio Ambiente en el Trabajo"
                         },
                         new
                         {
                             Id = 116,
                             AnioCarreraId = 11,
+                            Eliminado = false,
                             Nombre = "Farmacología en Enfermería"
                         },
                         new
                         {
                             Id = 117,
                             AnioCarreraId = 11,
+                            Eliminado = false,
                             Nombre = "Cuidados de Enfermería a los Adultos y Adultos Mayores"
                         },
                         new
                         {
                             Id = 118,
                             AnioCarreraId = 11,
+                            Eliminado = false,
                             Nombre = "Práctica Profesionalizante II"
                         },
                         new
                         {
                             Id = 119,
                             AnioCarreraId = 12,
+                            Eliminado = false,
                             Nombre = "Ética y Responsabilidad Social"
                         },
                         new
                         {
                             Id = 120,
                             AnioCarreraId = 12,
+                            Eliminado = false,
                             Nombre = "Derecho y Legislación Laboral"
                         },
                         new
                         {
                             Id = 121,
                             AnioCarreraId = 12,
+                            Eliminado = false,
                             Nombre = "Inglés Técnico"
                         },
                         new
                         {
                             Id = 122,
                             AnioCarreraId = 12,
+                            Eliminado = false,
                             Nombre = "Organización y Gestión en Instituciones de Salud"
                         },
                         new
                         {
                             Id = 123,
                             AnioCarreraId = 12,
+                            Eliminado = false,
                             Nombre = "Investigación en Enfermería"
                         },
                         new
                         {
                             Id = 124,
                             AnioCarreraId = 12,
+                            Eliminado = false,
                             Nombre = "Cuidados de Enfermería en Salud Mental"
                         },
                         new
                         {
                             Id = 125,
                             AnioCarreraId = 12,
+                            Eliminado = false,
                             Nombre = "Cuidados de Enfermería al Niño y al Adolescente"
                         },
                         new
                         {
                             Id = 126,
                             AnioCarreraId = 12,
+                            Eliminado = false,
                             Nombre = "Práctica Profesionalizante III"
                         },
                         new
                         {
                             Id = 127,
                             AnioCarreraId = 7,
+                            Eliminado = false,
                             Nombre = "Comunicación (1º cuatr.)"
                         },
                         new
                         {
                             Id = 128,
                             AnioCarreraId = 7,
+                            Eliminado = false,
                             Nombre = "Unidad de Definición Institucional (2º cuatr.)"
                         },
                         new
                         {
                             Id = 129,
                             AnioCarreraId = 7,
+                            Eliminado = false,
                             Nombre = "Economía"
                         },
                         new
                         {
                             Id = 130,
                             AnioCarreraId = 7,
+                            Eliminado = false,
                             Nombre = "Matemática y Estadística"
                         },
                         new
                         {
                             Id = 131,
                             AnioCarreraId = 7,
+                            Eliminado = false,
                             Nombre = "Contabilidad"
                         },
                         new
                         {
                             Id = 132,
                             AnioCarreraId = 7,
+                            Eliminado = false,
                             Nombre = "Informática"
                         },
                         new
                         {
                             Id = 133,
                             AnioCarreraId = 7,
+                            Eliminado = false,
                             Nombre = "Administración"
                         },
                         new
                         {
                             Id = 134,
                             AnioCarreraId = 7,
+                            Eliminado = false,
                             Nombre = "Gestión de la Producción"
                         },
                         new
                         {
                             Id = 135,
                             AnioCarreraId = 7,
+                            Eliminado = false,
                             Nombre = "Gestión del Talento Humano"
                         },
                         new
                         {
                             Id = 136,
                             AnioCarreraId = 8,
+                            Eliminado = false,
                             Nombre = "Problemáticas Contemporáneas (1º cuatr.)"
                         },
                         new
                         {
                             Id = 137,
                             AnioCarreraId = 8,
+                            Eliminado = false,
                             Nombre = "Unidad de Definición Institucional (2º cuatr.)"
                         },
                         new
                         {
                             Id = 138,
                             AnioCarreraId = 8,
+                            Eliminado = false,
                             Nombre = "Innovación y Desarrollo Emprendedor"
                         },
                         new
                         {
                             Id = 139,
                             AnioCarreraId = 8,
+                            Eliminado = false,
                             Nombre = "Inglés Técnico"
                         },
                         new
                         {
                             Id = 140,
                             AnioCarreraId = 8,
+                            Eliminado = false,
                             Nombre = "Legislación Comercial y Tributaria"
                         },
                         new
                         {
                             Id = 141,
                             AnioCarreraId = 8,
+                            Eliminado = false,
                             Nombre = "Gestión de Comercialización e Investigación Comercial"
                         },
                         new
                         {
                             Id = 142,
                             AnioCarreraId = 8,
+                            Eliminado = false,
                             Nombre = "Gestión de Costos"
                         },
                         new
                         {
                             Id = 143,
                             AnioCarreraId = 8,
+                            Eliminado = false,
                             Nombre = "Gestión Contable"
                         },
                         new
                         {
                             Id = 144,
                             AnioCarreraId = 8,
+                            Eliminado = false,
                             Nombre = "Práctica Profesionalizante I"
                         },
                         new
                         {
                             Id = 145,
                             AnioCarreraId = 9,
+                            Eliminado = false,
                             Nombre = "Gestión de Seguridad, Salud Ocupacional y Medio Ambiente"
                         },
                         new
                         {
                             Id = 146,
                             AnioCarreraId = 9,
+                            Eliminado = false,
                             Nombre = "Ética y Responsabilidad Social"
                         },
                         new
                         {
                             Id = 147,
                             AnioCarreraId = 9,
+                            Eliminado = false,
                             Nombre = "Legislación Laboral"
                         },
                         new
                         {
                             Id = 148,
                             AnioCarreraId = 9,
+                            Eliminado = false,
                             Nombre = "Estrategia Empresarial"
                         },
                         new
                         {
                             Id = 149,
                             AnioCarreraId = 9,
+                            Eliminado = false,
                             Nombre = "Sistema de Información para la Gestión de las Organizaciones"
                         },
                         new
                         {
                             Id = 150,
                             AnioCarreraId = 9,
+                            Eliminado = false,
                             Nombre = "Gestión Financiera"
                         },
                         new
                         {
                             Id = 151,
                             AnioCarreraId = 9,
+                            Eliminado = false,
                             Nombre = "Evaluación y Administración de Proyectos de Inversión"
                         },
                         new
                         {
                             Id = 152,
                             AnioCarreraId = 9,
+                            Eliminado = false,
                             Nombre = "Control de Gestión"
                         },
                         new
                         {
                             Id = 153,
                             AnioCarreraId = 9,
+                            Eliminado = false,
                             Nombre = "Prácticas Profesionalizantes II"
                         },
                         new
                         {
                             Id = 154,
                             AnioCarreraId = 4,
+                            Eliminado = false,
                             Nombre = "Comunicación (1° cuat.)"
                         },
                         new
                         {
                             Id = 155,
                             AnioCarreraId = 4,
+                            Eliminado = false,
                             Nombre = "Unidad de definición Institucional (2° cuat.)"
                         },
                         new
                         {
                             Id = 156,
                             AnioCarreraId = 4,
+                            Eliminado = false,
                             Nombre = "Matemática"
                         },
                         new
                         {
                             Id = 157,
                             AnioCarreraId = 4,
+                            Eliminado = false,
                             Nombre = "Física Aplicada a las Tecnologías de la Información"
                         },
                         new
                         {
                             Id = 158,
                             AnioCarreraId = 4,
+                            Eliminado = false,
                             Nombre = "Administración"
                         },
                         new
                         {
                             Id = 159,
                             AnioCarreraId = 4,
+                            Eliminado = false,
                             Nombre = "Inglés Técnico"
                         },
                         new
                         {
                             Id = 160,
                             AnioCarreraId = 4,
+                            Eliminado = false,
                             Nombre = "Arquitectura de las Computadoras"
                         },
                         new
                         {
                             Id = 161,
                             AnioCarreraId = 4,
+                            Eliminado = false,
                             Nombre = "Lógica y Programación"
                         },
                         new
                         {
                             Id = 162,
                             AnioCarreraId = 4,
+                            Eliminado = false,
                             Nombre = "Infraestructura de Redes I"
                         },
                         new
                         {
                             Id = 163,
                             AnioCarreraId = 5,
+                            Eliminado = false,
                             Nombre = "Problemáticas Socio Contemporáneas (1° cuat.)"
                         },
                         new
                         {
                             Id = 164,
                             AnioCarreraId = 5,
+                            Eliminado = false,
                             Nombre = "Unidad de definición Institucional (2° cuat.)"
                         },
                         new
                         {
                             Id = 165,
                             AnioCarreraId = 5,
+                            Eliminado = false,
                             Nombre = "Innovación y Desarrollo Emprendedor"
                         },
                         new
                         {
                             Id = 166,
                             AnioCarreraId = 5,
+                            Eliminado = false,
                             Nombre = "Estadística"
                         },
                         new
                         {
                             Id = 167,
                             AnioCarreraId = 5,
+                            Eliminado = false,
                             Nombre = "Sistemas Operativos"
                         },
                         new
                         {
                             Id = 168,
                             AnioCarreraId = 5,
+                            Eliminado = false,
                             Nombre = "Algoritmos y Estructuras de Datos"
                         },
                         new
                         {
                             Id = 169,
                             AnioCarreraId = 5,
+                            Eliminado = false,
                             Nombre = "Base de Datos"
                         },
                         new
                         {
                             Id = 170,
                             AnioCarreraId = 5,
+                            Eliminado = false,
                             Nombre = "Infraestructura de Redes II"
                         },
                         new
                         {
                             Id = 171,
                             AnioCarreraId = 5,
+                            Eliminado = false,
                             Nombre = "Práctica Profesionalizante I"
                         },
                         new
                         {
                             Id = 172,
                             AnioCarreraId = 6,
+                            Eliminado = false,
                             Nombre = "Ética y Responsabilidad Social"
                         },
                         new
                         {
                             Id = 173,
                             AnioCarreraId = 6,
+                            Eliminado = false,
                             Nombre = "Derecho y Legislación Laboral"
                         },
                         new
                         {
                             Id = 174,
                             AnioCarreraId = 6,
+                            Eliminado = false,
                             Nombre = "Administración de Base de Datos"
                         },
                         new
                         {
                             Id = 175,
                             AnioCarreraId = 6,
+                            Eliminado = false,
                             Nombre = "Integridad y Migración de Datos"
                         },
                         new
                         {
                             Id = 176,
                             AnioCarreraId = 6,
+                            Eliminado = false,
                             Nombre = "Seguridad de los Sistemas"
                         },
                         new
                         {
                             Id = 177,
                             AnioCarreraId = 6,
+                            Eliminado = false,
                             Nombre = "Administración de Sistemas Operativos y Redes"
                         },
                         new
                         {
                             Id = 178,
                             AnioCarreraId = 6,
+                            Eliminado = false,
                             Nombre = "Práctica Profesionalizante II"
                         },
                         new
                         {
                             Id = 179,
                             AnioCarreraId = 17,
+                            Eliminado = false,
                             Nombre = "Psicología y Educación"
                         },
                         new
                         {
                             Id = 180,
                             AnioCarreraId = 17,
+                            Eliminado = false,
                             Nombre = "Pedagogía"
                         },
                         new
                         {
                             Id = 181,
                             AnioCarreraId = 17,
+                            Eliminado = false,
                             Nombre = "Sociología de la Educación"
                         },
                         new
                         {
                             Id = 182,
                             AnioCarreraId = 17,
+                            Eliminado = false,
                             Nombre = "Historia Argentina y Latinoamericana (1º cuatr.)"
                         },
                         new
                         {
                             Id = 183,
                             AnioCarreraId = 17,
+                            Eliminado = false,
                             Nombre = "Movimiento y Cuerpo I"
                         },
                         new
                         {
                             Id = 184,
                             AnioCarreraId = 17,
+                            Eliminado = false,
                             Nombre = "Taller de Práctica I"
                         },
                         new
                         {
                             Id = 185,
                             AnioCarreraId = 17,
+                            Eliminado = false,
                             Nombre = "Problemáticas Contemporáneas de la Educación Inicial I"
                         },
                         new
                         {
                             Id = 186,
                             AnioCarreraId = 17,
+                            Eliminado = false,
                             Nombre = "Comunicación y Expresión Oral y Escrita"
                         },
                         new
                         {
                             Id = 187,
                             AnioCarreraId = 17,
+                            Eliminado = false,
                             Nombre = "Resolución de Problemas y Creatividad (1º cuatr.)"
                         },
                         new
                         {
                             Id = 188,
                             AnioCarreraId = 17,
+                            Eliminado = false,
                             Nombre = "Ambiente y Sociedad (2º cuatr.)"
                         },
                         new
                         {
                             Id = 189,
                             AnioCarreraId = 17,
+                            Eliminado = false,
                             Nombre = "Área Estético-Expresiva I"
                         },
                         new
                         {
                             Id = 190,
                             AnioCarreraId = 17,
+                            Eliminado = false,
                             Nombre = "Itinerarios por el Mundo de la Cultura"
                         },
                         new
                         {
                             Id = 191,
                             AnioCarreraId = 17,
+                            Eliminado = false,
                             Nombre = "Producción Pedagógica"
                         },
                         new
                         {
                             Id = 192,
                             AnioCarreraId = 18,
+                            Eliminado = false,
                             Nombre = "Didáctica General"
                         },
                         new
                         {
                             Id = 193,
                             AnioCarreraId = 18,
+                            Eliminado = false,
                             Nombre = "Filosofía de la Educación (1º cuatr.)"
                         },
                         new
                         {
                             Id = 194,
                             AnioCarreraId = 18,
+                            Eliminado = false,
                             Nombre = "Conocimiento y Educación (2º cuatr.)"
                         },
                         new
                         {
                             Id = 195,
                             AnioCarreraId = 18,
+                            Eliminado = false,
                             Nombre = "Movimiento y Cuerpo II"
                         },
                         new
                         {
                             Id = 196,
                             AnioCarreraId = 18,
+                            Eliminado = false,
                             Nombre = "Taller de Práctica II: Seminario de lo Grupal y los Grupos de Aprendizaje"
                         },
                         new
                         {
                             Id = 197,
                             AnioCarreraId = 18,
+                            Eliminado = false,
                             Nombre = "Sujeto de la Educación Inicial"
                         },
                         new
                         {
                             Id = 198,
                             AnioCarreraId = 18,
+                            Eliminado = false,
                             Nombre = "Didáctica de Educación Inicial I"
                         },
                         new
                         {
                             Id = 199,
                             AnioCarreraId = 18,
+                            Eliminado = false,
                             Nombre = "Matemática y su Didáctica I"
                         },
                         new
                         {
                             Id = 200,
                             AnioCarreraId = 18,
+                            Eliminado = false,
                             Nombre = "Literatura y su Didáctica"
                         },
                         new
                         {
                             Id = 201,
                             AnioCarreraId = 18,
+                            Eliminado = false,
                             Nombre = "Ciencias Naturales y su Didáctica"
                         },
                         new
                         {
                             Id = 202,
                             AnioCarreraId = 18,
+                            Eliminado = false,
                             Nombre = "Itinerarios por el Mundo de la Cultura"
                         },
                         new
                         {
                             Id = 203,
                             AnioCarreraId = 18,
+                            Eliminado = false,
                             Nombre = "Producción Pedagógica"
                         },
                         new
                         {
                             Id = 204,
                             AnioCarreraId = 19,
+                            Eliminado = false,
                             Nombre = "Tecnologías de la Información y de la Comunicación"
                         },
                         new
                         {
                             Id = 205,
                             AnioCarreraId = 19,
+                            Eliminado = false,
                             Nombre = "Historia Social de la Educación y Política Educativa Argentina"
                         },
                         new
                         {
                             Id = 206,
                             AnioCarreraId = 19,
+                            Eliminado = false,
                             Nombre = "Trayecto de Práctica III: Seminario de Instituciones Educativas"
                         },
                         new
                         {
                             Id = 207,
                             AnioCarreraId = 19,
+                            Eliminado = false,
                             Nombre = "Matemática y su Didáctica II"
                         },
                         new
                         {
                             Id = 208,
                             AnioCarreraId = 19,
+                            Eliminado = false,
                             Nombre = "Lengua y su Didáctica (1º cuatr.)"
                         },
                         new
                         {
                             Id = 209,
                             AnioCarreraId = 19,
+                            Eliminado = false,
                             Nombre = "Alfabetización Inicial (2º cuatr.)"
                         },
                         new
                         {
                             Id = 210,
                             AnioCarreraId = 19,
+                            Eliminado = false,
                             Nombre = "Ciencias Sociales y su Didáctica"
                         },
                         new
                         {
                             Id = 211,
                             AnioCarreraId = 19,
+                            Eliminado = false,
                             Nombre = "Área Estético-Expresiva II"
                         },
                         new
                         {
                             Id = 212,
                             AnioCarreraId = 19,
+                            Eliminado = false,
                             Nombre = "Problemáticas Contemporáneas de la Educación Inicial II (1º cuatr.)"
                         },
                         new
                         {
                             Id = 213,
                             AnioCarreraId = 19,
+                            Eliminado = false,
                             Nombre = "Didáctica de la Educación Inicial II (2º cuatr.)"
                         },
                         new
                         {
                             Id = 214,
                             AnioCarreraId = 19,
+                            Eliminado = false,
                             Nombre = "Espacios de Definición Institucional (1º cuatr.)"
                         },
                         new
                         {
                             Id = 215,
                             AnioCarreraId = 19,
+                            Eliminado = false,
                             Nombre = "Espacios de Definición Institucional (2º cuatr.)"
                         },
                         new
                         {
                             Id = 216,
                             AnioCarreraId = 19,
+                            Eliminado = false,
                             Nombre = "Itinerarios por el Mundo de la Cultura"
                         },
                         new
                         {
                             Id = 217,
                             AnioCarreraId = 19,
+                            Eliminado = false,
                             Nombre = "Producción Pedagógica"
                         },
                         new
                         {
                             Id = 218,
                             AnioCarreraId = 20,
+                            Eliminado = false,
                             Nombre = "Ética, Trabajo Docente, Derechos Humanos y Ciudadanos"
                         },
                         new
                         {
                             Id = 219,
                             AnioCarreraId = 20,
+                            Eliminado = false,
                             Nombre = "Taller de Práctica IV"
                         },
                         new
                         {
                             Id = 220,
                             AnioCarreraId = 20,
+                            Eliminado = false,
                             Nombre = "Ateneo: (Matemática- Ambiente y Sociedad (Ciencias Naturales- Ciencias Sociales) Lengua y Literatura- Formación Ética y Ciudadana)"
                         },
                         new
                         {
                             Id = 221,
                             AnioCarreraId = 20,
+                            Eliminado = false,
                             Nombre = "Sexualidad Humana y Educación (1º cuatr.)"
                         },
                         new
                         {
                             Id = 222,
                             AnioCarreraId = 20,
+                            Eliminado = false,
                             Nombre = "Itinerarios por el Mundo de la Cultura"
                         },
                         new
                         {
                             Id = 223,
                             AnioCarreraId = 20,
+                            Eliminado = false,
                             Nombre = "Producción Pedagógica"
                         },
                         new
                         {
                             Id = 224,
                             AnioCarreraId = 13,
+                            Eliminado = false,
                             Nombre = "Pedagogía"
                         },
                         new
                         {
                             Id = 225,
                             AnioCarreraId = 13,
+                            Eliminado = false,
                             Nombre = "UCCV Sociología"
                         },
                         new
                         {
                             Id = 226,
                             AnioCarreraId = 13,
+                            Eliminado = false,
                             Nombre = "Administración General"
                         },
                         new
                         {
                             Id = 227,
                             AnioCarreraId = 13,
+                            Eliminado = false,
                             Nombre = "Administración I"
                         },
                         new
                         {
                             Id = 228,
                             AnioCarreraId = 13,
+                            Eliminado = false,
                             Nombre = "Sistema de Información Contable I"
                         },
                         new
                         {
                             Id = 229,
                             AnioCarreraId = 13,
+                            Eliminado = false,
                             Nombre = "Construcción de Ciudadanía"
                         },
                         new
                         {
                             Id = 230,
                             AnioCarreraId = 13,
+                            Eliminado = false,
                             Nombre = "Historia Económica"
                         },
                         new
                         {
                             Id = 231,
                             AnioCarreraId = 13,
+                            Eliminado = false,
                             Nombre = "Matemática"
                         },
                         new
                         {
                             Id = 232,
                             AnioCarreraId = 13,
+                            Eliminado = false,
                             Nombre = "Práctica Docente I"
                         },
                         new
                         {
                             Id = 233,
                             AnioCarreraId = 14,
+                            Eliminado = false,
                             Nombre = "Instituciones Educativas"
                         },
                         new
                         {
                             Id = 234,
                             AnioCarreraId = 14,
+                            Eliminado = false,
                             Nombre = "Didáctica y Curriculum"
                         },
                         new
                         {
                             Id = 235,
                             AnioCarreraId = 14,
+                            Eliminado = false,
                             Nombre = "Psicología y Educación"
                         },
                         new
                         {
                             Id = 236,
                             AnioCarreraId = 14,
+                            Eliminado = false,
                             Nombre = "Administración II"
                         },
                         new
                         {
                             Id = 237,
                             AnioCarreraId = 14,
+                            Eliminado = false,
                             Nombre = "Sistema de Información Contable II"
                         },
                         new
                         {
                             Id = 238,
                             AnioCarreraId = 14,
+                            Eliminado = false,
                             Nombre = "Derecho I"
                         },
                         new
                         {
                             Id = 239,
                             AnioCarreraId = 14,
+                            Eliminado = false,
                             Nombre = "Economía"
                         },
                         new
                         {
                             Id = 240,
                             AnioCarreraId = 14,
+                            Eliminado = false,
                             Nombre = "Estadística Aplicada"
                         },
                         new
                         {
                             Id = 241,
                             AnioCarreraId = 14,
+                            Eliminado = false,
                             Nombre = "Didáctica de la Administración I"
                         },
                         new
                         {
                             Id = 242,
                             AnioCarreraId = 14,
+                            Eliminado = false,
                             Nombre = "Práctica Docencia II"
                         },
                         new
                         {
                             Id = 243,
                             AnioCarreraId = 15,
+                            Eliminado = false,
                             Nombre = "Historia y Política de la Educación Argentina"
                         },
                         new
                         {
                             Id = 244,
                             AnioCarreraId = 15,
+                            Eliminado = false,
                             Nombre = "Filosofía"
                         },
                         new
                         {
                             Id = 245,
                             AnioCarreraId = 15,
+                            Eliminado = false,
                             Nombre = "Metodología de la Investigación"
                         },
                         new
                         {
                             Id = 246,
                             AnioCarreraId = 15,
+                            Eliminado = false,
                             Nombre = "Administración III"
                         },
                         new
                         {
                             Id = 247,
                             AnioCarreraId = 15,
+                            Eliminado = false,
                             Nombre = "Sistema de Información Contable III"
                         },
                         new
                         {
                             Id = 248,
                             AnioCarreraId = 15,
+                            Eliminado = false,
                             Nombre = "Práctica Impositiva y Laboral"
                         },
                         new
                         {
                             Id = 249,
                             AnioCarreraId = 15,
+                            Eliminado = false,
                             Nombre = "Derecho II"
                         },
                         new
                         {
                             Id = 250,
                             AnioCarreraId = 15,
+                            Eliminado = false,
                             Nombre = "Didáctica de la Administración II"
                         },
                         new
                         {
                             Id = 251,
                             AnioCarreraId = 15,
+                            Eliminado = false,
                             Nombre = "Sujetos de la Educación Secundaria"
                         },
                         new
                         {
                             Id = 252,
                             AnioCarreraId = 15,
+                            Eliminado = false,
                             Nombre = "Práctica Docente III"
                         },
                         new
                         {
                             Id = 253,
                             AnioCarreraId = 15,
+                            Eliminado = false,
                             Nombre = "Producción de los Recursos Didácticos I"
                         },
                         new
                         {
                             Id = 254,
                             AnioCarreraId = 16,
+                            Eliminado = false,
                             Nombre = "Ética y Trabajo Docente"
                         },
                         new
                         {
                             Id = 255,
                             AnioCarreraId = 16,
+                            Eliminado = false,
                             Nombre = "Educación Sexual Integral"
                         },
                         new
                         {
                             Id = 256,
                             AnioCarreraId = 16,
+                            Eliminado = false,
                             Nombre = "UCCV Comunicación Social"
                         },
                         new
                         {
                             Id = 257,
                             AnioCarreraId = 16,
+                            Eliminado = false,
                             Nombre = "Administración IV"
                         },
                         new
                         {
                             Id = 258,
                             AnioCarreraId = 16,
+                            Eliminado = false,
                             Nombre = "Gestión Organizacional"
                         },
                         new
                         {
                             Id = 259,
                             AnioCarreraId = 16,
+                            Eliminado = false,
                             Nombre = "Matemática Financiera"
                         },
                         new
                         {
                             Id = 260,
                             AnioCarreraId = 16,
+                            Eliminado = false,
                             Nombre = "Prácticas de Investigación"
                         },
                         new
                         {
                             Id = 261,
                             AnioCarreraId = 16,
+                            Eliminado = false,
                             Nombre = "Práctica Docente IV (Residencia)"
                         },
                         new
                         {
                             Id = 262,
                             AnioCarreraId = 16,
+                            Eliminado = false,
                             Nombre = "Producción de los Recursos Didácticos II"
                         },
                         new
                         {
                             Id = 263,
                             AnioCarreraId = 16,
+                            Eliminado = false,
                             Nombre = "Unidad de Definición Institucional"
                         },
                         new
                         {
                             Id = 264,
                             AnioCarreraId = 1,
+                            Eliminado = false,
                             Nombre = "Recreo"
                         },
                         new
                         {
                             Id = 265,
                             AnioCarreraId = 2,
+                            Eliminado = false,
                             Nombre = "Recreo"
                         },
                         new
                         {
                             Id = 266,
                             AnioCarreraId = 3,
+                            Eliminado = false,
                             Nombre = "Recreo"
                         },
                         new
                         {
                             Id = 267,
                             AnioCarreraId = 4,
+                            Eliminado = false,
                             Nombre = "Recreo"
                         },
                         new
                         {
                             Id = 268,
                             AnioCarreraId = 5,
+                            Eliminado = false,
                             Nombre = "Recreo"
                         },
                         new
                         {
                             Id = 269,
                             AnioCarreraId = 6,
+                            Eliminado = false,
                             Nombre = "Recreo"
                         },
                         new
                         {
                             Id = 270,
                             AnioCarreraId = 7,
+                            Eliminado = false,
                             Nombre = "Recreo"
                         },
                         new
                         {
                             Id = 271,
                             AnioCarreraId = 8,
+                            Eliminado = false,
                             Nombre = "Recreo"
                         },
                         new
                         {
                             Id = 272,
                             AnioCarreraId = 9,
+                            Eliminado = false,
                             Nombre = "Recreo"
                         },
                         new
                         {
                             Id = 273,
                             AnioCarreraId = 10,
+                            Eliminado = false,
                             Nombre = "Recreo"
                         },
                         new
                         {
                             Id = 274,
                             AnioCarreraId = 11,
+                            Eliminado = false,
                             Nombre = "Recreo"
                         },
                         new
                         {
                             Id = 275,
                             AnioCarreraId = 12,
+                            Eliminado = false,
                             Nombre = "Recreo"
                         },
                         new
                         {
                             Id = 276,
                             AnioCarreraId = 13,
+                            Eliminado = false,
                             Nombre = "Recreo"
                         },
                         new
                         {
                             Id = 277,
                             AnioCarreraId = 14,
+                            Eliminado = false,
                             Nombre = "Recreo"
                         },
                         new
                         {
                             Id = 278,
                             AnioCarreraId = 15,
+                            Eliminado = false,
                             Nombre = "Recreo"
                         },
                         new
                         {
                             Id = 279,
                             AnioCarreraId = 16,
+                            Eliminado = false,
                             Nombre = "Recreo"
                         },
                         new
                         {
                             Id = 280,
                             AnioCarreraId = 17,
+                            Eliminado = false,
                             Nombre = "Recreo"
                         },
                         new
                         {
                             Id = 281,
                             AnioCarreraId = 18,
+                            Eliminado = false,
                             Nombre = "Recreo"
                         },
                         new
                         {
                             Id = 282,
                             AnioCarreraId = 19,
+                            Eliminado = false,
                             Nombre = "Recreo"
                         },
                         new
                         {
                             Id = 283,
                             AnioCarreraId = 20,
+                            Eliminado = false,
                             Nombre = "Recreo"
                         },
                         new
                         {
                             Id = 284,
                             AnioCarreraId = 21,
+                            Eliminado = false,
                             Nombre = "Recreo"
                         },
                         new
                         {
                             Id = 285,
                             AnioCarreraId = 22,
+                            Eliminado = false,
                             Nombre = "Recreo"
                         },
                         new
                         {
                             Id = 286,
                             AnioCarreraId = 23,
+                            Eliminado = false,
                             Nombre = "Recreo"
                         },
                         new
                         {
                             Id = 287,
                             AnioCarreraId = 24,
+                            Eliminado = false,
                             Nombre = "Recreo"
                         },
                         new
                         {
                             Id = 288,
                             AnioCarreraId = 25,
+                            Eliminado = false,
                             Nombre = "Recreo"
                         },
                         new
                         {
                             Id = 289,
                             AnioCarreraId = 26,
+                            Eliminado = false,
                             Nombre = "Recreo"
                         },
                         new
                         {
                             Id = 290,
                             AnioCarreraId = 27,
+                            Eliminado = false,
                             Nombre = "Recreo"
                         },
                         new
                         {
                             Id = 291,
                             AnioCarreraId = 28,
+                            Eliminado = false,
                             Nombre = "Recreo"
                         });
                 });
@@ -2541,6 +2973,9 @@ namespace Inscripciones.Migrations
 
                     b.Property<int?>("DocenteId")
                         .HasColumnType("int");
+
+                    b.Property<bool>("Eliminado")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -2566,6 +3001,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 1,
                             DocenteId = 1,
+                            Eliminado = false,
                             Email = "admin@gmail.com",
                             TipoUsuario = 2,
                             User = "admin"
@@ -2582,6 +3018,9 @@ namespace Inscripciones.Migrations
 
                     b.Property<int>("Dia")
                         .HasColumnType("int");
+
+                    b.Property<bool>("Eliminado")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<int?>("HoraId")
                         .HasColumnType("int");
@@ -2602,6 +3041,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 1,
                             Dia = 0,
+                            Eliminado = false,
                             HoraId = 1,
                             HorarioId = 1
                         });
@@ -2614,6 +3054,9 @@ namespace Inscripciones.Migrations
                         .HasColumnType("int");
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Eliminado")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("EsRecreo")
                         .HasColumnType("tinyint(1)");
@@ -2630,144 +3073,168 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 1,
+                            Eliminado = false,
                             EsRecreo = false,
                             Nombre = "08:00 - 08:40"
                         },
                         new
                         {
                             Id = 2,
+                            Eliminado = false,
                             EsRecreo = false,
                             Nombre = "08:40 - 09:20"
                         },
                         new
                         {
                             Id = 3,
+                            Eliminado = false,
                             EsRecreo = false,
                             Nombre = "09:20 - 10:00"
                         },
                         new
                         {
                             Id = 4,
+                            Eliminado = false,
                             EsRecreo = false,
                             Nombre = "10:00 - 10:40"
                         },
                         new
                         {
                             Id = 5,
+                            Eliminado = false,
                             EsRecreo = true,
                             Nombre = "10:40 - 10:50"
                         },
                         new
                         {
                             Id = 6,
+                            Eliminado = false,
                             EsRecreo = false,
                             Nombre = "10:50 - 11:30"
                         },
                         new
                         {
                             Id = 7,
+                            Eliminado = false,
                             EsRecreo = false,
                             Nombre = "11:30 - 12:10"
                         },
                         new
                         {
                             Id = 8,
+                            Eliminado = false,
                             EsRecreo = false,
                             Nombre = "12:10 - 12:50"
                         },
                         new
                         {
                             Id = 9,
+                            Eliminado = false,
                             EsRecreo = false,
                             Nombre = "12:50 - 13:30"
                         },
                         new
                         {
                             Id = 10,
+                            Eliminado = false,
                             EsRecreo = false,
                             Nombre = "13:10 - 13:50"
                         },
                         new
                         {
                             Id = 11,
+                            Eliminado = false,
                             EsRecreo = false,
                             Nombre = "13:50 - 14:30"
                         },
                         new
                         {
                             Id = 12,
+                            Eliminado = false,
                             EsRecreo = false,
                             Nombre = "14:30 - 15:10"
                         },
                         new
                         {
                             Id = 13,
+                            Eliminado = false,
                             EsRecreo = false,
                             Nombre = "15:10 - 15:50"
                         },
                         new
                         {
                             Id = 14,
+                            Eliminado = false,
                             EsRecreo = true,
                             Nombre = "15:50 - 16:00"
                         },
                         new
                         {
                             Id = 15,
+                            Eliminado = false,
                             EsRecreo = false,
                             Nombre = "16:00 - 16:40"
                         },
                         new
                         {
                             Id = 16,
+                            Eliminado = false,
                             EsRecreo = false,
                             Nombre = "16:40 - 17:20"
                         },
                         new
                         {
                             Id = 17,
+                            Eliminado = false,
                             EsRecreo = false,
                             Nombre = "17:20 - 18:00"
                         },
                         new
                         {
                             Id = 18,
+                            Eliminado = false,
                             EsRecreo = false,
                             Nombre = "18:00 - 18:40"
                         },
                         new
                         {
                             Id = 19,
+                            Eliminado = false,
                             EsRecreo = false,
                             Nombre = "18:40 - 19:20"
                         },
                         new
                         {
                             Id = 20,
+                            Eliminado = false,
                             EsRecreo = false,
                             Nombre = "19:20 - 20:00"
                         },
                         new
                         {
                             Id = 21,
+                            Eliminado = false,
                             EsRecreo = true,
                             Nombre = "19:30 - 19:40"
                         },
                         new
                         {
                             Id = 22,
+                            Eliminado = false,
                             EsRecreo = false,
                             Nombre = "19:40 - 20:20"
                         },
                         new
                         {
                             Id = 23,
+                            Eliminado = false,
                             EsRecreo = false,
                             Nombre = "20:20 - 21:00"
                         },
                         new
                         {
                             Id = 24,
+                            Eliminado = false,
                             EsRecreo = false,
                             Nombre = "21:00 - 21:40"
                         });
@@ -2787,6 +3254,9 @@ namespace Inscripciones.Migrations
                     b.Property<int?>("CicloLectivoId")
                         .HasColumnType("int");
 
+                    b.Property<bool>("Eliminado")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<int?>("MateriaId")
                         .HasColumnType("int");
 
@@ -2804,6 +3274,7 @@ namespace Inscripciones.Migrations
                             Id = 1,
                             CantidadHoras = 4,
                             CicloLectivoId = 1,
+                            Eliminado = false,
                             MateriaId = 1
                         });
                 });
@@ -2818,6 +3289,9 @@ namespace Inscripciones.Migrations
 
                     b.Property<int?>("DocenteId")
                         .HasColumnType("int");
+
+                    b.Property<bool>("Eliminado")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<int?>("HorarioId")
                         .HasColumnType("int");
@@ -2835,6 +3309,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 1,
                             DocenteId = 1,
+                            Eliminado = false,
                             HorarioId = 1
                         });
                 });
@@ -2846,6 +3321,9 @@ namespace Inscripciones.Migrations
                         .HasColumnType("int");
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Eliminado")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Nombre")
                         .IsRequired()
@@ -2859,6 +3337,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 1,
+                            Eliminado = false,
                             Nombre = "2024"
                         });
                 });
@@ -2870,6 +3349,9 @@ namespace Inscripciones.Migrations
                         .HasColumnType("int");
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Eliminado")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<int>("InscripcionId")
                         .HasColumnType("int");
@@ -2892,6 +3374,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 1,
+                            Eliminado = false,
                             InscripcionId = 1,
                             MateriaId = 1,
                             ModalidadCursado = 0
@@ -2915,6 +3398,9 @@ namespace Inscripciones.Migrations
                     b.Property<int>("CicloLectivoId")
                         .HasColumnType("int");
 
+                    b.Property<bool>("Eliminado")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("datetime(6)");
 
@@ -2935,7 +3421,8 @@ namespace Inscripciones.Migrations
                             AlumnoId = 1,
                             CarreraId = 1,
                             CicloLectivoId = 1,
-                            Fecha = new DateTime(2024, 8, 7, 19, 27, 47, 588, DateTimeKind.Local).AddTicks(4819)
+                            Eliminado = false,
+                            Fecha = new DateTime(2024, 8, 15, 11, 32, 48, 558, DateTimeKind.Local).AddTicks(9155)
                         });
                 });
 
@@ -2949,6 +3436,9 @@ namespace Inscripciones.Migrations
 
                     b.Property<int>("DocenteId")
                         .HasColumnType("int");
+
+                    b.Property<bool>("Eliminado")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<int>("MesaExamenId")
                         .HasColumnType("int");
@@ -2969,6 +3459,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 1,
                             DocenteId = 6,
+                            Eliminado = false,
                             MesaExamenId = 1,
                             TipoIntegrante = 0
                         },
@@ -2976,6 +3467,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 2,
                             DocenteId = 66,
+                            Eliminado = false,
                             MesaExamenId = 1,
                             TipoIntegrante = 1
                         },
@@ -2983,6 +3475,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 3,
                             DocenteId = 56,
+                            Eliminado = false,
                             MesaExamenId = 1,
                             TipoIntegrante = 2
                         },
@@ -2990,6 +3483,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 4,
                             DocenteId = 16,
+                            Eliminado = false,
                             MesaExamenId = 1,
                             TipoIntegrante = 3
                         },
@@ -2997,6 +3491,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 5,
                             DocenteId = 71,
+                            Eliminado = false,
                             MesaExamenId = 2,
                             TipoIntegrante = 0
                         },
@@ -3004,6 +3499,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 6,
                             DocenteId = 43,
+                            Eliminado = false,
                             MesaExamenId = 2,
                             TipoIntegrante = 1
                         },
@@ -3011,6 +3507,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 7,
                             DocenteId = 39,
+                            Eliminado = false,
                             MesaExamenId = 2,
                             TipoIntegrante = 2
                         },
@@ -3018,6 +3515,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 8,
                             DocenteId = 66,
+                            Eliminado = false,
                             MesaExamenId = 2,
                             TipoIntegrante = 3
                         },
@@ -3025,6 +3523,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 9,
                             DocenteId = 66,
+                            Eliminado = false,
                             MesaExamenId = 3,
                             TipoIntegrante = 0
                         },
@@ -3032,6 +3531,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 10,
                             DocenteId = 45,
+                            Eliminado = false,
                             MesaExamenId = 3,
                             TipoIntegrante = 1
                         },
@@ -3039,6 +3539,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 11,
                             DocenteId = 39,
+                            Eliminado = false,
                             MesaExamenId = 3,
                             TipoIntegrante = 2
                         },
@@ -3046,6 +3547,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 12,
                             DocenteId = 28,
+                            Eliminado = false,
                             MesaExamenId = 3,
                             TipoIntegrante = 3
                         },
@@ -3053,6 +3555,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 13,
                             DocenteId = 38,
+                            Eliminado = false,
                             MesaExamenId = 4,
                             TipoIntegrante = 0
                         },
@@ -3060,6 +3563,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 14,
                             DocenteId = 53,
+                            Eliminado = false,
                             MesaExamenId = 4,
                             TipoIntegrante = 1
                         },
@@ -3067,6 +3571,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 15,
                             DocenteId = 6,
+                            Eliminado = false,
                             MesaExamenId = 4,
                             TipoIntegrante = 2
                         },
@@ -3074,6 +3579,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 16,
                             DocenteId = 23,
+                            Eliminado = false,
                             MesaExamenId = 4,
                             TipoIntegrante = 3
                         },
@@ -3081,6 +3587,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 17,
                             DocenteId = 11,
+                            Eliminado = false,
                             MesaExamenId = 5,
                             TipoIntegrante = 0
                         },
@@ -3088,6 +3595,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 18,
                             DocenteId = 58,
+                            Eliminado = false,
                             MesaExamenId = 5,
                             TipoIntegrante = 1
                         },
@@ -3095,6 +3603,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 19,
                             DocenteId = 54,
+                            Eliminado = false,
                             MesaExamenId = 5,
                             TipoIntegrante = 2
                         },
@@ -3102,6 +3611,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 20,
                             DocenteId = 56,
+                            Eliminado = false,
                             MesaExamenId = 5,
                             TipoIntegrante = 3
                         },
@@ -3109,6 +3619,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 21,
                             DocenteId = 47,
+                            Eliminado = false,
                             MesaExamenId = 6,
                             TipoIntegrante = 0
                         },
@@ -3116,6 +3627,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 22,
                             DocenteId = 16,
+                            Eliminado = false,
                             MesaExamenId = 6,
                             TipoIntegrante = 1
                         },
@@ -3123,6 +3635,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 23,
                             DocenteId = 73,
+                            Eliminado = false,
                             MesaExamenId = 6,
                             TipoIntegrante = 2
                         },
@@ -3130,6 +3643,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 24,
                             DocenteId = 16,
+                            Eliminado = false,
                             MesaExamenId = 6,
                             TipoIntegrante = 3
                         },
@@ -3137,6 +3651,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 25,
                             DocenteId = 39,
+                            Eliminado = false,
                             MesaExamenId = 7,
                             TipoIntegrante = 0
                         },
@@ -3144,6 +3659,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 26,
                             DocenteId = 66,
+                            Eliminado = false,
                             MesaExamenId = 7,
                             TipoIntegrante = 1
                         },
@@ -3151,6 +3667,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 27,
                             DocenteId = 45,
+                            Eliminado = false,
                             MesaExamenId = 7,
                             TipoIntegrante = 2
                         },
@@ -3158,6 +3675,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 28,
                             DocenteId = 28,
+                            Eliminado = false,
                             MesaExamenId = 7,
                             TipoIntegrante = 3
                         },
@@ -3165,6 +3683,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 29,
                             DocenteId = 28,
+                            Eliminado = false,
                             MesaExamenId = 8,
                             TipoIntegrante = 0
                         },
@@ -3172,6 +3691,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 30,
                             DocenteId = 73,
+                            Eliminado = false,
                             MesaExamenId = 8,
                             TipoIntegrante = 1
                         },
@@ -3179,6 +3699,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 31,
                             DocenteId = 39,
+                            Eliminado = false,
                             MesaExamenId = 8,
                             TipoIntegrante = 2
                         },
@@ -3186,6 +3707,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 32,
                             DocenteId = 23,
+                            Eliminado = false,
                             MesaExamenId = 8,
                             TipoIntegrante = 3
                         },
@@ -3193,6 +3715,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 33,
                             DocenteId = 73,
+                            Eliminado = false,
                             MesaExamenId = 9,
                             TipoIntegrante = 0
                         },
@@ -3200,6 +3723,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 34,
                             DocenteId = 16,
+                            Eliminado = false,
                             MesaExamenId = 9,
                             TipoIntegrante = 1
                         },
@@ -3207,6 +3731,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 35,
                             DocenteId = 6,
+                            Eliminado = false,
                             MesaExamenId = 9,
                             TipoIntegrante = 2
                         },
@@ -3214,6 +3739,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 36,
                             DocenteId = 56,
+                            Eliminado = false,
                             MesaExamenId = 9,
                             TipoIntegrante = 3
                         },
@@ -3221,6 +3747,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 37,
                             DocenteId = 16,
+                            Eliminado = false,
                             MesaExamenId = 10,
                             TipoIntegrante = 0
                         },
@@ -3228,6 +3755,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 38,
                             DocenteId = 47,
+                            Eliminado = false,
                             MesaExamenId = 10,
                             TipoIntegrante = 1
                         },
@@ -3235,6 +3763,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 39,
                             DocenteId = 73,
+                            Eliminado = false,
                             MesaExamenId = 10,
                             TipoIntegrante = 2
                         },
@@ -3242,6 +3771,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 40,
                             DocenteId = 16,
+                            Eliminado = false,
                             MesaExamenId = 10,
                             TipoIntegrante = 3
                         },
@@ -3249,6 +3779,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 41,
                             DocenteId = 56,
+                            Eliminado = false,
                             MesaExamenId = 11,
                             TipoIntegrante = 0
                         },
@@ -3256,6 +3787,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 42,
                             DocenteId = 6,
+                            Eliminado = false,
                             MesaExamenId = 11,
                             TipoIntegrante = 1
                         },
@@ -3263,6 +3795,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 43,
                             DocenteId = 66,
+                            Eliminado = false,
                             MesaExamenId = 11,
                             TipoIntegrante = 2
                         },
@@ -3270,6 +3803,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 44,
                             DocenteId = 53,
+                            Eliminado = false,
                             MesaExamenId = 11,
                             TipoIntegrante = 3
                         },
@@ -3277,6 +3811,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 45,
                             DocenteId = 43,
+                            Eliminado = false,
                             MesaExamenId = 12,
                             TipoIntegrante = 0
                         },
@@ -3284,6 +3819,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 46,
                             DocenteId = 71,
+                            Eliminado = false,
                             MesaExamenId = 12,
                             TipoIntegrante = 1
                         },
@@ -3291,6 +3827,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 47,
                             DocenteId = 39,
+                            Eliminado = false,
                             MesaExamenId = 12,
                             TipoIntegrante = 2
                         },
@@ -3298,6 +3835,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 48,
                             DocenteId = 66,
+                            Eliminado = false,
                             MesaExamenId = 12,
                             TipoIntegrante = 3
                         },
@@ -3305,6 +3843,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 49,
                             DocenteId = 73,
+                            Eliminado = false,
                             MesaExamenId = 13,
                             TipoIntegrante = 0
                         },
@@ -3312,6 +3851,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 50,
                             DocenteId = 28,
+                            Eliminado = false,
                             MesaExamenId = 13,
                             TipoIntegrante = 1
                         },
@@ -3319,6 +3859,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 51,
                             DocenteId = 39,
+                            Eliminado = false,
                             MesaExamenId = 13,
                             TipoIntegrante = 2
                         },
@@ -3326,6 +3867,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 52,
                             DocenteId = 23,
+                            Eliminado = false,
                             MesaExamenId = 13,
                             TipoIntegrante = 3
                         },
@@ -3333,6 +3875,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 53,
                             DocenteId = 39,
+                            Eliminado = false,
                             MesaExamenId = 14,
                             TipoIntegrante = 0
                         },
@@ -3340,6 +3883,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 54,
                             DocenteId = 66,
+                            Eliminado = false,
                             MesaExamenId = 14,
                             TipoIntegrante = 1
                         },
@@ -3347,6 +3891,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 55,
                             DocenteId = 72,
+                            Eliminado = false,
                             MesaExamenId = 14,
                             TipoIntegrante = 2
                         },
@@ -3354,6 +3899,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 56,
                             DocenteId = 56,
+                            Eliminado = false,
                             MesaExamenId = 14,
                             TipoIntegrante = 3
                         },
@@ -3361,6 +3907,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 57,
                             DocenteId = 39,
+                            Eliminado = false,
                             MesaExamenId = 15,
                             TipoIntegrante = 0
                         },
@@ -3368,6 +3915,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 58,
                             DocenteId = 71,
+                            Eliminado = false,
                             MesaExamenId = 15,
                             TipoIntegrante = 1
                         },
@@ -3375,6 +3923,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 59,
                             DocenteId = 43,
+                            Eliminado = false,
                             MesaExamenId = 15,
                             TipoIntegrante = 2
                         },
@@ -3382,6 +3931,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 60,
                             DocenteId = 66,
+                            Eliminado = false,
                             MesaExamenId = 15,
                             TipoIntegrante = 3
                         },
@@ -3389,6 +3939,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 61,
                             DocenteId = 45,
+                            Eliminado = false,
                             MesaExamenId = 16,
                             TipoIntegrante = 0
                         },
@@ -3396,6 +3947,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 62,
                             DocenteId = 66,
+                            Eliminado = false,
                             MesaExamenId = 16,
                             TipoIntegrante = 1
                         },
@@ -3403,6 +3955,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 63,
                             DocenteId = 39,
+                            Eliminado = false,
                             MesaExamenId = 16,
                             TipoIntegrante = 2
                         },
@@ -3410,6 +3963,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 64,
                             DocenteId = 28,
+                            Eliminado = false,
                             MesaExamenId = 16,
                             TipoIntegrante = 3
                         },
@@ -3417,6 +3971,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 65,
                             DocenteId = 16,
+                            Eliminado = false,
                             MesaExamenId = 17,
                             TipoIntegrante = 0
                         },
@@ -3424,6 +3979,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 66,
                             DocenteId = 73,
+                            Eliminado = false,
                             MesaExamenId = 17,
                             TipoIntegrante = 1
                         },
@@ -3431,6 +3987,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 67,
                             DocenteId = 6,
+                            Eliminado = false,
                             MesaExamenId = 17,
                             TipoIntegrante = 2
                         },
@@ -3438,6 +3995,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 68,
                             DocenteId = 56,
+                            Eliminado = false,
                             MesaExamenId = 17,
                             TipoIntegrante = 3
                         },
@@ -3445,6 +4003,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 69,
                             DocenteId = 57,
+                            Eliminado = false,
                             MesaExamenId = 18,
                             TipoIntegrante = 0
                         },
@@ -3452,6 +4011,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 70,
                             DocenteId = 37,
+                            Eliminado = false,
                             MesaExamenId = 18,
                             TipoIntegrante = 1
                         },
@@ -3459,6 +4019,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 71,
                             DocenteId = 11,
+                            Eliminado = false,
                             MesaExamenId = 18,
                             TipoIntegrante = 2
                         },
@@ -3466,6 +4027,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 72,
                             DocenteId = 59,
+                            Eliminado = false,
                             MesaExamenId = 18,
                             TipoIntegrante = 3
                         },
@@ -3473,6 +4035,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 73,
                             DocenteId = 64,
+                            Eliminado = false,
                             MesaExamenId = 19,
                             TipoIntegrante = 0
                         },
@@ -3480,6 +4043,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 74,
                             DocenteId = 59,
+                            Eliminado = false,
                             MesaExamenId = 19,
                             TipoIntegrante = 1
                         },
@@ -3487,6 +4051,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 75,
                             DocenteId = 37,
+                            Eliminado = false,
                             MesaExamenId = 19,
                             TipoIntegrante = 2
                         },
@@ -3494,6 +4059,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 76,
                             DocenteId = 31,
+                            Eliminado = false,
                             MesaExamenId = 19,
                             TipoIntegrante = 3
                         },
@@ -3501,6 +4067,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 77,
                             DocenteId = 47,
+                            Eliminado = false,
                             MesaExamenId = 20,
                             TipoIntegrante = 0
                         },
@@ -3508,6 +4075,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 78,
                             DocenteId = 22,
+                            Eliminado = false,
                             MesaExamenId = 20,
                             TipoIntegrante = 1
                         },
@@ -3515,6 +4083,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 79,
                             DocenteId = 34,
+                            Eliminado = false,
                             MesaExamenId = 20,
                             TipoIntegrante = 2
                         },
@@ -3522,6 +4091,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 80,
                             DocenteId = 64,
+                            Eliminado = false,
                             MesaExamenId = 20,
                             TipoIntegrante = 3
                         },
@@ -3529,6 +4099,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 81,
                             DocenteId = 15,
+                            Eliminado = false,
                             MesaExamenId = 21,
                             TipoIntegrante = 0
                         },
@@ -3536,6 +4107,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 82,
                             DocenteId = 59,
+                            Eliminado = false,
                             MesaExamenId = 21,
                             TipoIntegrante = 1
                         },
@@ -3543,6 +4115,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 83,
                             DocenteId = 5,
+                            Eliminado = false,
                             MesaExamenId = 21,
                             TipoIntegrante = 2
                         },
@@ -3550,6 +4123,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 84,
                             DocenteId = 53,
+                            Eliminado = false,
                             MesaExamenId = 21,
                             TipoIntegrante = 3
                         },
@@ -3557,6 +4131,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 85,
                             DocenteId = 5,
+                            Eliminado = false,
                             MesaExamenId = 22,
                             TipoIntegrante = 0
                         },
@@ -3564,6 +4139,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 86,
                             DocenteId = 4,
+                            Eliminado = false,
                             MesaExamenId = 22,
                             TipoIntegrante = 1
                         },
@@ -3571,6 +4147,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 87,
                             DocenteId = 59,
+                            Eliminado = false,
                             MesaExamenId = 22,
                             TipoIntegrante = 2
                         },
@@ -3578,6 +4155,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 88,
                             DocenteId = 57,
+                            Eliminado = false,
                             MesaExamenId = 22,
                             TipoIntegrante = 3
                         },
@@ -3585,6 +4163,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 89,
                             DocenteId = 53,
+                            Eliminado = false,
                             MesaExamenId = 23,
                             TipoIntegrante = 0
                         },
@@ -3592,6 +4171,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 90,
                             DocenteId = 4,
+                            Eliminado = false,
                             MesaExamenId = 23,
                             TipoIntegrante = 1
                         },
@@ -3599,6 +4179,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 91,
                             DocenteId = 5,
+                            Eliminado = false,
                             MesaExamenId = 23,
                             TipoIntegrante = 2
                         },
@@ -3606,6 +4187,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 92,
                             DocenteId = 34,
+                            Eliminado = false,
                             MesaExamenId = 23,
                             TipoIntegrante = 3
                         },
@@ -3613,6 +4195,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 93,
                             DocenteId = 31,
+                            Eliminado = false,
                             MesaExamenId = 24,
                             TipoIntegrante = 0
                         },
@@ -3620,6 +4203,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 94,
                             DocenteId = 64,
+                            Eliminado = false,
                             MesaExamenId = 24,
                             TipoIntegrante = 1
                         },
@@ -3627,6 +4211,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 95,
                             DocenteId = 59,
+                            Eliminado = false,
                             MesaExamenId = 24,
                             TipoIntegrante = 2
                         },
@@ -3634,6 +4219,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 96,
                             DocenteId = 59,
+                            Eliminado = false,
                             MesaExamenId = 24,
                             TipoIntegrante = 3
                         },
@@ -3641,6 +4227,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 97,
                             DocenteId = 31,
+                            Eliminado = false,
                             MesaExamenId = 25,
                             TipoIntegrante = 0
                         },
@@ -3648,6 +4235,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 98,
                             DocenteId = 64,
+                            Eliminado = false,
                             MesaExamenId = 25,
                             TipoIntegrante = 1
                         },
@@ -3655,6 +4243,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 99,
                             DocenteId = 59,
+                            Eliminado = false,
                             MesaExamenId = 25,
                             TipoIntegrante = 2
                         },
@@ -3662,6 +4251,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 100,
                             DocenteId = 59,
+                            Eliminado = false,
                             MesaExamenId = 25,
                             TipoIntegrante = 3
                         },
@@ -3669,6 +4259,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 101,
                             DocenteId = 11,
+                            Eliminado = false,
                             MesaExamenId = 26,
                             TipoIntegrante = 0
                         },
@@ -3676,6 +4267,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 102,
                             DocenteId = 22,
+                            Eliminado = false,
                             MesaExamenId = 26,
                             TipoIntegrante = 1
                         },
@@ -3683,6 +4275,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 103,
                             DocenteId = 34,
+                            Eliminado = false,
                             MesaExamenId = 26,
                             TipoIntegrante = 2
                         },
@@ -3690,6 +4283,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 104,
                             DocenteId = 15,
+                            Eliminado = false,
                             MesaExamenId = 26,
                             TipoIntegrante = 3
                         },
@@ -3697,6 +4291,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 105,
                             DocenteId = 22,
+                            Eliminado = false,
                             MesaExamenId = 27,
                             TipoIntegrante = 0
                         },
@@ -3704,6 +4299,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 106,
                             DocenteId = 34,
+                            Eliminado = false,
                             MesaExamenId = 27,
                             TipoIntegrante = 1
                         },
@@ -3711,6 +4307,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 107,
                             DocenteId = 11,
+                            Eliminado = false,
                             MesaExamenId = 27,
                             TipoIntegrante = 2
                         },
@@ -3718,6 +4315,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 108,
                             DocenteId = 15,
+                            Eliminado = false,
                             MesaExamenId = 27,
                             TipoIntegrante = 3
                         },
@@ -3725,6 +4323,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 109,
                             DocenteId = 22,
+                            Eliminado = false,
                             MesaExamenId = 28,
                             TipoIntegrante = 0
                         },
@@ -3732,6 +4331,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 110,
                             DocenteId = 34,
+                            Eliminado = false,
                             MesaExamenId = 28,
                             TipoIntegrante = 1
                         },
@@ -3739,6 +4339,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 111,
                             DocenteId = 11,
+                            Eliminado = false,
                             MesaExamenId = 28,
                             TipoIntegrante = 2
                         },
@@ -3746,6 +4347,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 112,
                             DocenteId = 15,
+                            Eliminado = false,
                             MesaExamenId = 28,
                             TipoIntegrante = 3
                         },
@@ -3753,6 +4355,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 113,
                             DocenteId = 37,
+                            Eliminado = false,
                             MesaExamenId = 29,
                             TipoIntegrante = 0
                         },
@@ -3760,6 +4363,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 114,
                             DocenteId = 57,
+                            Eliminado = false,
                             MesaExamenId = 29,
                             TipoIntegrante = 1
                         },
@@ -3767,6 +4371,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 115,
                             DocenteId = 11,
+                            Eliminado = false,
                             MesaExamenId = 29,
                             TipoIntegrante = 2
                         },
@@ -3774,6 +4379,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 116,
                             DocenteId = 57,
+                            Eliminado = false,
                             MesaExamenId = 29,
                             TipoIntegrante = 3
                         },
@@ -3781,6 +4387,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 117,
                             DocenteId = 59,
+                            Eliminado = false,
                             MesaExamenId = 30,
                             TipoIntegrante = 0
                         },
@@ -3788,6 +4395,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 118,
                             DocenteId = 15,
+                            Eliminado = false,
                             MesaExamenId = 30,
                             TipoIntegrante = 1
                         },
@@ -3795,6 +4403,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 119,
                             DocenteId = 34,
+                            Eliminado = false,
                             MesaExamenId = 30,
                             TipoIntegrante = 2
                         },
@@ -3802,6 +4411,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 120,
                             DocenteId = 53,
+                            Eliminado = false,
                             MesaExamenId = 30,
                             TipoIntegrante = 3
                         },
@@ -3809,6 +4419,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 121,
                             DocenteId = 4,
+                            Eliminado = false,
                             MesaExamenId = 31,
                             TipoIntegrante = 0
                         },
@@ -3816,6 +4427,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 122,
                             DocenteId = 5,
+                            Eliminado = false,
                             MesaExamenId = 31,
                             TipoIntegrante = 1
                         },
@@ -3823,6 +4435,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 123,
                             DocenteId = 59,
+                            Eliminado = false,
                             MesaExamenId = 31,
                             TipoIntegrante = 2
                         },
@@ -3830,6 +4443,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 124,
                             DocenteId = 57,
+                            Eliminado = false,
                             MesaExamenId = 31,
                             TipoIntegrante = 3
                         },
@@ -3837,6 +4451,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 125,
                             DocenteId = 59,
+                            Eliminado = false,
                             MesaExamenId = 32,
                             TipoIntegrante = 0
                         },
@@ -3844,6 +4459,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 126,
                             DocenteId = 53,
+                            Eliminado = false,
                             MesaExamenId = 32,
                             TipoIntegrante = 1
                         },
@@ -3851,6 +4467,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 127,
                             DocenteId = 31,
+                            Eliminado = false,
                             MesaExamenId = 32,
                             TipoIntegrante = 2
                         },
@@ -3858,6 +4475,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 128,
                             DocenteId = 34,
+                            Eliminado = false,
                             MesaExamenId = 32,
                             TipoIntegrante = 3
                         },
@@ -3865,6 +4483,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 129,
                             DocenteId = 59,
+                            Eliminado = false,
                             MesaExamenId = 33,
                             TipoIntegrante = 0
                         },
@@ -3872,6 +4491,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 130,
                             DocenteId = 15,
+                            Eliminado = false,
                             MesaExamenId = 33,
                             TipoIntegrante = 1
                         },
@@ -3879,6 +4499,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 131,
                             DocenteId = 34,
+                            Eliminado = false,
                             MesaExamenId = 33,
                             TipoIntegrante = 2
                         },
@@ -3886,6 +4507,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 132,
                             DocenteId = 53,
+                            Eliminado = false,
                             MesaExamenId = 33,
                             TipoIntegrante = 3
                         },
@@ -3893,6 +4515,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 133,
                             DocenteId = 7,
+                            Eliminado = false,
                             MesaExamenId = 34,
                             TipoIntegrante = 0
                         },
@@ -3900,6 +4523,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 134,
                             DocenteId = 57,
+                            Eliminado = false,
                             MesaExamenId = 34,
                             TipoIntegrante = 1
                         },
@@ -3907,6 +4531,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 135,
                             DocenteId = 15,
+                            Eliminado = false,
                             MesaExamenId = 34,
                             TipoIntegrante = 2
                         },
@@ -3914,6 +4539,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 136,
                             DocenteId = 15,
+                            Eliminado = false,
                             MesaExamenId = 34,
                             TipoIntegrante = 3
                         },
@@ -3921,6 +4547,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 137,
                             DocenteId = 59,
+                            Eliminado = false,
                             MesaExamenId = 35,
                             TipoIntegrante = 0
                         },
@@ -3928,6 +4555,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 138,
                             DocenteId = 4,
+                            Eliminado = false,
                             MesaExamenId = 35,
                             TipoIntegrante = 1
                         },
@@ -3935,6 +4563,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 139,
                             DocenteId = 5,
+                            Eliminado = false,
                             MesaExamenId = 35,
                             TipoIntegrante = 2
                         },
@@ -3942,6 +4571,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 140,
                             DocenteId = 57,
+                            Eliminado = false,
                             MesaExamenId = 35,
                             TipoIntegrante = 3
                         },
@@ -3949,6 +4579,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 141,
                             DocenteId = 59,
+                            Eliminado = false,
                             MesaExamenId = 36,
                             TipoIntegrante = 0
                         },
@@ -3956,6 +4587,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 142,
                             DocenteId = 53,
+                            Eliminado = false,
                             MesaExamenId = 36,
                             TipoIntegrante = 1
                         },
@@ -3963,6 +4595,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 143,
                             DocenteId = 31,
+                            Eliminado = false,
                             MesaExamenId = 36,
                             TipoIntegrante = 2
                         },
@@ -3970,6 +4603,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 144,
                             DocenteId = 34,
+                            Eliminado = false,
                             MesaExamenId = 36,
                             TipoIntegrante = 3
                         },
@@ -3977,6 +4611,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 145,
                             DocenteId = 4,
+                            Eliminado = false,
                             MesaExamenId = 37,
                             TipoIntegrante = 0
                         },
@@ -3984,6 +4619,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 146,
                             DocenteId = 46,
+                            Eliminado = false,
                             MesaExamenId = 37,
                             TipoIntegrante = 1
                         },
@@ -3991,6 +4627,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 147,
                             DocenteId = 47,
+                            Eliminado = false,
                             MesaExamenId = 37,
                             TipoIntegrante = 2
                         },
@@ -3998,6 +4635,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 148,
                             DocenteId = 59,
+                            Eliminado = false,
                             MesaExamenId = 37,
                             TipoIntegrante = 3
                         },
@@ -4005,6 +4643,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 149,
                             DocenteId = 15,
+                            Eliminado = false,
                             MesaExamenId = 38,
                             TipoIntegrante = 0
                         },
@@ -4012,6 +4651,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 150,
                             DocenteId = 47,
+                            Eliminado = false,
                             MesaExamenId = 38,
                             TipoIntegrante = 1
                         },
@@ -4019,6 +4659,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 151,
                             DocenteId = 5,
+                            Eliminado = false,
                             MesaExamenId = 38,
                             TipoIntegrante = 2
                         },
@@ -4026,6 +4667,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 152,
                             DocenteId = 21,
+                            Eliminado = false,
                             MesaExamenId = 38,
                             TipoIntegrante = 3
                         },
@@ -4033,6 +4675,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 153,
                             DocenteId = 47,
+                            Eliminado = false,
                             MesaExamenId = 39,
                             TipoIntegrante = 0
                         },
@@ -4040,6 +4683,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 154,
                             DocenteId = 15,
+                            Eliminado = false,
                             MesaExamenId = 39,
                             TipoIntegrante = 1
                         },
@@ -4047,6 +4691,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 155,
                             DocenteId = 5,
+                            Eliminado = false,
                             MesaExamenId = 39,
                             TipoIntegrante = 2
                         },
@@ -4054,6 +4699,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 156,
                             DocenteId = 21,
+                            Eliminado = false,
                             MesaExamenId = 39,
                             TipoIntegrante = 3
                         },
@@ -4061,6 +4707,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 157,
                             DocenteId = 58,
+                            Eliminado = false,
                             MesaExamenId = 40,
                             TipoIntegrante = 0
                         },
@@ -4068,6 +4715,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 158,
                             DocenteId = 11,
+                            Eliminado = false,
                             MesaExamenId = 40,
                             TipoIntegrante = 1
                         },
@@ -4075,6 +4723,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 159,
                             DocenteId = 54,
+                            Eliminado = false,
                             MesaExamenId = 40,
                             TipoIntegrante = 2
                         },
@@ -4082,6 +4731,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 160,
                             DocenteId = 46,
+                            Eliminado = false,
                             MesaExamenId = 40,
                             TipoIntegrante = 3
                         },
@@ -4089,6 +4739,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 161,
                             DocenteId = 31,
+                            Eliminado = false,
                             MesaExamenId = 41,
                             TipoIntegrante = 0
                         },
@@ -4096,6 +4747,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 162,
                             DocenteId = 64,
+                            Eliminado = false,
                             MesaExamenId = 41,
                             TipoIntegrante = 1
                         },
@@ -4103,6 +4755,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 163,
                             DocenteId = 59,
+                            Eliminado = false,
                             MesaExamenId = 41,
                             TipoIntegrante = 2
                         },
@@ -4110,6 +4763,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 164,
                             DocenteId = 58,
+                            Eliminado = false,
                             MesaExamenId = 41,
                             TipoIntegrante = 3
                         },
@@ -4117,6 +4771,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 165,
                             DocenteId = 31,
+                            Eliminado = false,
                             MesaExamenId = 42,
                             TipoIntegrante = 0
                         },
@@ -4124,6 +4779,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 166,
                             DocenteId = 64,
+                            Eliminado = false,
                             MesaExamenId = 42,
                             TipoIntegrante = 1
                         },
@@ -4131,6 +4787,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 167,
                             DocenteId = 59,
+                            Eliminado = false,
                             MesaExamenId = 42,
                             TipoIntegrante = 2
                         },
@@ -4138,6 +4795,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 168,
                             DocenteId = 58,
+                            Eliminado = false,
                             MesaExamenId = 42,
                             TipoIntegrante = 3
                         },
@@ -4145,6 +4803,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 169,
                             DocenteId = 11,
+                            Eliminado = false,
                             MesaExamenId = 43,
                             TipoIntegrante = 0
                         },
@@ -4152,6 +4811,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 170,
                             DocenteId = 22,
+                            Eliminado = false,
                             MesaExamenId = 43,
                             TipoIntegrante = 1
                         },
@@ -4159,6 +4819,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 171,
                             DocenteId = 34,
+                            Eliminado = false,
                             MesaExamenId = 43,
                             TipoIntegrante = 2
                         },
@@ -4166,6 +4827,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 172,
                             DocenteId = 46,
+                            Eliminado = false,
                             MesaExamenId = 43,
                             TipoIntegrante = 3
                         },
@@ -4173,6 +4835,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 173,
                             DocenteId = 5,
+                            Eliminado = false,
                             MesaExamenId = 44,
                             TipoIntegrante = 0
                         },
@@ -4180,6 +4843,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 174,
                             DocenteId = 47,
+                            Eliminado = false,
                             MesaExamenId = 44,
                             TipoIntegrante = 1
                         },
@@ -4187,6 +4851,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 175,
                             DocenteId = 15,
+                            Eliminado = false,
                             MesaExamenId = 44,
                             TipoIntegrante = 2
                         },
@@ -4194,6 +4859,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 176,
                             DocenteId = 21,
+                            Eliminado = false,
                             MesaExamenId = 44,
                             TipoIntegrante = 3
                         },
@@ -4201,6 +4867,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 177,
                             DocenteId = 42,
+                            Eliminado = false,
                             MesaExamenId = 45,
                             TipoIntegrante = 0
                         },
@@ -4208,6 +4875,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 178,
                             DocenteId = 46,
+                            Eliminado = false,
                             MesaExamenId = 45,
                             TipoIntegrante = 1
                         },
@@ -4215,6 +4883,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 179,
                             DocenteId = 7,
+                            Eliminado = false,
                             MesaExamenId = 45,
                             TipoIntegrante = 2
                         },
@@ -4222,6 +4891,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 180,
                             DocenteId = 53,
+                            Eliminado = false,
                             MesaExamenId = 45,
                             TipoIntegrante = 3
                         },
@@ -4229,6 +4899,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 181,
                             DocenteId = 42,
+                            Eliminado = false,
                             MesaExamenId = 46,
                             TipoIntegrante = 0
                         },
@@ -4236,6 +4907,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 182,
                             DocenteId = 46,
+                            Eliminado = false,
                             MesaExamenId = 46,
                             TipoIntegrante = 1
                         },
@@ -4243,6 +4915,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 183,
                             DocenteId = 7,
+                            Eliminado = false,
                             MesaExamenId = 46,
                             TipoIntegrante = 2
                         },
@@ -4250,6 +4923,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 184,
                             DocenteId = 53,
+                            Eliminado = false,
                             MesaExamenId = 46,
                             TipoIntegrante = 3
                         },
@@ -4257,6 +4931,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 185,
                             DocenteId = 64,
+                            Eliminado = false,
                             MesaExamenId = 47,
                             TipoIntegrante = 0
                         },
@@ -4264,6 +4939,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 186,
                             DocenteId = 21,
+                            Eliminado = false,
                             MesaExamenId = 47,
                             TipoIntegrante = 1
                         },
@@ -4271,6 +4947,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 187,
                             DocenteId = 47,
+                            Eliminado = false,
                             MesaExamenId = 47,
                             TipoIntegrante = 2
                         },
@@ -4278,6 +4955,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 188,
                             DocenteId = 46,
+                            Eliminado = false,
                             MesaExamenId = 47,
                             TipoIntegrante = 3
                         },
@@ -4285,6 +4963,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 189,
                             DocenteId = 7,
+                            Eliminado = false,
                             MesaExamenId = 48,
                             TipoIntegrante = 0
                         },
@@ -4292,6 +4971,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 190,
                             DocenteId = 46,
+                            Eliminado = false,
                             MesaExamenId = 48,
                             TipoIntegrante = 1
                         },
@@ -4299,6 +4979,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 191,
                             DocenteId = 42,
+                            Eliminado = false,
                             MesaExamenId = 48,
                             TipoIntegrante = 2
                         },
@@ -4306,6 +4987,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 192,
                             DocenteId = 53,
+                            Eliminado = false,
                             MesaExamenId = 48,
                             TipoIntegrante = 3
                         },
@@ -4313,6 +4995,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 193,
                             DocenteId = 46,
+                            Eliminado = false,
                             MesaExamenId = 49,
                             TipoIntegrante = 0
                         },
@@ -4320,6 +5003,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 194,
                             DocenteId = 7,
+                            Eliminado = false,
                             MesaExamenId = 49,
                             TipoIntegrante = 1
                         },
@@ -4327,6 +5011,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 195,
                             DocenteId = 42,
+                            Eliminado = false,
                             MesaExamenId = 49,
                             TipoIntegrante = 2
                         },
@@ -4334,6 +5019,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 196,
                             DocenteId = 53,
+                            Eliminado = false,
                             MesaExamenId = 49,
                             TipoIntegrante = 3
                         },
@@ -4341,6 +5027,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 197,
                             DocenteId = 47,
+                            Eliminado = false,
                             MesaExamenId = 50,
                             TipoIntegrante = 0
                         },
@@ -4348,6 +5035,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 198,
                             DocenteId = 60,
+                            Eliminado = false,
                             MesaExamenId = 50,
                             TipoIntegrante = 1
                         },
@@ -4355,6 +5043,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 199,
                             DocenteId = 18,
+                            Eliminado = false,
                             MesaExamenId = 50,
                             TipoIntegrante = 2
                         },
@@ -4362,6 +5051,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 200,
                             DocenteId = 67,
+                            Eliminado = false,
                             MesaExamenId = 50,
                             TipoIntegrante = 3
                         },
@@ -4369,6 +5059,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 201,
                             DocenteId = 48,
+                            Eliminado = false,
                             MesaExamenId = 51,
                             TipoIntegrante = 0
                         },
@@ -4376,6 +5067,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 202,
                             DocenteId = 2,
+                            Eliminado = false,
                             MesaExamenId = 51,
                             TipoIntegrante = 1
                         },
@@ -4383,6 +5075,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 203,
                             DocenteId = 31,
+                            Eliminado = false,
                             MesaExamenId = 51,
                             TipoIntegrante = 2
                         },
@@ -4390,6 +5083,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 204,
                             DocenteId = 28,
+                            Eliminado = false,
                             MesaExamenId = 51,
                             TipoIntegrante = 3
                         },
@@ -4397,6 +5091,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 205,
                             DocenteId = 64,
+                            Eliminado = false,
                             MesaExamenId = 52,
                             TipoIntegrante = 0
                         },
@@ -4404,6 +5099,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 206,
                             DocenteId = 63,
+                            Eliminado = false,
                             MesaExamenId = 52,
                             TipoIntegrante = 1
                         },
@@ -4411,6 +5107,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 207,
                             DocenteId = 2,
+                            Eliminado = false,
                             MesaExamenId = 52,
                             TipoIntegrante = 2
                         },
@@ -4418,6 +5115,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 208,
                             DocenteId = 33,
+                            Eliminado = false,
                             MesaExamenId = 52,
                             TipoIntegrante = 3
                         },
@@ -4425,6 +5123,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 209,
                             DocenteId = 34,
+                            Eliminado = false,
                             MesaExamenId = 53,
                             TipoIntegrante = 0
                         },
@@ -4432,6 +5131,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 210,
                             DocenteId = 67,
+                            Eliminado = false,
                             MesaExamenId = 53,
                             TipoIntegrante = 1
                         },
@@ -4439,6 +5139,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 211,
                             DocenteId = 17,
+                            Eliminado = false,
                             MesaExamenId = 53,
                             TipoIntegrante = 2
                         },
@@ -4446,6 +5147,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 212,
                             DocenteId = 47,
+                            Eliminado = false,
                             MesaExamenId = 53,
                             TipoIntegrante = 3
                         },
@@ -4453,6 +5155,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 213,
                             DocenteId = 36,
+                            Eliminado = false,
                             MesaExamenId = 54,
                             TipoIntegrante = 0
                         },
@@ -4460,6 +5163,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 214,
                             DocenteId = 29,
+                            Eliminado = false,
                             MesaExamenId = 54,
                             TipoIntegrante = 1
                         },
@@ -4467,6 +5171,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 215,
                             DocenteId = 17,
+                            Eliminado = false,
                             MesaExamenId = 54,
                             TipoIntegrante = 2
                         },
@@ -4474,6 +5179,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 216,
                             DocenteId = 48,
+                            Eliminado = false,
                             MesaExamenId = 54,
                             TipoIntegrante = 3
                         },
@@ -4481,6 +5187,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 217,
                             DocenteId = 31,
+                            Eliminado = false,
                             MesaExamenId = 55,
                             TipoIntegrante = 0
                         },
@@ -4488,6 +5195,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 218,
                             DocenteId = 47,
+                            Eliminado = false,
                             MesaExamenId = 55,
                             TipoIntegrante = 1
                         },
@@ -4495,6 +5203,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 219,
                             DocenteId = 67,
+                            Eliminado = false,
                             MesaExamenId = 55,
                             TipoIntegrante = 2
                         },
@@ -4502,6 +5211,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 220,
                             DocenteId = 2,
+                            Eliminado = false,
                             MesaExamenId = 55,
                             TipoIntegrante = 3
                         },
@@ -4509,6 +5219,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 221,
                             DocenteId = 31,
+                            Eliminado = false,
                             MesaExamenId = 56,
                             TipoIntegrante = 0
                         },
@@ -4516,6 +5227,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 222,
                             DocenteId = 47,
+                            Eliminado = false,
                             MesaExamenId = 56,
                             TipoIntegrante = 1
                         },
@@ -4523,6 +5235,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 223,
                             DocenteId = 67,
+                            Eliminado = false,
                             MesaExamenId = 56,
                             TipoIntegrante = 2
                         },
@@ -4530,6 +5243,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 224,
                             DocenteId = 2,
+                            Eliminado = false,
                             MesaExamenId = 56,
                             TipoIntegrante = 3
                         },
@@ -4537,6 +5251,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 225,
                             DocenteId = 67,
+                            Eliminado = false,
                             MesaExamenId = 57,
                             TipoIntegrante = 0
                         },
@@ -4544,6 +5259,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 226,
                             DocenteId = 48,
+                            Eliminado = false,
                             MesaExamenId = 57,
                             TipoIntegrante = 1
                         },
@@ -4551,6 +5267,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 227,
                             DocenteId = 29,
+                            Eliminado = false,
                             MesaExamenId = 57,
                             TipoIntegrante = 2
                         },
@@ -4558,6 +5275,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 228,
                             DocenteId = 28,
+                            Eliminado = false,
                             MesaExamenId = 57,
                             TipoIntegrante = 3
                         },
@@ -4565,6 +5283,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 229,
                             DocenteId = 2,
+                            Eliminado = false,
                             MesaExamenId = 58,
                             TipoIntegrante = 0
                         },
@@ -4572,6 +5291,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 230,
                             DocenteId = 60,
+                            Eliminado = false,
                             MesaExamenId = 58,
                             TipoIntegrante = 1
                         },
@@ -4579,6 +5299,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 231,
                             DocenteId = 36,
+                            Eliminado = false,
                             MesaExamenId = 58,
                             TipoIntegrante = 2
                         },
@@ -4586,6 +5307,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 232,
                             DocenteId = 28,
+                            Eliminado = false,
                             MesaExamenId = 58,
                             TipoIntegrante = 3
                         },
@@ -4593,6 +5315,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 233,
                             DocenteId = 60,
+                            Eliminado = false,
                             MesaExamenId = 59,
                             TipoIntegrante = 0
                         },
@@ -4600,6 +5323,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 234,
                             DocenteId = 47,
+                            Eliminado = false,
                             MesaExamenId = 59,
                             TipoIntegrante = 1
                         },
@@ -4607,6 +5331,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 235,
                             DocenteId = 18,
+                            Eliminado = false,
                             MesaExamenId = 59,
                             TipoIntegrante = 2
                         },
@@ -4614,6 +5339,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 236,
                             DocenteId = 67,
+                            Eliminado = false,
                             MesaExamenId = 59,
                             TipoIntegrante = 3
                         },
@@ -4621,6 +5347,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 237,
                             DocenteId = 29,
+                            Eliminado = false,
                             MesaExamenId = 60,
                             TipoIntegrante = 0
                         },
@@ -4628,6 +5355,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 238,
                             DocenteId = 7,
+                            Eliminado = false,
                             MesaExamenId = 60,
                             TipoIntegrante = 1
                         },
@@ -4635,6 +5363,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 239,
                             DocenteId = 11,
+                            Eliminado = false,
                             MesaExamenId = 60,
                             TipoIntegrante = 2
                         },
@@ -4642,6 +5371,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 240,
                             DocenteId = 37,
+                            Eliminado = false,
                             MesaExamenId = 60,
                             TipoIntegrante = 3
                         },
@@ -4649,6 +5379,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 241,
                             DocenteId = 17,
+                            Eliminado = false,
                             MesaExamenId = 61,
                             TipoIntegrante = 0
                         },
@@ -4656,6 +5387,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 242,
                             DocenteId = 18,
+                            Eliminado = false,
                             MesaExamenId = 61,
                             TipoIntegrante = 1
                         },
@@ -4663,6 +5395,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 243,
                             DocenteId = 7,
+                            Eliminado = false,
                             MesaExamenId = 61,
                             TipoIntegrante = 2
                         },
@@ -4670,6 +5403,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 244,
                             DocenteId = 29,
+                            Eliminado = false,
                             MesaExamenId = 61,
                             TipoIntegrante = 3
                         },
@@ -4677,6 +5411,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 245,
                             DocenteId = 34,
+                            Eliminado = false,
                             MesaExamenId = 62,
                             TipoIntegrante = 0
                         },
@@ -4684,6 +5419,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 246,
                             DocenteId = 18,
+                            Eliminado = false,
                             MesaExamenId = 62,
                             TipoIntegrante = 1
                         },
@@ -4691,6 +5427,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 247,
                             DocenteId = 37,
+                            Eliminado = false,
                             MesaExamenId = 62,
                             TipoIntegrante = 2
                         },
@@ -4698,6 +5435,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 248,
                             DocenteId = 33,
+                            Eliminado = false,
                             MesaExamenId = 62,
                             TipoIntegrante = 3
                         },
@@ -4705,6 +5443,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 249,
                             DocenteId = 34,
+                            Eliminado = false,
                             MesaExamenId = 63,
                             TipoIntegrante = 0
                         },
@@ -4712,6 +5451,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 250,
                             DocenteId = 48,
+                            Eliminado = false,
                             MesaExamenId = 63,
                             TipoIntegrante = 1
                         },
@@ -4719,6 +5459,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 251,
                             DocenteId = 60,
+                            Eliminado = false,
                             MesaExamenId = 63,
                             TipoIntegrante = 2
                         },
@@ -4726,6 +5467,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 252,
                             DocenteId = 47,
+                            Eliminado = false,
                             MesaExamenId = 63,
                             TipoIntegrante = 3
                         },
@@ -4733,6 +5475,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 253,
                             DocenteId = 37,
+                            Eliminado = false,
                             MesaExamenId = 64,
                             TipoIntegrante = 0
                         },
@@ -4740,6 +5483,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 254,
                             DocenteId = 7,
+                            Eliminado = false,
                             MesaExamenId = 64,
                             TipoIntegrante = 1
                         },
@@ -4747,6 +5491,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 255,
                             DocenteId = 33,
+                            Eliminado = false,
                             MesaExamenId = 64,
                             TipoIntegrante = 2
                         },
@@ -4754,6 +5499,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 256,
                             DocenteId = 48,
+                            Eliminado = false,
                             MesaExamenId = 64,
                             TipoIntegrante = 3
                         },
@@ -4761,6 +5507,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 257,
                             DocenteId = 34,
+                            Eliminado = false,
                             MesaExamenId = 65,
                             TipoIntegrante = 0
                         },
@@ -4768,6 +5515,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 258,
                             DocenteId = 18,
+                            Eliminado = false,
                             MesaExamenId = 65,
                             TipoIntegrante = 1
                         },
@@ -4775,6 +5523,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 259,
                             DocenteId = 48,
+                            Eliminado = false,
                             MesaExamenId = 65,
                             TipoIntegrante = 2
                         },
@@ -4782,6 +5531,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 260,
                             DocenteId = 2,
+                            Eliminado = false,
                             MesaExamenId = 65,
                             TipoIntegrante = 3
                         },
@@ -4789,6 +5539,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 261,
                             DocenteId = 67,
+                            Eliminado = false,
                             MesaExamenId = 66,
                             TipoIntegrante = 0
                         },
@@ -4796,6 +5547,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 262,
                             DocenteId = 48,
+                            Eliminado = false,
                             MesaExamenId = 66,
                             TipoIntegrante = 1
                         },
@@ -4803,6 +5555,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 263,
                             DocenteId = 29,
+                            Eliminado = false,
                             MesaExamenId = 66,
                             TipoIntegrante = 2
                         },
@@ -4810,6 +5563,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 264,
                             DocenteId = 29,
+                            Eliminado = false,
                             MesaExamenId = 66,
                             TipoIntegrante = 3
                         },
@@ -4817,6 +5571,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 265,
                             DocenteId = 63,
+                            Eliminado = false,
                             MesaExamenId = 67,
                             TipoIntegrante = 0
                         },
@@ -4824,6 +5579,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 266,
                             DocenteId = 34,
+                            Eliminado = false,
                             MesaExamenId = 67,
                             TipoIntegrante = 1
                         },
@@ -4831,6 +5587,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 267,
                             DocenteId = 18,
+                            Eliminado = false,
                             MesaExamenId = 67,
                             TipoIntegrante = 2
                         },
@@ -4838,6 +5595,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 268,
                             DocenteId = 29,
+                            Eliminado = false,
                             MesaExamenId = 67,
                             TipoIntegrante = 3
                         },
@@ -4845,6 +5603,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 269,
                             DocenteId = 18,
+                            Eliminado = false,
                             MesaExamenId = 68,
                             TipoIntegrante = 0
                         },
@@ -4852,6 +5611,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 270,
                             DocenteId = 17,
+                            Eliminado = false,
                             MesaExamenId = 68,
                             TipoIntegrante = 1
                         },
@@ -4859,6 +5619,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 271,
                             DocenteId = 7,
+                            Eliminado = false,
                             MesaExamenId = 68,
                             TipoIntegrante = 2
                         },
@@ -4866,6 +5627,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 272,
                             DocenteId = 29,
+                            Eliminado = false,
                             MesaExamenId = 68,
                             TipoIntegrante = 3
                         },
@@ -4873,6 +5635,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 273,
                             DocenteId = 18,
+                            Eliminado = false,
                             MesaExamenId = 69,
                             TipoIntegrante = 0
                         },
@@ -4880,6 +5643,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 274,
                             DocenteId = 34,
+                            Eliminado = false,
                             MesaExamenId = 69,
                             TipoIntegrante = 1
                         },
@@ -4887,6 +5651,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 275,
                             DocenteId = 37,
+                            Eliminado = false,
                             MesaExamenId = 69,
                             TipoIntegrante = 2
                         },
@@ -4894,6 +5659,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 276,
                             DocenteId = 29,
+                            Eliminado = false,
                             MesaExamenId = 69,
                             TipoIntegrante = 3
                         },
@@ -4901,6 +5667,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 277,
                             DocenteId = 7,
+                            Eliminado = false,
                             MesaExamenId = 70,
                             TipoIntegrante = 0
                         },
@@ -4908,6 +5675,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 278,
                             DocenteId = 37,
+                            Eliminado = false,
                             MesaExamenId = 70,
                             TipoIntegrante = 1
                         },
@@ -4915,6 +5683,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 279,
                             DocenteId = 33,
+                            Eliminado = false,
                             MesaExamenId = 70,
                             TipoIntegrante = 2
                         },
@@ -4922,6 +5691,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 280,
                             DocenteId = 48,
+                            Eliminado = false,
                             MesaExamenId = 70,
                             TipoIntegrante = 3
                         },
@@ -4929,6 +5699,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 281,
                             DocenteId = 18,
+                            Eliminado = false,
                             MesaExamenId = 71,
                             TipoIntegrante = 0
                         },
@@ -4936,6 +5707,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 282,
                             DocenteId = 34,
+                            Eliminado = false,
                             MesaExamenId = 71,
                             TipoIntegrante = 1
                         },
@@ -4943,6 +5715,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 283,
                             DocenteId = 48,
+                            Eliminado = false,
                             MesaExamenId = 71,
                             TipoIntegrante = 2
                         },
@@ -4950,6 +5723,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 284,
                             DocenteId = 2,
+                            Eliminado = false,
                             MesaExamenId = 71,
                             TipoIntegrante = 3
                         },
@@ -4957,6 +5731,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 285,
                             DocenteId = 61,
+                            Eliminado = false,
                             MesaExamenId = 72,
                             TipoIntegrante = 0
                         },
@@ -4964,6 +5739,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 286,
                             DocenteId = 9,
+                            Eliminado = false,
                             MesaExamenId = 72,
                             TipoIntegrante = 1
                         },
@@ -4971,6 +5747,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 287,
                             DocenteId = 32,
+                            Eliminado = false,
                             MesaExamenId = 72,
                             TipoIntegrante = 2
                         },
@@ -4978,6 +5755,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 288,
                             DocenteId = 3,
+                            Eliminado = false,
                             MesaExamenId = 72,
                             TipoIntegrante = 3
                         },
@@ -4985,6 +5763,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 289,
                             DocenteId = 8,
+                            Eliminado = false,
                             MesaExamenId = 73,
                             TipoIntegrante = 0
                         },
@@ -4992,6 +5771,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 290,
                             DocenteId = 9,
+                            Eliminado = false,
                             MesaExamenId = 73,
                             TipoIntegrante = 1
                         },
@@ -4999,6 +5779,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 291,
                             DocenteId = 12,
+                            Eliminado = false,
                             MesaExamenId = 73,
                             TipoIntegrante = 2
                         },
@@ -5006,6 +5787,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 292,
                             DocenteId = 61,
+                            Eliminado = false,
                             MesaExamenId = 73,
                             TipoIntegrante = 3
                         },
@@ -5013,6 +5795,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 293,
                             DocenteId = 8,
+                            Eliminado = false,
                             MesaExamenId = 74,
                             TipoIntegrante = 0
                         },
@@ -5020,6 +5803,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 294,
                             DocenteId = 9,
+                            Eliminado = false,
                             MesaExamenId = 74,
                             TipoIntegrante = 1
                         },
@@ -5027,6 +5811,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 295,
                             DocenteId = 12,
+                            Eliminado = false,
                             MesaExamenId = 74,
                             TipoIntegrante = 2
                         },
@@ -5034,6 +5819,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 296,
                             DocenteId = 61,
+                            Eliminado = false,
                             MesaExamenId = 74,
                             TipoIntegrante = 3
                         },
@@ -5041,6 +5827,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 297,
                             DocenteId = 3,
+                            Eliminado = false,
                             MesaExamenId = 75,
                             TipoIntegrante = 0
                         },
@@ -5048,6 +5835,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 298,
                             DocenteId = 61,
+                            Eliminado = false,
                             MesaExamenId = 75,
                             TipoIntegrante = 1
                         },
@@ -5055,6 +5843,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 299,
                             DocenteId = 32,
+                            Eliminado = false,
                             MesaExamenId = 75,
                             TipoIntegrante = 2
                         },
@@ -5062,6 +5851,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 300,
                             DocenteId = 9,
+                            Eliminado = false,
                             MesaExamenId = 75,
                             TipoIntegrante = 3
                         },
@@ -5069,6 +5859,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 301,
                             DocenteId = 54,
+                            Eliminado = false,
                             MesaExamenId = 76,
                             TipoIntegrante = 0
                         },
@@ -5076,6 +5867,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 302,
                             DocenteId = 51,
+                            Eliminado = false,
                             MesaExamenId = 76,
                             TipoIntegrante = 1
                         },
@@ -5083,6 +5875,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 303,
                             DocenteId = 61,
+                            Eliminado = false,
                             MesaExamenId = 76,
                             TipoIntegrante = 2
                         },
@@ -5090,6 +5883,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 304,
                             DocenteId = 3,
+                            Eliminado = false,
                             MesaExamenId = 76,
                             TipoIntegrante = 3
                         },
@@ -5097,6 +5891,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 305,
                             DocenteId = 3,
+                            Eliminado = false,
                             MesaExamenId = 77,
                             TipoIntegrante = 0
                         },
@@ -5104,6 +5899,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 306,
                             DocenteId = 51,
+                            Eliminado = false,
                             MesaExamenId = 77,
                             TipoIntegrante = 1
                         },
@@ -5111,6 +5907,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 307,
                             DocenteId = 32,
+                            Eliminado = false,
                             MesaExamenId = 77,
                             TipoIntegrante = 2
                         },
@@ -5118,6 +5915,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 308,
                             DocenteId = 12,
+                            Eliminado = false,
                             MesaExamenId = 77,
                             TipoIntegrante = 3
                         },
@@ -5125,6 +5923,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 309,
                             DocenteId = 9,
+                            Eliminado = false,
                             MesaExamenId = 78,
                             TipoIntegrante = 0
                         },
@@ -5132,6 +5931,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 310,
                             DocenteId = 61,
+                            Eliminado = false,
                             MesaExamenId = 78,
                             TipoIntegrante = 1
                         },
@@ -5139,6 +5939,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 311,
                             DocenteId = 32,
+                            Eliminado = false,
                             MesaExamenId = 78,
                             TipoIntegrante = 2
                         },
@@ -5146,6 +5947,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 312,
                             DocenteId = 3,
+                            Eliminado = false,
                             MesaExamenId = 78,
                             TipoIntegrante = 3
                         },
@@ -5153,6 +5955,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 313,
                             DocenteId = 61,
+                            Eliminado = false,
                             MesaExamenId = 79,
                             TipoIntegrante = 0
                         },
@@ -5160,6 +5963,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 314,
                             DocenteId = 7,
+                            Eliminado = false,
                             MesaExamenId = 79,
                             TipoIntegrante = 1
                         },
@@ -5167,6 +5971,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 315,
                             DocenteId = 54,
+                            Eliminado = false,
                             MesaExamenId = 79,
                             TipoIntegrante = 2
                         },
@@ -5174,6 +5979,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 316,
                             DocenteId = 61,
+                            Eliminado = false,
                             MesaExamenId = 79,
                             TipoIntegrante = 3
                         },
@@ -5181,6 +5987,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 317,
                             DocenteId = 68,
+                            Eliminado = false,
                             MesaExamenId = 80,
                             TipoIntegrante = 0
                         },
@@ -5188,6 +5995,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 318,
                             DocenteId = 24,
+                            Eliminado = false,
                             MesaExamenId = 80,
                             TipoIntegrante = 1
                         },
@@ -5195,6 +6003,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 319,
                             DocenteId = 3,
+                            Eliminado = false,
                             MesaExamenId = 80,
                             TipoIntegrante = 2
                         },
@@ -5202,6 +6011,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 320,
                             DocenteId = 25,
+                            Eliminado = false,
                             MesaExamenId = 80,
                             TipoIntegrante = 3
                         },
@@ -5209,6 +6019,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 321,
                             DocenteId = 24,
+                            Eliminado = false,
                             MesaExamenId = 81,
                             TipoIntegrante = 0
                         },
@@ -5216,6 +6027,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 322,
                             DocenteId = 68,
+                            Eliminado = false,
                             MesaExamenId = 81,
                             TipoIntegrante = 1
                         },
@@ -5223,6 +6035,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 323,
                             DocenteId = 3,
+                            Eliminado = false,
                             MesaExamenId = 81,
                             TipoIntegrante = 2
                         },
@@ -5230,6 +6043,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 324,
                             DocenteId = 25,
+                            Eliminado = false,
                             MesaExamenId = 81,
                             TipoIntegrante = 3
                         },
@@ -5237,6 +6051,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 325,
                             DocenteId = 54,
+                            Eliminado = false,
                             MesaExamenId = 82,
                             TipoIntegrante = 0
                         },
@@ -5244,6 +6059,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 326,
                             DocenteId = 3,
+                            Eliminado = false,
                             MesaExamenId = 82,
                             TipoIntegrante = 1
                         },
@@ -5251,6 +6067,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 327,
                             DocenteId = 51,
+                            Eliminado = false,
                             MesaExamenId = 82,
                             TipoIntegrante = 2
                         },
@@ -5258,6 +6075,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 328,
                             DocenteId = 61,
+                            Eliminado = false,
                             MesaExamenId = 82,
                             TipoIntegrante = 3
                         },
@@ -5265,6 +6083,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 329,
                             DocenteId = 12,
+                            Eliminado = false,
                             MesaExamenId = 83,
                             TipoIntegrante = 0
                         },
@@ -5272,6 +6091,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 330,
                             DocenteId = 49,
+                            Eliminado = false,
                             MesaExamenId = 83,
                             TipoIntegrante = 1
                         },
@@ -5279,6 +6099,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 331,
                             DocenteId = 7,
+                            Eliminado = false,
                             MesaExamenId = 83,
                             TipoIntegrante = 2
                         },
@@ -5286,6 +6107,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 332,
                             DocenteId = 3,
+                            Eliminado = false,
                             MesaExamenId = 83,
                             TipoIntegrante = 3
                         },
@@ -5293,6 +6115,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 333,
                             DocenteId = 49,
+                            Eliminado = false,
                             MesaExamenId = 84,
                             TipoIntegrante = 0
                         },
@@ -5300,6 +6123,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 334,
                             DocenteId = 12,
+                            Eliminado = false,
                             MesaExamenId = 84,
                             TipoIntegrante = 1
                         },
@@ -5307,6 +6131,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 335,
                             DocenteId = 7,
+                            Eliminado = false,
                             MesaExamenId = 84,
                             TipoIntegrante = 2
                         },
@@ -5314,6 +6139,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 336,
                             DocenteId = 3,
+                            Eliminado = false,
                             MesaExamenId = 84,
                             TipoIntegrante = 3
                         },
@@ -5321,6 +6147,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 337,
                             DocenteId = 7,
+                            Eliminado = false,
                             MesaExamenId = 85,
                             TipoIntegrante = 0
                         },
@@ -5328,6 +6155,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 338,
                             DocenteId = 61,
+                            Eliminado = false,
                             MesaExamenId = 85,
                             TipoIntegrante = 1
                         },
@@ -5335,6 +6163,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 339,
                             DocenteId = 54,
+                            Eliminado = false,
                             MesaExamenId = 85,
                             TipoIntegrante = 2
                         },
@@ -5342,6 +6171,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 340,
                             DocenteId = 61,
+                            Eliminado = false,
                             MesaExamenId = 85,
                             TipoIntegrante = 3
                         },
@@ -5349,6 +6179,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 341,
                             DocenteId = 30,
+                            Eliminado = false,
                             MesaExamenId = 86,
                             TipoIntegrante = 0
                         },
@@ -5356,6 +6187,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 342,
                             DocenteId = 35,
+                            Eliminado = false,
                             MesaExamenId = 86,
                             TipoIntegrante = 1
                         },
@@ -5363,6 +6195,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 343,
                             DocenteId = 31,
+                            Eliminado = false,
                             MesaExamenId = 86,
                             TipoIntegrante = 2
                         },
@@ -5370,6 +6203,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 344,
                             DocenteId = 61,
+                            Eliminado = false,
                             MesaExamenId = 86,
                             TipoIntegrante = 3
                         },
@@ -5377,6 +6211,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 345,
                             DocenteId = 37,
+                            Eliminado = false,
                             MesaExamenId = 87,
                             TipoIntegrante = 0
                         },
@@ -5384,6 +6219,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 346,
                             DocenteId = 68,
+                            Eliminado = false,
                             MesaExamenId = 87,
                             TipoIntegrante = 1
                         },
@@ -5391,6 +6227,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 347,
                             DocenteId = 25,
+                            Eliminado = false,
                             MesaExamenId = 87,
                             TipoIntegrante = 2
                         },
@@ -5398,6 +6235,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 348,
                             DocenteId = 25,
+                            Eliminado = false,
                             MesaExamenId = 87,
                             TipoIntegrante = 3
                         },
@@ -5405,6 +6243,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 349,
                             DocenteId = 9,
+                            Eliminado = false,
                             MesaExamenId = 88,
                             TipoIntegrante = 0
                         },
@@ -5412,6 +6251,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 350,
                             DocenteId = 32,
+                            Eliminado = false,
                             MesaExamenId = 88,
                             TipoIntegrante = 1
                         },
@@ -5419,6 +6259,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 351,
                             DocenteId = 51,
+                            Eliminado = false,
                             MesaExamenId = 88,
                             TipoIntegrante = 2
                         },
@@ -5426,6 +6267,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 352,
                             DocenteId = 3,
+                            Eliminado = false,
                             MesaExamenId = 88,
                             TipoIntegrante = 3
                         },
@@ -5433,6 +6275,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 353,
                             DocenteId = 3,
+                            Eliminado = false,
                             MesaExamenId = 89,
                             TipoIntegrante = 0
                         },
@@ -5440,6 +6283,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 354,
                             DocenteId = 54,
+                            Eliminado = false,
                             MesaExamenId = 89,
                             TipoIntegrante = 1
                         },
@@ -5447,6 +6291,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 355,
                             DocenteId = 51,
+                            Eliminado = false,
                             MesaExamenId = 89,
                             TipoIntegrante = 2
                         },
@@ -5454,6 +6299,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 356,
                             DocenteId = 61,
+                            Eliminado = false,
                             MesaExamenId = 89,
                             TipoIntegrante = 3
                         },
@@ -5461,6 +6307,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 357,
                             DocenteId = 61,
+                            Eliminado = false,
                             MesaExamenId = 90,
                             TipoIntegrante = 0
                         },
@@ -5468,6 +6315,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 358,
                             DocenteId = 3,
+                            Eliminado = false,
                             MesaExamenId = 90,
                             TipoIntegrante = 1
                         },
@@ -5475,6 +6323,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 359,
                             DocenteId = 32,
+                            Eliminado = false,
                             MesaExamenId = 90,
                             TipoIntegrante = 2
                         },
@@ -5482,6 +6331,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 360,
                             DocenteId = 9,
+                            Eliminado = false,
                             MesaExamenId = 90,
                             TipoIntegrante = 3
                         },
@@ -5489,6 +6339,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 361,
                             DocenteId = 25,
+                            Eliminado = false,
                             MesaExamenId = 91,
                             TipoIntegrante = 0
                         },
@@ -5496,6 +6347,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 362,
                             DocenteId = 68,
+                            Eliminado = false,
                             MesaExamenId = 91,
                             TipoIntegrante = 1
                         },
@@ -5503,6 +6355,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 363,
                             DocenteId = 51,
+                            Eliminado = false,
                             MesaExamenId = 91,
                             TipoIntegrante = 2
                         },
@@ -5510,6 +6363,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 364,
                             DocenteId = 9,
+                            Eliminado = false,
                             MesaExamenId = 91,
                             TipoIntegrante = 3
                         },
@@ -5517,6 +6371,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 365,
                             DocenteId = 39,
+                            Eliminado = false,
                             MesaExamenId = 92,
                             TipoIntegrante = 0
                         },
@@ -5524,6 +6379,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 366,
                             DocenteId = 72,
+                            Eliminado = false,
                             MesaExamenId = 92,
                             TipoIntegrante = 1
                         },
@@ -5531,6 +6387,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 367,
                             DocenteId = 20,
+                            Eliminado = false,
                             MesaExamenId = 92,
                             TipoIntegrante = 2
                         },
@@ -5538,6 +6395,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 368,
                             DocenteId = 2,
+                            Eliminado = false,
                             MesaExamenId = 92,
                             TipoIntegrante = 3
                         },
@@ -5545,6 +6403,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 369,
                             DocenteId = 28,
+                            Eliminado = false,
                             MesaExamenId = 93,
                             TipoIntegrante = 0
                         },
@@ -5552,6 +6411,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 370,
                             DocenteId = 72,
+                            Eliminado = false,
                             MesaExamenId = 93,
                             TipoIntegrante = 1
                         },
@@ -5559,6 +6419,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 371,
                             DocenteId = 17,
+                            Eliminado = false,
                             MesaExamenId = 93,
                             TipoIntegrante = 2
                         },
@@ -5566,6 +6427,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 372,
                             DocenteId = 34,
+                            Eliminado = false,
                             MesaExamenId = 93,
                             TipoIntegrante = 3
                         },
@@ -5573,6 +6435,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 373,
                             DocenteId = 17,
+                            Eliminado = false,
                             MesaExamenId = 94,
                             TipoIntegrante = 0
                         },
@@ -5580,6 +6443,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 374,
                             DocenteId = 22,
+                            Eliminado = false,
                             MesaExamenId = 94,
                             TipoIntegrante = 1
                         },
@@ -5587,6 +6451,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 375,
                             DocenteId = 44,
+                            Eliminado = false,
                             MesaExamenId = 94,
                             TipoIntegrante = 2
                         },
@@ -5594,6 +6459,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 376,
                             DocenteId = 47,
+                            Eliminado = false,
                             MesaExamenId = 94,
                             TipoIntegrante = 3
                         },
@@ -5601,6 +6467,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 377,
                             DocenteId = 17,
+                            Eliminado = false,
                             MesaExamenId = 95,
                             TipoIntegrante = 0
                         },
@@ -5608,6 +6475,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 378,
                             DocenteId = 22,
+                            Eliminado = false,
                             MesaExamenId = 95,
                             TipoIntegrante = 1
                         },
@@ -5615,6 +6483,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 379,
                             DocenteId = 44,
+                            Eliminado = false,
                             MesaExamenId = 95,
                             TipoIntegrante = 2
                         },
@@ -5622,6 +6491,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 380,
                             DocenteId = 47,
+                            Eliminado = false,
                             MesaExamenId = 95,
                             TipoIntegrante = 3
                         },
@@ -5629,6 +6499,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 381,
                             DocenteId = 42,
+                            Eliminado = false,
                             MesaExamenId = 96,
                             TipoIntegrante = 0
                         },
@@ -5636,6 +6507,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 382,
                             DocenteId = 71,
+                            Eliminado = false,
                             MesaExamenId = 96,
                             TipoIntegrante = 1
                         },
@@ -5643,6 +6515,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 383,
                             DocenteId = 60,
+                            Eliminado = false,
                             MesaExamenId = 96,
                             TipoIntegrante = 2
                         },
@@ -5650,6 +6523,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 384,
                             DocenteId = 48,
+                            Eliminado = false,
                             MesaExamenId = 96,
                             TipoIntegrante = 3
                         },
@@ -5657,6 +6531,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 385,
                             DocenteId = 34,
+                            Eliminado = false,
                             MesaExamenId = 97,
                             TipoIntegrante = 0
                         },
@@ -5664,6 +6539,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 386,
                             DocenteId = 48,
+                            Eliminado = false,
                             MesaExamenId = 97,
                             TipoIntegrante = 1
                         },
@@ -5671,6 +6547,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 387,
                             DocenteId = 44,
+                            Eliminado = false,
                             MesaExamenId = 97,
                             TipoIntegrante = 2
                         },
@@ -5678,6 +6555,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 388,
                             DocenteId = 22,
+                            Eliminado = false,
                             MesaExamenId = 97,
                             TipoIntegrante = 3
                         },
@@ -5685,6 +6563,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 389,
                             DocenteId = 44,
+                            Eliminado = false,
                             MesaExamenId = 98,
                             TipoIntegrante = 0
                         },
@@ -5692,6 +6571,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 390,
                             DocenteId = 48,
+                            Eliminado = false,
                             MesaExamenId = 98,
                             TipoIntegrante = 1
                         },
@@ -5699,6 +6579,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 391,
                             DocenteId = 34,
+                            Eliminado = false,
                             MesaExamenId = 98,
                             TipoIntegrante = 2
                         },
@@ -5706,6 +6587,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 392,
                             DocenteId = 22,
+                            Eliminado = false,
                             MesaExamenId = 98,
                             TipoIntegrante = 3
                         },
@@ -5713,6 +6595,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 393,
                             DocenteId = 60,
+                            Eliminado = false,
                             MesaExamenId = 99,
                             TipoIntegrante = 0
                         },
@@ -5720,6 +6603,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 394,
                             DocenteId = 28,
+                            Eliminado = false,
                             MesaExamenId = 99,
                             TipoIntegrante = 1
                         },
@@ -5727,6 +6611,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 395,
                             DocenteId = 55,
+                            Eliminado = false,
                             MesaExamenId = 99,
                             TipoIntegrante = 2
                         },
@@ -5734,6 +6619,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 396,
                             DocenteId = 28,
+                            Eliminado = false,
                             MesaExamenId = 99,
                             TipoIntegrante = 3
                         },
@@ -5741,6 +6627,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 397,
                             DocenteId = 72,
+                            Eliminado = false,
                             MesaExamenId = 100,
                             TipoIntegrante = 0
                         },
@@ -5748,6 +6635,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 398,
                             DocenteId = 39,
+                            Eliminado = false,
                             MesaExamenId = 100,
                             TipoIntegrante = 1
                         },
@@ -5755,6 +6643,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 399,
                             DocenteId = 20,
+                            Eliminado = false,
                             MesaExamenId = 100,
                             TipoIntegrante = 2
                         },
@@ -5762,6 +6651,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 400,
                             DocenteId = 34,
+                            Eliminado = false,
                             MesaExamenId = 100,
                             TipoIntegrante = 3
                         },
@@ -5769,6 +6659,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 401,
                             DocenteId = 11,
+                            Eliminado = false,
                             MesaExamenId = 101,
                             TipoIntegrante = 0
                         },
@@ -5776,6 +6667,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 402,
                             DocenteId = 30,
+                            Eliminado = false,
                             MesaExamenId = 101,
                             TipoIntegrante = 1
                         },
@@ -5783,6 +6675,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 403,
                             DocenteId = 31,
+                            Eliminado = false,
                             MesaExamenId = 101,
                             TipoIntegrante = 2
                         },
@@ -5790,6 +6683,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 404,
                             DocenteId = 36,
+                            Eliminado = false,
                             MesaExamenId = 101,
                             TipoIntegrante = 3
                         },
@@ -5797,6 +6691,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 405,
                             DocenteId = 30,
+                            Eliminado = false,
                             MesaExamenId = 102,
                             TipoIntegrante = 0
                         },
@@ -5804,6 +6699,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 406,
                             DocenteId = 11,
+                            Eliminado = false,
                             MesaExamenId = 102,
                             TipoIntegrante = 1
                         },
@@ -5811,6 +6707,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 407,
                             DocenteId = 31,
+                            Eliminado = false,
                             MesaExamenId = 102,
                             TipoIntegrante = 2
                         },
@@ -5818,6 +6715,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 408,
                             DocenteId = 36,
+                            Eliminado = false,
                             MesaExamenId = 102,
                             TipoIntegrante = 3
                         },
@@ -5825,6 +6723,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 409,
                             DocenteId = 49,
+                            Eliminado = false,
                             MesaExamenId = 103,
                             TipoIntegrante = 0
                         },
@@ -5832,6 +6731,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 410,
                             DocenteId = 28,
+                            Eliminado = false,
                             MesaExamenId = 103,
                             TipoIntegrante = 1
                         },
@@ -5839,6 +6739,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 411,
                             DocenteId = 71,
+                            Eliminado = false,
                             MesaExamenId = 103,
                             TipoIntegrante = 2
                         },
@@ -5846,6 +6747,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 412,
                             DocenteId = 2,
+                            Eliminado = false,
                             MesaExamenId = 103,
                             TipoIntegrante = 3
                         },
@@ -5853,6 +6755,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 413,
                             DocenteId = 60,
+                            Eliminado = false,
                             MesaExamenId = 104,
                             TipoIntegrante = 0
                         },
@@ -5860,6 +6763,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 414,
                             DocenteId = 42,
+                            Eliminado = false,
                             MesaExamenId = 104,
                             TipoIntegrante = 1
                         },
@@ -5867,6 +6771,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 415,
                             DocenteId = 71,
+                            Eliminado = false,
                             MesaExamenId = 104,
                             TipoIntegrante = 2
                         },
@@ -5874,6 +6779,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 416,
                             DocenteId = 48,
+                            Eliminado = false,
                             MesaExamenId = 104,
                             TipoIntegrante = 3
                         },
@@ -5881,6 +6787,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 417,
                             DocenteId = 28,
+                            Eliminado = false,
                             MesaExamenId = 105,
                             TipoIntegrante = 0
                         },
@@ -5888,6 +6795,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 418,
                             DocenteId = 64,
+                            Eliminado = false,
                             MesaExamenId = 105,
                             TipoIntegrante = 1
                         },
@@ -5895,6 +6803,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 419,
                             DocenteId = 30,
+                            Eliminado = false,
                             MesaExamenId = 105,
                             TipoIntegrante = 2
                         },
@@ -5902,6 +6811,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 420,
                             DocenteId = 17,
+                            Eliminado = false,
                             MesaExamenId = 105,
                             TipoIntegrante = 3
                         },
@@ -5909,6 +6819,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 421,
                             DocenteId = 34,
+                            Eliminado = false,
                             MesaExamenId = 106,
                             TipoIntegrante = 0
                         },
@@ -5916,6 +6827,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 422,
                             DocenteId = 48,
+                            Eliminado = false,
                             MesaExamenId = 106,
                             TipoIntegrante = 1
                         },
@@ -5923,6 +6835,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 423,
                             DocenteId = 44,
+                            Eliminado = false,
                             MesaExamenId = 106,
                             TipoIntegrante = 2
                         },
@@ -5930,6 +6843,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 424,
                             DocenteId = 22,
+                            Eliminado = false,
                             MesaExamenId = 106,
                             TipoIntegrante = 3
                         },
@@ -5937,6 +6851,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 425,
                             DocenteId = 72,
+                            Eliminado = false,
                             MesaExamenId = 107,
                             TipoIntegrante = 0
                         },
@@ -5944,6 +6859,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 426,
                             DocenteId = 28,
+                            Eliminado = false,
                             MesaExamenId = 107,
                             TipoIntegrante = 1
                         },
@@ -5951,6 +6867,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 427,
                             DocenteId = 17,
+                            Eliminado = false,
                             MesaExamenId = 107,
                             TipoIntegrante = 2
                         },
@@ -5958,6 +6875,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 428,
                             DocenteId = 34,
+                            Eliminado = false,
                             MesaExamenId = 107,
                             TipoIntegrante = 3
                         },
@@ -5965,6 +6883,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 429,
                             DocenteId = 22,
+                            Eliminado = false,
                             MesaExamenId = 108,
                             TipoIntegrante = 0
                         },
@@ -5972,6 +6891,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 430,
                             DocenteId = 17,
+                            Eliminado = false,
                             MesaExamenId = 108,
                             TipoIntegrante = 1
                         },
@@ -5979,6 +6899,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 431,
                             DocenteId = 44,
+                            Eliminado = false,
                             MesaExamenId = 108,
                             TipoIntegrante = 2
                         },
@@ -5986,6 +6907,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 432,
                             DocenteId = 47,
+                            Eliminado = false,
                             MesaExamenId = 108,
                             TipoIntegrante = 3
                         },
@@ -5993,6 +6915,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 433,
                             DocenteId = 30,
+                            Eliminado = false,
                             MesaExamenId = 109,
                             TipoIntegrante = 0
                         },
@@ -6000,6 +6923,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 434,
                             DocenteId = 11,
+                            Eliminado = false,
                             MesaExamenId = 109,
                             TipoIntegrante = 1
                         },
@@ -6007,6 +6931,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 435,
                             DocenteId = 31,
+                            Eliminado = false,
                             MesaExamenId = 109,
                             TipoIntegrante = 2
                         },
@@ -6014,6 +6939,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 436,
                             DocenteId = 36,
+                            Eliminado = false,
                             MesaExamenId = 109,
                             TipoIntegrante = 3
                         },
@@ -6021,6 +6947,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 437,
                             DocenteId = 28,
+                            Eliminado = false,
                             MesaExamenId = 110,
                             TipoIntegrante = 0
                         },
@@ -6028,6 +6955,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 438,
                             DocenteId = 49,
+                            Eliminado = false,
                             MesaExamenId = 110,
                             TipoIntegrante = 1
                         },
@@ -6035,6 +6963,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 439,
                             DocenteId = 71,
+                            Eliminado = false,
                             MesaExamenId = 110,
                             TipoIntegrante = 2
                         },
@@ -6042,6 +6971,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 440,
                             DocenteId = 2,
+                            Eliminado = false,
                             MesaExamenId = 110,
                             TipoIntegrante = 3
                         },
@@ -6049,6 +6979,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 441,
                             DocenteId = 71,
+                            Eliminado = false,
                             MesaExamenId = 111,
                             TipoIntegrante = 0
                         },
@@ -6056,6 +6987,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 442,
                             DocenteId = 42,
+                            Eliminado = false,
                             MesaExamenId = 111,
                             TipoIntegrante = 1
                         },
@@ -6063,6 +6995,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 443,
                             DocenteId = 60,
+                            Eliminado = false,
                             MesaExamenId = 111,
                             TipoIntegrante = 2
                         },
@@ -6070,6 +7003,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 444,
                             DocenteId = 48,
+                            Eliminado = false,
                             MesaExamenId = 111,
                             TipoIntegrante = 3
                         },
@@ -6077,6 +7011,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 445,
                             DocenteId = 28,
+                            Eliminado = false,
                             MesaExamenId = 112,
                             TipoIntegrante = 0
                         },
@@ -6084,6 +7019,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 446,
                             DocenteId = 60,
+                            Eliminado = false,
                             MesaExamenId = 112,
                             TipoIntegrante = 1
                         },
@@ -6091,6 +7027,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 447,
                             DocenteId = 55,
+                            Eliminado = false,
                             MesaExamenId = 112,
                             TipoIntegrante = 2
                         },
@@ -6098,6 +7035,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 448,
                             DocenteId = 27,
+                            Eliminado = false,
                             MesaExamenId = 112,
                             TipoIntegrante = 3
                         },
@@ -6105,6 +7043,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 449,
                             DocenteId = 64,
+                            Eliminado = false,
                             MesaExamenId = 113,
                             TipoIntegrante = 0
                         },
@@ -6112,6 +7051,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 450,
                             DocenteId = 28,
+                            Eliminado = false,
                             MesaExamenId = 113,
                             TipoIntegrante = 1
                         },
@@ -6119,6 +7059,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 451,
                             DocenteId = 30,
+                            Eliminado = false,
                             MesaExamenId = 113,
                             TipoIntegrante = 2
                         },
@@ -6126,6 +7067,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 452,
                             DocenteId = 17,
+                            Eliminado = false,
                             MesaExamenId = 113,
                             TipoIntegrante = 3
                         },
@@ -6133,6 +7075,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 453,
                             DocenteId = 48,
+                            Eliminado = false,
                             MesaExamenId = 114,
                             TipoIntegrante = 0
                         },
@@ -6140,6 +7083,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 454,
                             DocenteId = 44,
+                            Eliminado = false,
                             MesaExamenId = 114,
                             TipoIntegrante = 1
                         },
@@ -6147,6 +7091,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 455,
                             DocenteId = 34,
+                            Eliminado = false,
                             MesaExamenId = 114,
                             TipoIntegrante = 2
                         },
@@ -6154,6 +7099,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 456,
                             DocenteId = 22,
+                            Eliminado = false,
                             MesaExamenId = 114,
                             TipoIntegrante = 3
                         },
@@ -6161,6 +7107,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 457,
                             DocenteId = 42,
+                            Eliminado = false,
                             MesaExamenId = 115,
                             TipoIntegrante = 0
                         },
@@ -6168,6 +7115,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 458,
                             DocenteId = 54,
+                            Eliminado = false,
                             MesaExamenId = 115,
                             TipoIntegrante = 1
                         },
@@ -6175,6 +7123,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 459,
                             DocenteId = 31,
+                            Eliminado = false,
                             MesaExamenId = 115,
                             TipoIntegrante = 2
                         },
@@ -6182,6 +7131,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 460,
                             DocenteId = 44,
+                            Eliminado = false,
                             MesaExamenId = 115,
                             TipoIntegrante = 3
                         },
@@ -6189,6 +7139,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 461,
                             DocenteId = 54,
+                            Eliminado = false,
                             MesaExamenId = 116,
                             TipoIntegrante = 0
                         },
@@ -6196,6 +7147,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 462,
                             DocenteId = 42,
+                            Eliminado = false,
                             MesaExamenId = 116,
                             TipoIntegrante = 1
                         },
@@ -6203,6 +7155,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 463,
                             DocenteId = 31,
+                            Eliminado = false,
                             MesaExamenId = 116,
                             TipoIntegrante = 2
                         },
@@ -6210,6 +7163,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 464,
                             DocenteId = 44,
+                            Eliminado = false,
                             MesaExamenId = 116,
                             TipoIntegrante = 3
                         },
@@ -6217,6 +7171,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 465,
                             DocenteId = 49,
+                            Eliminado = false,
                             MesaExamenId = 117,
                             TipoIntegrante = 0
                         },
@@ -6224,6 +7179,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 466,
                             DocenteId = 69,
+                            Eliminado = false,
                             MesaExamenId = 117,
                             TipoIntegrante = 1
                         },
@@ -6231,6 +7187,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 467,
                             DocenteId = 72,
+                            Eliminado = false,
                             MesaExamenId = 117,
                             TipoIntegrante = 2
                         },
@@ -6238,6 +7195,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 468,
                             DocenteId = 10,
+                            Eliminado = false,
                             MesaExamenId = 117,
                             TipoIntegrante = 3
                         },
@@ -6245,6 +7203,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 469,
                             DocenteId = 43,
+                            Eliminado = false,
                             MesaExamenId = 118,
                             TipoIntegrante = 0
                         },
@@ -6252,6 +7211,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 470,
                             DocenteId = 49,
+                            Eliminado = false,
                             MesaExamenId = 118,
                             TipoIntegrante = 1
                         },
@@ -6259,6 +7219,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 471,
                             DocenteId = 54,
+                            Eliminado = false,
                             MesaExamenId = 118,
                             TipoIntegrante = 2
                         },
@@ -6266,6 +7227,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 472,
                             DocenteId = 36,
+                            Eliminado = false,
                             MesaExamenId = 118,
                             TipoIntegrante = 3
                         },
@@ -6273,6 +7235,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 473,
                             DocenteId = 10,
+                            Eliminado = false,
                             MesaExamenId = 119,
                             TipoIntegrante = 0
                         },
@@ -6280,6 +7243,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 474,
                             DocenteId = 13,
+                            Eliminado = false,
                             MesaExamenId = 119,
                             TipoIntegrante = 1
                         },
@@ -6287,6 +7251,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 475,
                             DocenteId = 65,
+                            Eliminado = false,
                             MesaExamenId = 119,
                             TipoIntegrante = 2
                         },
@@ -6294,6 +7259,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 476,
                             DocenteId = 69,
+                            Eliminado = false,
                             MesaExamenId = 119,
                             TipoIntegrante = 3
                         },
@@ -6301,6 +7267,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 477,
                             DocenteId = 73,
+                            Eliminado = false,
                             MesaExamenId = 120,
                             TipoIntegrante = 0
                         },
@@ -6308,6 +7275,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 478,
                             DocenteId = 40,
+                            Eliminado = false,
                             MesaExamenId = 120,
                             TipoIntegrante = 1
                         },
@@ -6315,6 +7283,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 479,
                             DocenteId = 10,
+                            Eliminado = false,
                             MesaExamenId = 120,
                             TipoIntegrante = 2
                         },
@@ -6322,6 +7291,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 480,
                             DocenteId = 72,
+                            Eliminado = false,
                             MesaExamenId = 120,
                             TipoIntegrante = 3
                         },
@@ -6329,6 +7299,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 481,
                             DocenteId = 54,
+                            Eliminado = false,
                             MesaExamenId = 121,
                             TipoIntegrante = 0
                         },
@@ -6336,6 +7307,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 482,
                             DocenteId = 42,
+                            Eliminado = false,
                             MesaExamenId = 121,
                             TipoIntegrante = 1
                         },
@@ -6343,6 +7315,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 483,
                             DocenteId = 31,
+                            Eliminado = false,
                             MesaExamenId = 121,
                             TipoIntegrante = 2
                         },
@@ -6350,6 +7323,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 484,
                             DocenteId = 44,
+                            Eliminado = false,
                             MesaExamenId = 121,
                             TipoIntegrante = 3
                         },
@@ -6357,6 +7331,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 485,
                             DocenteId = 69,
+                            Eliminado = false,
                             MesaExamenId = 122,
                             TipoIntegrante = 0
                         },
@@ -6364,6 +7339,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 486,
                             DocenteId = 49,
+                            Eliminado = false,
                             MesaExamenId = 122,
                             TipoIntegrante = 1
                         },
@@ -6371,6 +7347,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 487,
                             DocenteId = 72,
+                            Eliminado = false,
                             MesaExamenId = 122,
                             TipoIntegrante = 2
                         },
@@ -6378,6 +7355,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 488,
                             DocenteId = 10,
+                            Eliminado = false,
                             MesaExamenId = 122,
                             TipoIntegrante = 3
                         },
@@ -6385,6 +7363,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 489,
                             DocenteId = 49,
+                            Eliminado = false,
                             MesaExamenId = 123,
                             TipoIntegrante = 0
                         },
@@ -6392,6 +7371,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 490,
                             DocenteId = 43,
+                            Eliminado = false,
                             MesaExamenId = 123,
                             TipoIntegrante = 1
                         },
@@ -6399,6 +7379,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 491,
                             DocenteId = 54,
+                            Eliminado = false,
                             MesaExamenId = 123,
                             TipoIntegrante = 2
                         },
@@ -6406,6 +7387,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 492,
                             DocenteId = 36,
+                            Eliminado = false,
                             MesaExamenId = 123,
                             TipoIntegrante = 3
                         },
@@ -6413,6 +7395,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 493,
                             DocenteId = 13,
+                            Eliminado = false,
                             MesaExamenId = 124,
                             TipoIntegrante = 0
                         },
@@ -6420,6 +7403,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 494,
                             DocenteId = 10,
+                            Eliminado = false,
                             MesaExamenId = 124,
                             TipoIntegrante = 1
                         },
@@ -6427,6 +7411,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 495,
                             DocenteId = 65,
+                            Eliminado = false,
                             MesaExamenId = 124,
                             TipoIntegrante = 2
                         },
@@ -6434,6 +7419,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 496,
                             DocenteId = 69,
+                            Eliminado = false,
                             MesaExamenId = 124,
                             TipoIntegrante = 3
                         },
@@ -6441,6 +7427,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 497,
                             DocenteId = 65,
+                            Eliminado = false,
                             MesaExamenId = 125,
                             TipoIntegrante = 0
                         },
@@ -6448,6 +7435,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 498,
                             DocenteId = 10,
+                            Eliminado = false,
                             MesaExamenId = 125,
                             TipoIntegrante = 1
                         },
@@ -6455,6 +7443,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 499,
                             DocenteId = 13,
+                            Eliminado = false,
                             MesaExamenId = 125,
                             TipoIntegrante = 2
                         },
@@ -6462,6 +7451,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 500,
                             DocenteId = 69,
+                            Eliminado = false,
                             MesaExamenId = 125,
                             TipoIntegrante = 3
                         },
@@ -6469,6 +7459,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 501,
                             DocenteId = 44,
+                            Eliminado = false,
                             MesaExamenId = 126,
                             TipoIntegrante = 0
                         },
@@ -6476,6 +7467,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 502,
                             DocenteId = 11,
+                            Eliminado = false,
                             MesaExamenId = 126,
                             TipoIntegrante = 1
                         },
@@ -6483,6 +7475,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 503,
                             DocenteId = 36,
+                            Eliminado = false,
                             MesaExamenId = 126,
                             TipoIntegrante = 2
                         },
@@ -6490,6 +7483,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 504,
                             DocenteId = 49,
+                            Eliminado = false,
                             MesaExamenId = 126,
                             TipoIntegrante = 3
                         },
@@ -6497,6 +7491,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 505,
                             DocenteId = 40,
+                            Eliminado = false,
                             MesaExamenId = 127,
                             TipoIntegrante = 0
                         },
@@ -6504,6 +7499,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 506,
                             DocenteId = 73,
+                            Eliminado = false,
                             MesaExamenId = 127,
                             TipoIntegrante = 1
                         },
@@ -6511,6 +7507,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 507,
                             DocenteId = 10,
+                            Eliminado = false,
                             MesaExamenId = 127,
                             TipoIntegrante = 2
                         },
@@ -6518,6 +7515,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 508,
                             DocenteId = 72,
+                            Eliminado = false,
                             MesaExamenId = 127,
                             TipoIntegrante = 3
                         },
@@ -6525,6 +7523,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 509,
                             DocenteId = 69,
+                            Eliminado = false,
                             MesaExamenId = 128,
                             TipoIntegrante = 0
                         },
@@ -6532,6 +7531,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 510,
                             DocenteId = 52,
+                            Eliminado = false,
                             MesaExamenId = 128,
                             TipoIntegrante = 1
                         },
@@ -6539,6 +7539,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 511,
                             DocenteId = 42,
+                            Eliminado = false,
                             MesaExamenId = 128,
                             TipoIntegrante = 2
                         },
@@ -6546,6 +7547,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 512,
                             DocenteId = 54,
+                            Eliminado = false,
                             MesaExamenId = 128,
                             TipoIntegrante = 3
                         },
@@ -6553,6 +7555,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 513,
                             DocenteId = 21,
+                            Eliminado = false,
                             MesaExamenId = 129,
                             TipoIntegrante = 0
                         },
@@ -6560,6 +7563,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 514,
                             DocenteId = 68,
+                            Eliminado = false,
                             MesaExamenId = 129,
                             TipoIntegrante = 1
                         },
@@ -6567,6 +7571,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 515,
                             DocenteId = 19,
+                            Eliminado = false,
                             MesaExamenId = 129,
                             TipoIntegrante = 2
                         },
@@ -6574,6 +7579,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 516,
                             DocenteId = 54,
+                            Eliminado = false,
                             MesaExamenId = 129,
                             TipoIntegrante = 3
                         },
@@ -6581,6 +7587,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 517,
                             DocenteId = 27,
+                            Eliminado = false,
                             MesaExamenId = 130,
                             TipoIntegrante = 0
                         },
@@ -6588,6 +7595,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 518,
                             DocenteId = 39,
+                            Eliminado = false,
                             MesaExamenId = 130,
                             TipoIntegrante = 1
                         },
@@ -6595,6 +7603,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 519,
                             DocenteId = 14,
+                            Eliminado = false,
                             MesaExamenId = 130,
                             TipoIntegrante = 2
                         },
@@ -6602,6 +7611,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 520,
                             DocenteId = 54,
+                            Eliminado = false,
                             MesaExamenId = 130,
                             TipoIntegrante = 3
                         },
@@ -6609,6 +7619,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 521,
                             DocenteId = 44,
+                            Eliminado = false,
                             MesaExamenId = 131,
                             TipoIntegrante = 0
                         },
@@ -6616,6 +7627,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 522,
                             DocenteId = 11,
+                            Eliminado = false,
                             MesaExamenId = 131,
                             TipoIntegrante = 1
                         },
@@ -6623,6 +7635,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 523,
                             DocenteId = 19,
+                            Eliminado = false,
                             MesaExamenId = 131,
                             TipoIntegrante = 2
                         },
@@ -6630,6 +7643,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 524,
                             DocenteId = 54,
+                            Eliminado = false,
                             MesaExamenId = 131,
                             TipoIntegrante = 3
                         },
@@ -6637,6 +7651,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 525,
                             DocenteId = 72,
+                            Eliminado = false,
                             MesaExamenId = 132,
                             TipoIntegrante = 0
                         },
@@ -6644,6 +7659,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 526,
                             DocenteId = 71,
+                            Eliminado = false,
                             MesaExamenId = 132,
                             TipoIntegrante = 1
                         },
@@ -6651,6 +7667,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 527,
                             DocenteId = 50,
+                            Eliminado = false,
                             MesaExamenId = 132,
                             TipoIntegrante = 2
                         },
@@ -6658,6 +7675,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 528,
                             DocenteId = 3,
+                            Eliminado = false,
                             MesaExamenId = 132,
                             TipoIntegrante = 3
                         },
@@ -6665,6 +7683,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 529,
                             DocenteId = 39,
+                            Eliminado = false,
                             MesaExamenId = 133,
                             TipoIntegrante = 0
                         },
@@ -6672,6 +7691,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 530,
                             DocenteId = 60,
+                            Eliminado = false,
                             MesaExamenId = 133,
                             TipoIntegrante = 1
                         },
@@ -6679,6 +7699,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 531,
                             DocenteId = 27,
+                            Eliminado = false,
                             MesaExamenId = 133,
                             TipoIntegrante = 2
                         },
@@ -6686,6 +7707,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 532,
                             DocenteId = 12,
+                            Eliminado = false,
                             MesaExamenId = 133,
                             TipoIntegrante = 3
                         },
@@ -6693,6 +7715,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 533,
                             DocenteId = 39,
+                            Eliminado = false,
                             MesaExamenId = 134,
                             TipoIntegrante = 0
                         },
@@ -6700,6 +7723,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 534,
                             DocenteId = 60,
+                            Eliminado = false,
                             MesaExamenId = 134,
                             TipoIntegrante = 1
                         },
@@ -6707,6 +7731,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 535,
                             DocenteId = 27,
+                            Eliminado = false,
                             MesaExamenId = 134,
                             TipoIntegrante = 2
                         },
@@ -6714,6 +7739,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 536,
                             DocenteId = 62,
+                            Eliminado = false,
                             MesaExamenId = 134,
                             TipoIntegrante = 3
                         },
@@ -6721,6 +7747,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 537,
                             DocenteId = 39,
+                            Eliminado = false,
                             MesaExamenId = 135,
                             TipoIntegrante = 0
                         },
@@ -6728,6 +7755,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 538,
                             DocenteId = 60,
+                            Eliminado = false,
                             MesaExamenId = 135,
                             TipoIntegrante = 1
                         },
@@ -6735,6 +7763,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 539,
                             DocenteId = 27,
+                            Eliminado = false,
                             MesaExamenId = 135,
                             TipoIntegrante = 2
                         },
@@ -6742,6 +7771,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 540,
                             DocenteId = 62,
+                            Eliminado = false,
                             MesaExamenId = 135,
                             TipoIntegrante = 3
                         },
@@ -6749,6 +7779,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 541,
                             DocenteId = 64,
+                            Eliminado = false,
                             MesaExamenId = 136,
                             TipoIntegrante = 0
                         },
@@ -6756,6 +7787,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 542,
                             DocenteId = 2,
+                            Eliminado = false,
                             MesaExamenId = 136,
                             TipoIntegrante = 1
                         },
@@ -6763,6 +7795,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 543,
                             DocenteId = 60,
+                            Eliminado = false,
                             MesaExamenId = 136,
                             TipoIntegrante = 2
                         },
@@ -6770,6 +7803,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 544,
                             DocenteId = 54,
+                            Eliminado = false,
                             MesaExamenId = 136,
                             TipoIntegrante = 3
                         },
@@ -6777,6 +7811,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 545,
                             DocenteId = 71,
+                            Eliminado = false,
                             MesaExamenId = 137,
                             TipoIntegrante = 0
                         },
@@ -6784,6 +7819,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 546,
                             DocenteId = 50,
+                            Eliminado = false,
                             MesaExamenId = 137,
                             TipoIntegrante = 1
                         },
@@ -6791,6 +7827,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 547,
                             DocenteId = 72,
+                            Eliminado = false,
                             MesaExamenId = 137,
                             TipoIntegrante = 2
                         },
@@ -6798,6 +7835,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 548,
                             DocenteId = 30,
+                            Eliminado = false,
                             MesaExamenId = 137,
                             TipoIntegrante = 3
                         },
@@ -6805,6 +7843,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 549,
                             DocenteId = 39,
+                            Eliminado = false,
                             MesaExamenId = 138,
                             TipoIntegrante = 0
                         },
@@ -6812,6 +7851,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 550,
                             DocenteId = 27,
+                            Eliminado = false,
                             MesaExamenId = 138,
                             TipoIntegrante = 1
                         },
@@ -6819,6 +7859,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 551,
                             DocenteId = 14,
+                            Eliminado = false,
                             MesaExamenId = 138,
                             TipoIntegrante = 2
                         },
@@ -6826,6 +7867,7 @@ namespace Inscripciones.Migrations
                         {
                             Id = 552,
                             DocenteId = 12,
+                            Eliminado = false,
                             MesaExamenId = 138,
                             TipoIntegrante = 3
                         });
@@ -6838,6 +7880,9 @@ namespace Inscripciones.Migrations
                         .HasColumnType("int");
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Eliminado")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Horario")
                         .IsRequired()
@@ -6867,6 +7912,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 1,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -6876,6 +7922,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 2,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -6885,6 +7932,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 3,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -6894,6 +7942,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 4,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -6903,6 +7952,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 5,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -6912,6 +7962,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 6,
+                            Eliminado = false,
                             Horario = "18 HS",
                             Llamado1 = new DateTime(2024, 7, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -6921,6 +7972,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 7,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -6930,6 +7982,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 8,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -6939,6 +7992,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 9,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -6948,6 +8002,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 10,
+                            Eliminado = false,
                             Horario = "18 HS",
                             Llamado1 = new DateTime(2024, 7, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -6957,6 +8012,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 11,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -6966,6 +8022,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 12,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -6975,6 +8032,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 13,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -6984,6 +8042,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 14,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -6993,6 +8052,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 15,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7002,6 +8062,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 16,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7011,6 +8072,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 17,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7020,6 +8082,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 18,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7029,6 +8092,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 19,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7038,6 +8102,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 20,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7047,6 +8112,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 21,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7056,6 +8122,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 22,
+                            Eliminado = false,
                             Horario = "18 HS",
                             Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7065,6 +8132,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 23,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7074,6 +8142,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 24,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7083,6 +8152,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 25,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7092,6 +8162,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 26,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 7, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7101,6 +8172,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 27,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 7, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7110,6 +8182,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 28,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 7, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7119,6 +8192,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 29,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7128,6 +8202,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 30,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7137,6 +8212,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 31,
+                            Eliminado = false,
                             Horario = "18 HS",
                             Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7146,6 +8222,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 32,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7155,6 +8232,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 33,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7164,6 +8242,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 34,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7173,6 +8252,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 35,
+                            Eliminado = false,
                             Horario = "18 HS",
                             Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7182,6 +8262,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 36,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7191,6 +8272,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 37,
+                            Eliminado = false,
                             Horario = "18 HS",
                             Llamado1 = new DateTime(2024, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7200,6 +8282,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 38,
+                            Eliminado = false,
                             Horario = "18 HS",
                             Llamado1 = new DateTime(2024, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7209,6 +8292,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 39,
+                            Eliminado = false,
                             Horario = "18 HS",
                             Llamado1 = new DateTime(2024, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7218,6 +8302,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 40,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7227,6 +8312,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 41,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7236,6 +8322,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 42,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7245,6 +8332,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 43,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 7, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7254,6 +8342,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 44,
+                            Eliminado = false,
                             Horario = "18 HS",
                             Llamado1 = new DateTime(2024, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7263,6 +8352,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 45,
+                            Eliminado = false,
                             Horario = "18 HS",
                             Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7272,6 +8362,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 46,
+                            Eliminado = false,
                             Horario = "18 HS",
                             Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7281,6 +8372,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 47,
+                            Eliminado = false,
                             Horario = "18 HS",
                             Llamado1 = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7290,6 +8382,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 48,
+                            Eliminado = false,
                             Horario = "19 HS",
                             Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7299,6 +8392,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 49,
+                            Eliminado = false,
                             Horario = "19 HS",
                             Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7308,6 +8402,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 50,
+                            Eliminado = false,
                             Horario = "18 HS",
                             Llamado1 = new DateTime(2024, 7, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7317,6 +8412,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 51,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7326,6 +8422,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 52,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 7, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7335,6 +8432,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 53,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7344,6 +8442,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 54,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7353,6 +8452,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 55,
+                            Eliminado = false,
                             Horario = "18 HS",
                             Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7362,6 +8462,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 56,
+                            Eliminado = false,
                             Horario = "18 HS",
                             Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7371,6 +8472,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 57,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7380,6 +8482,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 58,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7389,6 +8492,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 59,
+                            Eliminado = false,
                             Horario = "18 HS",
                             Llamado1 = new DateTime(2024, 7, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7398,6 +8502,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 60,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 7, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7407,6 +8512,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 61,
+                            Eliminado = false,
                             Horario = "18 HS",
                             Llamado1 = new DateTime(2024, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7416,6 +8522,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 62,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 7, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7425,6 +8532,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 63,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7434,6 +8542,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 64,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7443,6 +8552,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 65,
+                            Eliminado = false,
                             Horario = "18 HS",
                             Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7452,6 +8562,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 66,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7461,6 +8572,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 67,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7470,6 +8582,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 68,
+                            Eliminado = false,
                             Horario = "18 HS",
                             Llamado1 = new DateTime(2024, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7479,6 +8592,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 69,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 7, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7488,6 +8602,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 70,
+                            Eliminado = false,
                             Horario = "17 HS",
                             Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7497,6 +8612,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 71,
+                            Eliminado = false,
                             Horario = "18 HS",
                             Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7506,6 +8622,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 72,
+                            Eliminado = false,
                             Horario = "8 HS",
                             Llamado1 = new DateTime(2024, 7, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7515,6 +8632,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 73,
+                            Eliminado = false,
                             Horario = "8 HS",
                             Llamado1 = new DateTime(2024, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7524,6 +8642,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 74,
+                            Eliminado = false,
                             Horario = "8 HS",
                             Llamado1 = new DateTime(2024, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7533,6 +8652,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 75,
+                            Eliminado = false,
                             Horario = "8 HS",
                             Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7542,6 +8662,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 76,
+                            Eliminado = false,
                             Horario = "8 HS",
                             Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7551,6 +8672,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 77,
+                            Eliminado = false,
                             Horario = "8 HS",
                             Llamado1 = new DateTime(2024, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7560,6 +8682,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 78,
+                            Eliminado = false,
                             Horario = "8 HS",
                             Llamado1 = new DateTime(2024, 7, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7569,6 +8692,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 79,
+                            Eliminado = false,
                             Horario = "8 HS",
                             Llamado1 = new DateTime(2024, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7578,6 +8702,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 80,
+                            Eliminado = false,
                             Horario = "8 HS",
                             Llamado1 = new DateTime(2024, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7587,6 +8712,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 81,
+                            Eliminado = false,
                             Horario = "8 HS",
                             Llamado1 = new DateTime(2024, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7596,6 +8722,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 82,
+                            Eliminado = false,
                             Horario = "8 HS",
                             Llamado1 = new DateTime(2024, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7605,6 +8732,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 83,
+                            Eliminado = false,
                             Horario = "8 HS",
                             Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7614,6 +8742,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 84,
+                            Eliminado = false,
                             Horario = "8 HS",
                             Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7623,6 +8752,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 85,
+                            Eliminado = false,
                             Horario = "8 HS",
                             Llamado1 = new DateTime(2024, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7632,6 +8762,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 86,
+                            Eliminado = false,
                             Horario = "8 HS",
                             Llamado1 = new DateTime(2024, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7641,6 +8772,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 87,
+                            Eliminado = false,
                             Horario = "10 HS",
                             Llamado1 = new DateTime(2024, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7650,6 +8782,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 88,
+                            Eliminado = false,
                             Horario = "8 HS",
                             Llamado1 = new DateTime(2024, 7, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7659,6 +8792,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 89,
+                            Eliminado = false,
                             Horario = "8 HS",
                             Llamado1 = new DateTime(2024, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7668,6 +8802,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 90,
+                            Eliminado = false,
                             Horario = "8 HS",
                             Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7677,6 +8812,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 91,
+                            Eliminado = false,
                             Horario = "8 HS",
                             Llamado1 = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7686,6 +8822,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 92,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7695,6 +8832,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 93,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7704,6 +8842,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 94,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7713,6 +8852,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 95,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7722,6 +8862,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 96,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7731,6 +8872,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 97,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7740,6 +8882,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 98,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7749,6 +8892,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 99,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7758,6 +8902,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 100,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7767,6 +8912,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 101,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7776,6 +8922,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 102,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7785,6 +8932,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 103,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7794,6 +8942,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 104,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7803,6 +8952,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 105,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7812,6 +8962,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 106,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7821,6 +8972,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 107,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7830,6 +8982,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 108,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7839,6 +8992,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 109,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7848,6 +9002,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 110,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7857,6 +9012,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 111,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7866,6 +9022,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 112,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7875,6 +9032,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 113,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7884,6 +9042,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 114,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7893,6 +9052,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 115,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7902,6 +9062,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 116,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7911,6 +9072,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 117,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7920,6 +9082,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 118,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7929,6 +9092,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 119,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7938,6 +9102,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 120,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7947,6 +9112,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 121,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7956,6 +9122,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 122,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7965,6 +9132,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 123,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7974,6 +9142,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 124,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7983,6 +9152,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 125,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -7992,6 +9162,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 126,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -8001,6 +9172,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 127,
+                            Eliminado = false,
                             Horario = "13 HS",
                             Llamado1 = new DateTime(2024, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -8010,6 +9182,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 128,
+                            Eliminado = false,
                             Horario = "8 HS",
                             Llamado1 = new DateTime(2024, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -8019,6 +9192,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 129,
+                            Eliminado = false,
                             Horario = "8 HS",
                             Llamado1 = new DateTime(2024, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -8028,6 +9202,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 130,
+                            Eliminado = false,
                             Horario = "8 HS",
                             Llamado1 = new DateTime(2024, 7, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -8037,6 +9212,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 131,
+                            Eliminado = false,
                             Horario = "8 HS",
                             Llamado1 = new DateTime(2024, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -8046,6 +9222,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 132,
+                            Eliminado = false,
                             Horario = "8 HS",
                             Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -8055,6 +9232,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 133,
+                            Eliminado = false,
                             Horario = "10 HS",
                             Llamado1 = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -8064,6 +9242,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 134,
+                            Eliminado = false,
                             Horario = "10 HS",
                             Llamado1 = new DateTime(2024, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -8073,6 +9252,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 135,
+                            Eliminado = false,
                             Horario = "10 HS",
                             Llamado1 = new DateTime(2024, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -8082,6 +9262,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 136,
+                            Eliminado = false,
                             Horario = "8 HS",
                             Llamado1 = new DateTime(2024, 7, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -8091,6 +9272,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 137,
+                            Eliminado = false,
                             Horario = "8 HS",
                             Llamado1 = new DateTime(2024, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -8100,6 +9282,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 138,
+                            Eliminado = false,
                             Horario = "11 HS",
                             Llamado1 = new DateTime(2024, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Llamado2 = new DateTime(2024, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -8116,6 +9299,9 @@ namespace Inscripciones.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<bool>("Eliminado")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -8128,6 +9314,7 @@ namespace Inscripciones.Migrations
                         new
                         {
                             Id = 1,
+                            Eliminado = false,
                             Nombre = "Julio/Agosto 2024"
                         });
                 });

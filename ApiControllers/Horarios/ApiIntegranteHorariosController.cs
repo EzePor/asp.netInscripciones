@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Inscripciones.Models.Horarios;
 using Inscripciones.Models;
+using Inscripciones.Models.Commons;
 
 namespace Inscripciones.ApiControllers.Horarios
 {
@@ -93,8 +94,8 @@ namespace Inscripciones.ApiControllers.Horarios
             {
                 return NotFound();
             }
-
-            _context.integranteshorarios.Remove(integranteHorario);
+            integranteHorario.Eliminado = true;
+            _context.integranteshorarios.Update(integranteHorario);
             await _context.SaveChangesAsync();
 
             return NoContent();

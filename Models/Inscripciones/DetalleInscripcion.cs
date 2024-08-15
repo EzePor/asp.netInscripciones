@@ -11,6 +11,7 @@ namespace Inscripciones.Models.Inscripciones
         public Inscripcion? Inscripcion { get; set; }
         public int MateriaId { get; set; }
         public Materia? Materia { get; set; }
+        public bool Eliminado { get; set; } = false;
 
         public override string ToString()
         {

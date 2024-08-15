@@ -8,6 +8,7 @@ namespace Inscripciones.Models.Commons
         public string Nombre { get; set; } = string.Empty;
         public int CarreraId { get; set; }
         public Carrera? Carrera { get; set; }
+        public bool Eliminado { get; set; } = false;
         [NotMapped]
         public string? AñoYCarrera
         {

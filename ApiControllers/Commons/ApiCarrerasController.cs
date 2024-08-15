@@ -94,8 +94,8 @@ namespace Inscripciones.Controllers
             {
                 return NotFound();
             }
-
-            _context.carreras.Remove(carrera);
+            carrera.Eliminado = true;
+            _context.carreras.Update(carrera);
             await _context.SaveChangesAsync();
 
             return NoContent();

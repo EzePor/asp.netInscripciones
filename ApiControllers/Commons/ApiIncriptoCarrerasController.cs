@@ -93,8 +93,8 @@ namespace Inscripciones.ApiControllers.Commons
             {
                 return NotFound();
             }
-
-            _context.inscriptoscarreras.Remove(incriptoCarrera);
+            incriptoCarrera.Eliminado = true;
+            _context.inscriptoscarreras.Update(incriptoCarrera);
             await _context.SaveChangesAsync();
 
             return NoContent();

@@ -11,6 +11,7 @@ namespace Inscripciones.Models.MesasExamenes
         public int DocenteId { get; set; }
         public Docente? Docente { get; set; }
         public TipoIntegranteEnum TipoIntegrante { get; set; }
+        public bool Eliminado { get; set; } = false;
         public override string ToString()
         {
             return $"{Docente?.Nombre} {TipoIntegrante}" ?? string.Empty;

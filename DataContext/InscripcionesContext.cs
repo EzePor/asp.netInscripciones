@@ -463,8 +463,10 @@ namespace Inscripciones.Models
 
             #region datos semillas alumnos
             var ale = new Alumno { Id = 1, ApellidoNombre = "Rubén Alejandro Ramirez", Email = "aleramirezsj@gmail.com", Direccion = "Bv Roque Saenz Peña 2942", Telefono = "15447106" };
+            var eze = new Alumno { Id = 2, ApellidoNombre = "Porchietto Ezequiel Gustavo", Email = "ezeporche@gmail.com", Direccion = "Juan Mantovani 1877", Telefono = "431264" };
 
             modelBuilder.Entity<Alumno>().HasData(ale);
+            modelBuilder.Entity<Alumno>().HasData(eze);
             #endregion
 
             #region definición de filtros de eliminación
@@ -472,10 +474,23 @@ namespace Inscripciones.Models
             // repository para que al mandar a eliminar solo cambien este campo y lo pongan en verdadero, esta configuración de
             // eliminación hace que el sistema ignore los registros que tengan el eliminado en verdadero, así que hace que en
             // apariencia y funcionalidad esté "eliminado", pero van a seguir estando ahí para que podamos observar las eliminaciones que hubo)
-            //modelBuilder.Entity<Alumno>().HasQueryFilter(m => !m.Eliminado);
-            //modelBuilder.Entity<AnioCarrera>().HasQueryFilter(m => !m.Eliminado);
-            //modelBuilder.Entity<Carrera>().HasQueryFilter(m => !m.Eliminado);
-            //modelBuilder.Entity<Materia>().HasQueryFilter(m => !m.Eliminado);
+            modelBuilder.Entity<Alumno>().HasQueryFilter(m => !m.Eliminado);
+            modelBuilder.Entity<AnioCarrera>().HasQueryFilter(m => !m.Eliminado);
+            modelBuilder.Entity<Carrera>().HasQueryFilter(m => !m.Eliminado);
+            modelBuilder.Entity<Materia>().HasQueryFilter(m => !m.Eliminado);
+            modelBuilder.Entity<Docente>().HasQueryFilter(m => !m.Eliminado);
+            modelBuilder.Entity<InscriptoCarrera>().HasQueryFilter(m => !m.Eliminado);
+            modelBuilder.Entity<Usuario>().HasQueryFilter(m => !m.Eliminado);
+            modelBuilder.Entity<DetalleHorario>().HasQueryFilter(m => !m.Eliminado);
+            modelBuilder.Entity<Horario>().HasQueryFilter(m => !m.Eliminado);
+            modelBuilder.Entity<Hora>().HasQueryFilter(m => !m.Eliminado);
+            modelBuilder.Entity<IntegranteHorario>().HasQueryFilter(m => !m.Eliminado);
+            modelBuilder.Entity<CicloLectivo>().HasQueryFilter(m => !m.Eliminado);
+            modelBuilder.Entity<DetalleInscripcion>().HasQueryFilter(m => !m.Eliminado);
+            modelBuilder.Entity<Inscripcion>().HasQueryFilter(m => !m.Eliminado);
+            modelBuilder.Entity<DetalleMesaExamen>().HasQueryFilter(m => !m.Eliminado);
+            modelBuilder.Entity<MesaExamen>().HasQueryFilter(m => !m.Eliminado);
+            modelBuilder.Entity<TurnoExamen>().HasQueryFilter(m => !m.Eliminado);
             #endregion
 
             #region datos semillas turnosExamenes

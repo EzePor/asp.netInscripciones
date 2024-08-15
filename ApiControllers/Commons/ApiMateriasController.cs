@@ -93,8 +93,8 @@ namespace Inscripciones.Controllers
             {
                 return NotFound();
             }
-
-            _context.materias.Remove(materias);
+            materias.Eliminado = true;
+            _context.materias.Update(materias);
             await _context.SaveChangesAsync();
 
             return NoContent();

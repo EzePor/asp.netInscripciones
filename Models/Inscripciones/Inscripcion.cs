@@ -16,6 +16,7 @@ namespace Inscripciones.Models.Inscripciones
         public Carrera? Carrera { get; set; }
         public int CicloLectivoId { get; set; }
         public CicloLectivo? CicloLectivo { get; set; }
+        public bool Eliminado { get; set; } = false;
         [NotMapped]
         public string? Inscripto
         {

@@ -10,6 +10,7 @@ namespace Inscripciones.Models.Horarios
         public DiaEnum Dia { get; set; } = 0;
         public int? HoraId { get; set; }
         public Hora? Hora { get; set; }
+        public bool Eliminado { get; set; } = false;
 
         public override string ToString()
         {

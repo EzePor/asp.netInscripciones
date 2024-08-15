@@ -93,8 +93,8 @@ namespace Inscripciones.Controllers
             {
                 return NotFound();
             }
-
-            _context.alumnos.Remove(alumno);
+            alumno.Eliminado = true;
+            _context.alumnos.Update(alumno);
             await _context.SaveChangesAsync();
 
             return NoContent();

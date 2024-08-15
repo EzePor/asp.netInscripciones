@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Inscripciones.Models.MesasExamenes;
 using Inscripciones.Models;
+using Inscripciones.Models.Commons;
 
 namespace Inscripciones.ApiControllers.MesasExamenes
 {
@@ -93,8 +94,8 @@ namespace Inscripciones.ApiControllers.MesasExamenes
             {
                 return NotFound();
             }
-
-            _context.detallesmesasexamenes.Remove(detalleMesaExamen);
+            detalleMesaExamen.Eliminado = true;
+            _context.detallesmesasexamenes.Update(detalleMesaExamen);
             await _context.SaveChangesAsync();
 
             return NoContent();
