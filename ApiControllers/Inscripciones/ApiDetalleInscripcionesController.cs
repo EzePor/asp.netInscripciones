@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Inscripciones.Models.Inscripciones;
 using Inscripciones.Models;
 using Inscripciones.Models.Commons;
+using NuGet.DependencyResolver;
 
 
 namespace Inscripciones.ApiControllers.Inscripciones
@@ -25,8 +26,13 @@ namespace Inscripciones.ApiControllers.Inscripciones
 
         // GET: api/ApiDetalleInscripcions
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<DetalleInscripcion>>> GetDetalleInscripciones()
+        public async Task<ActionResult<IEnumerable<DetalleInscripcion>>> GetDetalleInscripciones([FromQuery] int? idInscripcion )
+            
         {
+            if( idInscripcion != null ) 
+            {
+                return await _context.detallesinscripciones.Include(m=> m.Materia).Where(d=> d.InscripcionId.Equals(idInscripcion)).ToListAsync();
+            }
             return await _context.detallesinscripciones.ToListAsync();
         }
 
