@@ -23,8 +23,12 @@ namespace Inscripciones.Controllers
 
         // GET: api/ApiMaterias
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Materia>>> GetMaterias()
+        public async Task<ActionResult<IEnumerable<Materia>>> GetMaterias([FromQuery] int? idAnioCarrera)
         {
+            if(idAnioCarrera != null)
+            {
+                return await _context.materias.Where(m=>m.AnioCarreraId.Equals(idAnioCarrera)).ToListAsync();
+            }
             return await _context.materias.ToListAsync();
         }
 
